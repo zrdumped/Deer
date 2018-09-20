@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1_2_Corridor.unity
     guid: c99a659b5f86acd49a390bd7568b275b
+  - enabled: 1
+    path: Assets/Scenes/1_3_Hall.unity
+    guid: 056a63e667b4890498274b6cfec4ab21
   m_configObjects: {}

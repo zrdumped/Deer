@@ -7,10 +7,7 @@ using UnityEngine.SceneManagement;
 public class Door : MonoBehaviour {
 
     private bool active = false;
-    [Header("Enter")]
-    public GameObject placeHolder;
     [Header("Scene")]
-    public string currentScene = "Scene Message";
     public string otherScene = "Scene Message";
     [Header("Interaction")]
     public string hintMessage = "Hint Message";
@@ -20,11 +17,11 @@ public class Door : MonoBehaviour {
 	void Start () {
         //GameObject.Find("HintMessage").GetComponent<Text>().text = hintMessage;
         active = false;
-        if(PlayerPrefs.GetString("from") == otherScene)
+        if (PlayerPrefs.GetString("from") == otherScene)
         {
             PlayerPrefs.SetString("from", "");
-            GameObject.Find("Liam").transform.position = placeHolder.transform.position;
-            GameObject.Find("Liam").transform.rotation = placeHolder.transform.rotation;
+            GameObject.Find("Character").transform.rotation = this.transform.Find("Placeholder").rotation;
+            GameObject.Find("Character").transform.position = this.transform.Find("Placeholder").position;
         }
     }
 	
@@ -32,7 +29,7 @@ public class Door : MonoBehaviour {
 	void Update () {
         if (active && Input.GetKeyDown(enterKey))
         {
-            PlayerPrefs.SetString("from", currentScene);
+            PlayerPrefs.SetString("from", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene(otherScene);
         }
 	}
