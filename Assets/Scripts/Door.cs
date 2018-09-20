@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class Door : MonoBehaviour {
 
     private bool active = false;
+    [Header("Door")]
+    public bool locked = false;
     [Header("Scene")]
     public string otherScene = "Scene Message";
     [Header("Interaction")]
@@ -29,8 +31,13 @@ public class Door : MonoBehaviour {
 	void Update () {
         if (active && Input.GetKeyDown(enterKey))
         {
-            PlayerPrefs.SetString("from", SceneManager.GetActiveScene().name);
-            SceneManager.LoadScene(otherScene);
+            if (!locked)
+            {
+                PlayerPrefs.SetString("from", SceneManager.GetActiveScene().name);
+                SceneManager.LoadScene(otherScene);
+            }
+            else
+                GameObject.Find("HintMessage").GetComponent<Text>().text = "This door is locked";
         }
 	}
 
