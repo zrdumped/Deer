@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29212883, g: 0.35885867, b: 0.43786523, a: 1}
+  m_IndirectSpecularColor: {r: 0.29212934, g: 0.35885867, b: 0.43786538, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -8904,10 +8904,6 @@ Prefab:
     - target: {fileID: 1870008551878544, guid: a766244018fa61045ba7bd9cf860ec85, type: 2}
       propertyPath: m_Name
       value: HomeA-DoorA
-      objectReference: {fileID: 0}
-    - target: {fileID: 4253701956694588, guid: a766244018fa61045ba7bd9cf860ec85, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a766244018fa61045ba7bd9cf860ec85, type: 2}

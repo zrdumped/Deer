@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 114428521096391402}
   - component: {fileID: 114091548866289014}
   m_Layer: 0
-  m_Name: ThirdPersonController
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4723,7 +4723,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -4881,7 +4881,7 @@ MonoBehaviour:
   collision:
     collisionLayer:
       serializedVersion: 2
-      m_Bits: 256
+      m_Bits: 3
     colliding: 0
     adjustedCameraClipPoints: []
     desiredCameraClipPoints: []

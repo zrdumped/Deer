@@ -74,7 +74,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870008551878544}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: -264.67548, y: -82.43472, z: -17.591}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -82,7 +82,7 @@ Transform:
   - {fileID: 4600621637311310}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 180, z: 0}
 --- !u!4 &4351217008425812
 Transform:
   m_ObjectHideFlags: 1
@@ -103,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1319823036498794}
   m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -0.10300064, y: 0.42418098, z: -0.07012093}
+  m_LocalPosition: {x: -0.10300064, y: 1.364, z: -0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4253701956694588}
@@ -245,7 +245,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ee04e97b6c6a1314584ad5a0a84ff5a3, type: 3}
@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1fc02264603494bacb4815634ead94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locked: 0
   otherScene: 1_2_Corridor
   hintMessage: Press 'E' to Enter
   enterKey: 101
