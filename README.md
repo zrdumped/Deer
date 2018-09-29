@@ -1,2 +1,3 @@
 # Deer
-A low-poly digital game about family and finding himself
+## 本分支用于游戏流程控制和故事表现的开发
+
