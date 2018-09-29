@@ -1,3 +1,3 @@
 # Deer
-## 本分支用于游戏流程控制和故事表现的开发
+## It's a game made with Unity
 
