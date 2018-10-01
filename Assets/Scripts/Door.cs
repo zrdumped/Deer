@@ -8,7 +8,8 @@ public class Door : MonoBehaviour {
 
     private bool active = false;
     [Header("Door")]
-    public bool locked = false;
+    public bool locked = true;
+    public int unlockTorchNum = 4;
     [Header("Scene")]
     public string otherScene = "Scene Message";
     [Header("Interaction")]
@@ -51,5 +52,16 @@ public class Door : MonoBehaviour {
     {
         active = false;
         GameObject.Find("HintMessage").GetComponent<Text>().text = "";
+    }
+
+    public int LightTorchUp()
+    {
+        unlockTorchNum--;
+        //GameObject.Find("OutputText").GetComponent<Text>().text += "Door locked.\n";
+        if (unlockTorchNum == 0)
+        {
+            locked = false;
+        }
+        return unlockTorchNum;
     }
 }
