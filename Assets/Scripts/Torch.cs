@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Torch : MonoBehaviour {
     public bool active = false;
     public GameObject doorToUnlock;
+    public int emissionRate = 50;
     private ParticleSystem ps;
     private ParticleSystem.EmissionModule emission;
 
@@ -25,7 +26,7 @@ public class Torch : MonoBehaviour {
         if (active)
             return;
         active = true;
-        emission.rateOverTime = 30;
+        emission.rateOverTime = emissionRate;
         int doorsNumToUnlock = doorToUnlock.GetComponent<Door>().LightTorchUp();
         GameObject.Find("OutputText").GetComponent<Board>().AddText("Torch Lit up! " +
             doorsNumToUnlock + " remains.");
