@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ForceField _Bounce_Yellow
+  m_Shader: {fileID: 4800000, guid: 91b391f1148d1994582c28136f950f38, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _FieldTex:
+        m_Texture: {fileID: 2800000, guid: ab082be8f862ae34daccbb05eb3609ea, type: 3}
+        m_Scale: {x: 6, y: 3}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShieldTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _FieldBG: 2
+    - _FieldBGPow: 8.408929
+    - _FieldPanSpeed: 1
+    - _FieldSparks: 2
+    - _FieldSparksPow: 1
+    - _InnerPow: 3
+    - _InnterOffset: 3
+    - _InnterSize: 5
+    - _InvFade: 1.3448215
+    - _Offset: 0.05
+    - _OutterOffset: 3
+    - _OutterPow: 3
+    - _OutterSize: 4
+    - _Pow: 5
+    - _Scale: 12.56
+    - _ShieldBG: 0.1
+    - _ShieldBGPow: 2
+    - _ShieldPanSpeed: 1
+    - _Size: 5
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _FieldColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FieldTing_B: {r: 1, g: 1, b: 1, a: 1}
+    - _FieldTint: {r: 1, g: 0.83823526, b: 0.83823526, a: 1}
+    - _FieldTint_A: {r: 0.49264705, g: 0.8110548, b: 1, a: 1}
+    - _FieldTint_B: {r: 0.8206897, g: 1, b: 0, a: 1}
+    - _InnerTint: {r: 1, g: 0.9944219, b: 0.9632353, a: 0.09411765}
+    - _OuterTint: {r: 1, g: 0.6967545, b: 0.1544118, a: 0.15294118}
+    - _OutterTint: {r: 1, g: 0.7241379, b: 0, a: 0.05882353}
+    - _Pos_0: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_1: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_10: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_11: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_12: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_13: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_14: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_15: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_16: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_17: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_18: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_19: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_2: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_20: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_21: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_22: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_23: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_3: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_4: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_5: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_6: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_7: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_8: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_9: {r: 0, g: 0, b: 0, a: 0}
+    - _Pos_a: {r: 0, g: 0, b: 0, a: 0}
+    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
