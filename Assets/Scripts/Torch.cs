@@ -7,18 +7,49 @@ public class Torch : MonoBehaviour {
     public bool active = false;
     public GameObject doorToUnlock;
     public int emissionRate = 50;
-    private ParticleSystem ps;
-    private ParticleSystem.EmissionModule emission;
 
-	// Use this for initialization
-	void Start () {
-        ps = this.GetComponentInParent<ParticleSystem>();
-        emission = ps.emission;
+    public enum TorchType { Normal, Line, Explode};
+    public TorchType type = TorchType.Normal;
+    //line
+    public GameObject lineTo;
+    public float speed = 10;
+
+    private GameObject trail;
+
+    private ParticleSystem fire;
+    private ParticleSystem.EmissionModule fireEmission;
+
+    private GameObject trailParticleSystem;
+    private ParticleSystem trailPS;
+    private ParticleSystem.ShapeModule trailPSShape;
+
+    // Use this for initialization
+    void Start () {
+        trail = this.transform.Find("Trail").gameObject;
+
+        fire = this.GetComponentInParent<ParticleSystem>();
+        fireEmission = fire.emission;
+
+        trailParticleSystem = this.transform.Find("TrailParticles").gameObject;
+        trailPS = trailParticleSystem.GetComponent<ParticleSystem>();
+        trailPSShape = trailPS.shape;
+        trailPSShape.length = Vector3.Distance(this.transform.position, lineTo.transform.position);
+        trailParticleSystem.transform.LookAt(lineTo.transform);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+    // Update is called once per frame
+    void Update () {
+		//Trail
+        if(type == TorchType.Line)
+        {
+            float step = speed * Time.deltaTime;
+            trail.transform.position = Vector3.MoveTowards(trail.transform.position, lineTo.transform.position, step);
+            if(trail.transform.position == lineTo.transform.position)
+            {
+                GameObject new_trail = Instantiate(trail, this.transform.position, this.transform.rotation, this.transform);
+                trail = new_trail;
+            }
+        }
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -26,7 +57,7 @@ public class Torch : MonoBehaviour {
         if (active)
             return;
         active = true;
-        emission.rateOverTime = emissionRate;
+        fireEmission.rateOverTime = emissionRate;
         int doorsNumToUnlock = doorToUnlock.GetComponent<Door>().LightTorchUp();
         GameObject.Find("OutputText").GetComponent<Board>().AddText("Torch Lit up! " +
             doorsNumToUnlock + " remains.");
