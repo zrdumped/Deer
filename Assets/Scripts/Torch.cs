@@ -14,27 +14,31 @@ public class Torch : MonoBehaviour {
     public GameObject lineTo;
     public float speed = 10;
 
-    private GameObject trail;
-
     private ParticleSystem fire;
     private ParticleSystem.EmissionModule fireEmission;
 
+    private GameObject trail;
     private GameObject trailParticleSystem;
     private ParticleSystem trailPS;
     private ParticleSystem.ShapeModule trailPSShape;
 
+    private GameObject leadWire;
+
     // Use this for initialization
     void Start () {
-        trail = this.transform.Find("Trail").gameObject;
+        if (type == TorchType.Line)
+        {
+            trail = this.transform.Find("Trail").gameObject;
 
-        fire = this.GetComponentInParent<ParticleSystem>();
-        fireEmission = fire.emission;
+            fire = this.GetComponentInParent<ParticleSystem>();
+            fireEmission = fire.emission;
 
-        trailParticleSystem = this.transform.Find("TrailParticles").gameObject;
-        trailPS = trailParticleSystem.GetComponent<ParticleSystem>();
-        trailPSShape = trailPS.shape;
-        trailPSShape.length = Vector3.Distance(this.transform.position, lineTo.transform.position);
-        trailParticleSystem.transform.LookAt(lineTo.transform);
+            trailParticleSystem = this.transform.Find("TrailParticles").gameObject;
+            trailPS = trailParticleSystem.GetComponent<ParticleSystem>();
+            trailPSShape = trailPS.shape;
+            trailPSShape.length = Vector3.Distance(this.transform.position, lineTo.transform.position);
+            trailParticleSystem.transform.LookAt(lineTo.transform);
+        }
     }
 
     // Update is called once per frame
@@ -56,6 +60,12 @@ public class Torch : MonoBehaviour {
     {
         if (active)
             return;
+        if(type == TorchType.Line)
+        {
+            //set lead wire destination
+            //light up
+            //lead wire explodes and lights up fire when arriving
+        }
         active = true;
         fireEmission.rateOverTime = emissionRate;
         int doorsNumToUnlock = doorToUnlock.GetComponent<Door>().LightTorchUp();
