@@ -6926,26 +6926,14 @@ Prefab:
       propertyPath: m_Name
       value: Torch01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114563461218891716, guid: 8e33d19bf761ca74eaf35bc4d32831c4,
+        type: 2}
+      propertyPath: doorToUnlock
+      value: 
+      objectReference: {fileID: 1853182612}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e33d19bf761ca74eaf35bc4d32831c4, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &253206513 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1681044429103142, guid: 8e33d19bf761ca74eaf35bc4d32831c4,
-    type: 2}
-  m_PrefabInternal: {fileID: 252565529}
---- !u!114 &253206515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 253206513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c806ae0461217de4c82348ab245c8aad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
 --- !u!1001 &255009458
 Prefab:
   m_ObjectHideFlags: 0
@@ -7158,23 +7146,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 412468, guid: b43052b8e42b17a45a40d9752c121fdd,
     type: 2}
   m_PrefabInternal: {fileID: 716688101}
---- !u!1 &269538131 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1681044429103142, guid: 8e33d19bf761ca74eaf35bc4d32831c4,
-    type: 2}
-  m_PrefabInternal: {fileID: 676110738}
---- !u!114 &269538133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 269538131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c806ae0461217de4c82348ab245c8aad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
 --- !u!1001 &270412351
 Prefab:
   m_ObjectHideFlags: 0
@@ -9147,23 +9118,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab22765a3a9e90943bda7ee62754e5cc, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &517933465 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1681044429103142, guid: 8e33d19bf761ca74eaf35bc4d32831c4,
-    type: 2}
-  m_PrefabInternal: {fileID: 1422325982}
---- !u!114 &517933470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 517933465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c806ae0461217de4c82348ab245c8aad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
 --- !u!1001 &523125924
 Prefab:
   m_ObjectHideFlags: 0
@@ -10084,6 +10038,11 @@ Prefab:
       propertyPath: m_Name
       value: Torch01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114563461218891716, guid: 8e33d19bf761ca74eaf35bc4d32831c4,
+        type: 2}
+      propertyPath: doorToUnlock
+      value: 
+      objectReference: {fileID: 1853182612}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e33d19bf761ca74eaf35bc4d32831c4, type: 2}
   m_IsPrefabAsset: 0
@@ -12824,6 +12783,11 @@ Prefab:
       propertyPath: m_Name
       value: Torch01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114563461218891716, guid: 8e33d19bf761ca74eaf35bc4d32831c4,
+        type: 2}
+      propertyPath: doorToUnlock
+      value: 
+      objectReference: {fileID: 1853182612}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e33d19bf761ca74eaf35bc4d32831c4, type: 2}
   m_IsPrefabAsset: 0
@@ -14665,8 +14629,9 @@ GameObject:
   - component: {fileID: 1199260783}
   - component: {fileID: 1199260782}
   - component: {fileID: 1199260781}
+  - component: {fileID: 1199260784}
   m_Layer: 5
-  m_Name: Text
+  m_Name: OutputText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14787,6 +14752,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1199260779}
   m_CullTransparentMesh: 0
+--- !u!114 &1199260784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1199260779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285581edded67a748a81d52e1857b00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetScrollBar: {fileID: 1602658756}
 --- !u!1001 &1200493844
 Prefab:
   m_ObjectHideFlags: 0
@@ -21268,6 +21245,11 @@ Prefab:
       propertyPath: m_Name
       value: Torch01
       objectReference: {fileID: 0}
+    - target: {fileID: 114563461218891716, guid: 8e33d19bf761ca74eaf35bc4d32831c4,
+        type: 2}
+      propertyPath: doorToUnlock
+      value: 
+      objectReference: {fileID: 1853182612}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e33d19bf761ca74eaf35bc4d32831c4, type: 2}
   m_IsPrefabAsset: 0
@@ -21567,23 +21549,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1465962053 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1681044429103142, guid: 8e33d19bf761ca74eaf35bc4d32831c4,
-    type: 2}
-  m_PrefabInternal: {fileID: 956550658}
---- !u!114 &1465962055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1465962053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c806ae0461217de4c82348ab245c8aad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
 --- !u!1001 &1470972479
 Prefab:
   m_ObjectHideFlags: 0
@@ -24202,6 +24167,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 443598, guid: a4ffd0de90ac35f4f9e74abe52d6e73b,
     type: 2}
   m_PrefabInternal: {fileID: 1842731954}
+--- !u!1 &1853182612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1870008551878544, guid: a766244018fa61045ba7bd9cf860ec85,
+    type: 2}
+  m_PrefabInternal: {fileID: 2143035686}
 --- !u!1001 &1857106897
 Prefab:
   m_ObjectHideFlags: 0
@@ -26624,6 +26594,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2fb21ecffc61ba745af1449a1977744c, type: 2}
+    - target: {fileID: 114228392708909536, guid: a766244018fa61045ba7bd9cf860ec85,
+        type: 2}
+      propertyPath: locked
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a766244018fa61045ba7bd9cf860ec85, type: 2}
   m_IsPrefabAsset: 0
