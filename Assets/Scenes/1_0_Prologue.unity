@@ -1878,6 +1878,10 @@ PlayableDirector:
     value: {fileID: 876937374}
   - key: {fileID: 114816145241536818, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
     value: {fileID: 84062913}
+  - key: {fileID: 114507346638187232, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
+    value: {fileID: 2098411004}
+  - key: {fileID: 114453144309348462, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
+    value: {fileID: 2138400580}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &740339060
@@ -10357,6 +10361,8 @@ GameObject:
   - component: {fileID: 2098411000}
   - component: {fileID: 2098411001}
   - component: {fileID: 2098411003}
+  - component: {fileID: 2098411002}
+  - component: {fileID: 2098411004}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -10531,6 +10537,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2098411002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098410992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c054ce2b489616c4b8e4c6899c12065e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenToneShader: {fileID: 4800000, guid: 43b62a407b5822e43bf4c98065f1ac2d, type: 3}
+  color: {r: 1, g: 1, b: 1, a: 0}
+  downSample: 1
 --- !u!114 &2098411003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10550,6 +10570,24 @@ MonoBehaviour:
     type: 3}
   _frameBlendingShader: {fileID: 4800000, guid: 83da3aecb8b462f498946f5198cbd58e,
     type: 3}
+--- !u!95 &2098411004
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098410992}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2105892444
 Prefab:
   m_ObjectHideFlags: 0
@@ -10632,3 +10670,26 @@ Transform:
   m_Father: {fileID: 233781403}
   m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2138400579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 169600, guid: 77b644a7741739544bb939bf039a16a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1096988328}
+--- !u!95 &2138400580
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2138400579}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
