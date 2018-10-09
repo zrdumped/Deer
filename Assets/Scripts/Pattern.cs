@@ -18,7 +18,7 @@ public class Pattern : MonoBehaviour {
     private int pitchID = 0;
     private int patternLength;
     private float[] patternScale = new float[5];
-    private bool onShow = false;
+    public bool onShow = false;
     private float scaleChangeStep = 0;
     private int changedFrame = 0;
 
@@ -34,28 +34,22 @@ public class Pattern : MonoBehaviour {
         this.transform.localScale = new Vector3(0, 0, 0);
     }
 
-    private void Update()
+    public void StartHint()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            //Debug.Log("E" + this.name);
-            if (onShow)
-            {
-                StopCoroutine("showHint");
-                onShow = false;
-                this.transform.localScale = new Vector3(0, 0, 0);
-                pitchID = 0;
-                scaleChangeStep = 0;
-                changedFrame = 0;
-                Debug.Log("Stop");
-            }
-            else
-            {
-                StartCoroutine("showHint");
-                onShow = true;
-                Debug.Log("Start");
-            }
-        }
+        StartCoroutine("showHint");
+        onShow = true;
+        Debug.Log("Start");
+    }
+
+    public void StopHint()
+    {
+        StopCoroutine("showHint");
+        onShow = false;
+        this.transform.localScale = new Vector3(0, 0, 0);
+        pitchID = 0;
+        scaleChangeStep = 0;
+        changedFrame = 0;
+        Debug.Log("Stop");
     }
 
     void FixedUpdate()

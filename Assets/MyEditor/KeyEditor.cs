@@ -23,6 +23,7 @@ public class NewBehaviourScript2 : Editor
         EditorGUILayout.PropertyField(key.FindProperty("pitchLength"));
         EditorGUILayout.PropertyField(key.FindProperty("intermissionLength"));
         EditorGUILayout.PropertyField(key.FindProperty("changeFrames"));
+        EditorGUILayout.PropertyField(key.FindProperty("onShow"));
         // EditorGUILayout.PropertyField(minScale);
         //EditorGUILayout.PropertyField(maxScale);
         //EditorGUILayout.PropertyField(pitchLength);
