@@ -1,8 +1,7 @@
 # Deer
 A video game made with Unity
 
-## TODO List
-**10/9/2018**
+## TODO List ## ###10/9/2018###
 ### Scene 1
 * Hint Ball: The visual effects of inactive ball (dim light & particle systems), partially active ball (proper point light, particle systems and force field) and totally active ball (particle systems & a strong point light to light up a large field).
 * Chatacter Control: Control the light ball's scale according to the voice. Trigger the hint ball or traps with the light ball or keyboard input (depend on the design). The visual effects of the light ball.
