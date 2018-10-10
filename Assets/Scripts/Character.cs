@@ -14,8 +14,9 @@ public class Character : MonoBehaviour {
     [Header("Keyboard Control Config")]
     public KeyCode inflateKey = KeyCode.Z;
     public KeyCode deflateKey = KeyCode.X;
-    private enum toolState { Inflate, Deflate, Inactive };
-    private toolState state = toolState.Inactive;
+    public KeyCode disappearKey = KeyCode.C;
+    //private enum toolState { Inflate, Deflate, Inactive };
+    //private toolState state = toolState.Inactive;
     private GameObject lightBall;
 
     void Start () {
@@ -26,38 +27,14 @@ public class Character : MonoBehaviour {
 	void Update () {
         //LightBall.transform.position = this.transform.position + new Vector3(0, yOffset, 0);
         //Control By Keyboard
-        if (Input.GetKeyDown(inflateKey) && !controlByVoice && state == toolState.Inactive)
+        if (!controlByVoice)
         {
-            state = toolState.Inflate;
-            currentLightBallChangeRate = LightBallChangeRate;
-        }
-
-        if (Input.GetKeyUp(inflateKey) && !controlByVoice && state == toolState.Inflate)
-        {
-            state = toolState.Inactive;
-            currentLightBallChangeRate = LightBallChangeRate;
-        }
-
-        if (Input.GetKeyDown(deflateKey) && !controlByVoice && state == toolState.Inactive)
-        {
-            state = toolState.Deflate;
-        }
-
-        if (Input.GetKeyUp(deflateKey) && !controlByVoice && state == toolState.Deflate)
-        {
-            state = toolState.Inactive;
-        }
-
-        //Logic
-        if (state == toolState.Inflate)
-        {
-            lightBall.transform.localScale += new Vector3(LightBallChangeRate, LightBallChangeRate, LightBallChangeRate);
-            currentLightBallChangeRate += LightBallChangeRate;
-        }
-        else if (state == toolState.Deflate)
-        {
-            lightBall.transform.localScale -= new Vector3(LightBallChangeRate, LightBallChangeRate, LightBallChangeRate);
-            currentLightBallChangeRate += LightBallChangeRate;
+            if (Input.GetKey(inflateKey))
+                lightBall.transform.localScale += new Vector3(LightBallChangeRate, LightBallChangeRate, LightBallChangeRate);
+            else if (Input.GetKey(deflateKey))
+                lightBall.transform.localScale -= new Vector3(LightBallChangeRate, LightBallChangeRate, LightBallChangeRate);
+            else if (Input.GetKeyDown(disappearKey))
+                lightBall.transform.localScale = new Vector3(0, 0, 0);
         }
     }
 }
