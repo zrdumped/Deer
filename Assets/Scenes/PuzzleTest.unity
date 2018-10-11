@@ -227,6 +227,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114436165947823246, guid: 9d7024dd592b2cf4fa59c81009fc702b,
+        type: 2}
+      propertyPath: LightBallChangeRate
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d7024dd592b2cf4fa59c81009fc702b, type: 2}
   m_IsPrefabAsset: 0
@@ -1549,7 +1554,7 @@ GameObject:
   - component: {fileID: 1420456624}
   - component: {fileID: 1420456625}
   m_Layer: 0
-  m_Name: AlertTrigger
+  m_Name: Alert
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1583,6 +1588,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wayPointsHolder: {fileID: 1944544695}
   characterWayPoint: {fileID: 2092485483}
+  alertMovementSpeed: 4
+  patrolMovenmentSpeed: 3
+--- !u!1 &1425799977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1766041108358678, guid: 648eb80c9906fcd40a86b386449617de,
+    type: 2}
+  m_PrefabInternal: {fileID: 1818090524}
+--- !u!114 &1425799981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425799977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4e2deaec28a6e41bc107c82ae03a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageOnActive: Press 'E' to display
+  triggerKey: 101
 --- !u!1001 &1501829580
 Prefab:
   m_ObjectHideFlags: 0
@@ -6624,7 +6649,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1944544693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1952403100}
@@ -6811,8 +6836,9 @@ GameObject:
   - component: {fileID: 1972751719}
   - component: {fileID: 1972751723}
   - component: {fileID: 1972751722}
-  - component: {fileID: 1972751721}
   - component: {fileID: 1972751720}
+  - component: {fileID: 1972751721}
+  - component: {fileID: 1972751724}
   m_Layer: 0
   m_Name: WayPointMover
   m_TagString: Untagged
@@ -6828,7 +6854,7 @@ Transform:
   m_GameObject: {fileID: 1972751718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 1420456624}
   m_RootOrder: 1
@@ -6860,18 +6886,17 @@ MonoBehaviour:
   preventCollisionDistance: 0
   smoothCollisionPreventing: 0
   dynamicWaypointsUpdate: 1
---- !u!135 &1972751721
-SphereCollider:
+--- !u!114 &1972751721
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1972751718}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87b6ff9a3d371a4db64b2a9fe729787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1972751722
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6914,6 +6939,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1972751718}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!135 &1972751724
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1972751718}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.49999997
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2075855541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 499084, guid: c3899dc68e6a9f64a8e547b423089ccd,

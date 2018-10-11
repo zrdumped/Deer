@@ -34,14 +34,15 @@ public class Pattern : MonoBehaviour {
         this.transform.localScale = new Vector3(0, 0, 0);
     }
 
-    public void StartHint()
+    public string StartHint()
     {
         StartCoroutine("showHint");
         onShow = true;
-        Debug.Log("Start");
+        //Debug.Log("Start");
+        return "Press 'E' to Stop";
     }
 
-    public void StopHint()
+    public string StopHint()
     {
         StopCoroutine("showHint");
         onShow = false;
@@ -49,7 +50,8 @@ public class Pattern : MonoBehaviour {
         pitchID = 0;
         scaleChangeStep = 0;
         changedFrame = 0;
-        Debug.Log("Stop");
+        //Debug.Log("Stop");
+        return "Press 'E' to Display";
     }
 
     void FixedUpdate()

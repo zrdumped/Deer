@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4551946641139214}
   - component: {fileID: 135248265940177756}
   - component: {fileID: 114946426020138422}
+  - component: {fileID: 114922622531448902}
   m_Layer: 0
   m_Name: NormalKey
   m_TagString: Untagged
@@ -200,6 +201,19 @@ MonoBehaviour:
   changeFrames: 20
   pattern: 0000000003000000010000000400000002000000
   onShow: 0
+--- !u!114 &114922622531448902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766041108358678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4e2deaec28a6e41bc107c82ae03a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageOnActive: Press 'E' to display
+  triggerKey: 101
 --- !u!114 &114946426020138422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,8 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2952d1ac6f1560d4fbc5c4dba200a69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightBallName: LightBall
-  hintBallName: HintsBall
 --- !u!135 &135248265940177756
 SphereCollider:
   m_ObjectHideFlags: 1

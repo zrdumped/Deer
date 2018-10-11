@@ -6,20 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour {
 
-    private bool active = false;
+    //private bool active = false;
     [Header("Door")]
     public bool locked = true;
     public int unlockTorchNum = 4;
     [Header("Scene")]
     public string otherScene = "Scene Message";
-    [Header("Interaction")]
-    public string hintMessage = "Hint Message";
-    public KeyCode enterKey = KeyCode.E;
 
 	// Use this for initialization
 	void Start () {
         //GameObject.Find("HintMessage").GetComponent<Text>().text = hintMessage;
-        active = false;
+        //active = false;
         if (PlayerPrefs.GetString("from") == otherScene)
         {
             PlayerPrefs.SetString("from", "");
@@ -30,28 +27,18 @@ public class Door : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (active && Input.GetKeyDown(enterKey))
-        {
-            if (!locked)
-            {
-                PlayerPrefs.SetString("from", SceneManager.GetActiveScene().name);
-                SceneManager.LoadScene(otherScene);
-            }
-            else
-                GameObject.Find("HintMessage").GetComponent<Text>().text = "This door is locked";
-        }
 	}
 
-    private void OnTriggerEnter(Collider other)
+    public string TryOpen()
     {
-        active = true;
-        GameObject.Find("HintMessage").GetComponent<Text>().text = hintMessage;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        active = false;
-        GameObject.Find("HintMessage").GetComponent<Text>().text = "";
+        if (!locked)
+        {
+            PlayerPrefs.SetString("from", SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(otherScene);
+            return "Door has been opened";
+        }
+        else
+            return "This door is locked";
     }
 
     public int LightTorchUp()
