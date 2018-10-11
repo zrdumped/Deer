@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TPPCamera : MonoBehaviour {
 
+    public bool enableControl = true;
+
+
     public float mouseSensitivity = 10.0f;
     public Transform target;
     //public float dstFromTarget = 2.0f;
@@ -55,94 +58,98 @@ public class TPPCamera : MonoBehaviour {
         //Debug.Log("holdTime: " + holdTime);
         //Debug.Log("adHold" + adHold);
         //Debug.Log("adHoldLong" + adHoldLong);
-        if(holdTime-5.0f > 0) {
-            adHoldLong = adHold;
-        }
-        if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)) {
-            if(adHold != 0) {
+        if(enableControl) {
+            if(holdTime - 5.0f > 0) {
+                adHoldLong = adHold;
+            }
+            if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)) {
+                if(adHold != 0) {
+                    holdTime += Time.deltaTime;
+                }
+                return;
+            }
+            if(Input.GetKey(KeyCode.A)) {
+                if(adHold == 1) {
+                    adHoldLong = 0;
+                    holdTime = 0;
+                }
+                adHold = -1;
                 holdTime += Time.deltaTime;
             }
-            return;
-        }
-        if(Input.GetKey(KeyCode.A)) {
-            if(adHold == 1) {
+            else if(Input.GetKey(KeyCode.D)) {
+                if(adHold == -1) {
+                    adHoldLong = 0;
+                    holdTime = 0;
+                }
+                adHold = 1;
+                holdTime += Time.deltaTime;
+            }
+            if((!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+                || Input.GetAxis("Mouse X") != 0) {
+                adHold = 0;
                 adHoldLong = 0;
                 holdTime = 0;
             }
-            adHold = -1;
-            holdTime += Time.deltaTime;
-        }
-        else if(Input.GetKey(KeyCode.D)) {
-            if(adHold == -1) {
-                adHoldLong = 0;
-                holdTime = 0;
-            }
-            adHold = 1;
-            holdTime += Time.deltaTime;
-        }
-        if((!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-            || Input.GetAxis("Mouse X") != 0) {
-            adHold = 0;
-            adHoldLong = 0;
-            holdTime = 0;
-        }
 
-        // Code about camera collision
-        collision.UpdateCameraClipPoints(transform.position, transform.rotation, ref collision.adjustedCameraClipPoints);
-        collision.UpdateCameraClipPoints(desiredPosition, transform.rotation, ref collision.desiredCameraClipPoints);
-        collision.CheckColliding(target.transform.position);
-        adjustmentDistance = collision.GetAdjustedDistanceWithRayFrom(target.transform.position);
+            // Code about camera collision
+            collision.UpdateCameraClipPoints(transform.position, transform.rotation, ref collision.adjustedCameraClipPoints);
+            collision.UpdateCameraClipPoints(desiredPosition, transform.rotation, ref collision.desiredCameraClipPoints);
+            collision.CheckColliding(target.transform.position);
+            adjustmentDistance = collision.GetAdjustedDistanceWithRayFrom(target.transform.position);
 
-        // Draw debug lines
-        for(int i = 0; i < 5; i++) {
-            if(debug.drawDesiredCollisionLines) {
-                Debug.DrawLine(target.position, collision.desiredCameraClipPoints[i], Color.white);
-            }
-            if(debug.drawAdjustedCollisionLines) {
-                Debug.DrawLine(target.position, collision.adjustedCameraClipPoints[i], Color.green);
+            // Draw debug lines
+            for(int i = 0; i < 5; i++) {
+                if(debug.drawDesiredCollisionLines) {
+                    Debug.DrawLine(target.position, collision.desiredCameraClipPoints[i], Color.white);
+                }
+                if(debug.drawAdjustedCollisionLines) {
+                    Debug.DrawLine(target.position, collision.adjustedCameraClipPoints[i], Color.green);
+                }
             }
         }
     }
 
     // Update is called once per frame
     void LateUpdate () {
-        yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
-        pitch += Input.GetAxis("Mouse Y") * mouseSensitivity;
+        if(enableControl) {
+            yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+            pitch += Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        yaw += adHoldLong * 0.05f * mouseSensitivity;
-        pitch = Mathf.Clamp(pitch, pitchMin, pitchMax);
+            yaw += adHoldLong * 0.05f * mouseSensitivity;
+            pitch = Mathf.Clamp(pitch, pitchMin, pitchMax);
 
-        currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+            currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
 
-        transform.eulerAngles = currentRotation;
+            transform.eulerAngles = currentRotation;
 
-        /*
-         * 这里对于摄像头位置的移动分为两步：
-         * 1）不考虑摄像头的碰撞，距离直接取上一帧的实际距离，先进行摄像头的旋转
-         * 2）考虑摄像头的碰撞，按照 collisionHandler 算出的 adjustmentDistance
-         * 进行摄像头的 zoomIn/zoomOut
-         * 
-         * 为什么要分两步：因为摄像头旋转需要加上一些 smooth，摄像头 zoomIn/zoomOut
-         * 也需要加上一些 smooth，二这两步的 smooth 力度是不同的，如果合成一步确定位置，
-         * 会导致无法满足两步的手感要求。（smooth 过大感觉转动视角粘滞，
-         * smooth 过小摄像头弹回太快）
-         */
-         // 1）先进行摄像头旋转
-        transform.position = target.position - transform.forward * curDistance;
+            /*
+             * 这里对于摄像头位置的移动分为两步：
+             * 1）不考虑摄像头的碰撞，距离直接取上一帧的实际距离，先进行摄像头的旋转
+             * 2）考虑摄像头的碰撞，按照 collisionHandler 算出的 adjustmentDistance
+             * 进行摄像头的 zoomIn/zoomOut
+             * 
+             * 为什么要分两步：因为摄像头旋转需要加上一些 smooth，摄像头 zoomIn/zoomOut
+             * 也需要加上一些 smooth，二这两步的 smooth 力度是不同的，如果合成一步确定位置，
+             * 会导致无法满足两步的手感要求。（smooth 过大感觉转动视角粘滞，
+             * smooth 过小摄像头弹回太快）
+             */
+            // 1）先进行摄像头旋转
+            transform.position = target.position - transform.forward * curDistance;
 
-        desiredPosition = target.position - transform.forward * maxDistance;
+            desiredPosition = target.position - transform.forward * maxDistance;
 
-        Vector3 resultPosition;
-        if(collision.colliding) {
-            resultPosition = target.position - transform.forward * adjustmentDistance;
-            curDistance -= zoomInLerpVal * (curDistance - adjustmentDistance);
+            Vector3 resultPosition;
+            if(collision.colliding) {
+                resultPosition = target.position - transform.forward * adjustmentDistance;
+                curDistance -= zoomInLerpVal * (curDistance - adjustmentDistance);
+            }
+            else {
+                resultPosition = desiredPosition;
+                curDistance += zoomOutLerpVal * (maxDistance - curDistance);
+            }
+            // 2）再进行摄像头拉近拉远
+            transform.position = Vector3.SmoothDamp(transform.position, resultPosition, ref zoomSmoothVelocity, zoomSmoothTime);
         }
-        else {
-            resultPosition = desiredPosition;
-            curDistance += zoomOutLerpVal * (maxDistance - curDistance);
-        }
-        // 2）再进行摄像头拉近拉远
-        transform.position = Vector3.SmoothDamp(transform.position, resultPosition, ref zoomSmoothVelocity, zoomSmoothTime);
     }
 
     [System.Serializable]

@@ -385,18 +385,11 @@ Prefab:
       propertyPath: m_Name
       value: TPPCamSystem
       objectReference: {fileID: 0}
-    - target: {fileID: 114436165947823246, guid: 9d7024dd592b2cf4fa59c81009fc702b,
-        type: 2}
-      propertyPath: LightBallChangeRate
-      value: 0.05
+    - target: {fileID: 1922076054117636, guid: 9d7024dd592b2cf4fa59c81009fc702b, type: 2}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
-    - target: {fileID: 54338068643444870, guid: 9d7024dd592b2cf4fa59c81009fc702b,
-        type: 2}
-      propertyPath: m_AngularDrag
-      value: 0.1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114371825415963272, guid: 9d7024dd592b2cf4fa59c81009fc702b, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d7024dd592b2cf4fa59c81009fc702b, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &47512778
@@ -7261,6 +7254,31 @@ Prefab:
     - target: {fileID: 224338133672482578, guid: 3bf3adab533427948bbb16118791a779,
         type: 2}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224114759260995456, guid: 3bf3adab533427948bbb16118791a779,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224114759260995456, guid: 3bf3adab533427948bbb16118791a779,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224545540115582798, guid: 3bf3adab533427948bbb16118791a779,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224545540115582798, guid: 3bf3adab533427948bbb16118791a779,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224114759260995456, guid: 3bf3adab533427948bbb16118791a779,
+        type: 2}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

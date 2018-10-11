@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29212934, g: 0.35885867, b: 0.43786538, a: 1}
+  m_IndirectSpecularColor: {r: 0.29212883, g: 0.35885867, b: 0.43786523, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -1946,7 +1946,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4197474330893936, guid: 9d7024dd592b2cf4fa59c81009fc702b, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1867162531410024, guid: 9d7024dd592b2cf4fa59c81009fc702b, type: 2}
       propertyPath: m_Name
@@ -2087,7 +2087,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4445211227215298, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105698319952996, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
@@ -7130,9 +7134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 1
+  unlockTorchNum: 4
   otherScene: No
-  hintMessage: Press 'E' to Interact
-  enterKey: 101
 --- !u!1001 &800662517
 Prefab:
   m_ObjectHideFlags: 0

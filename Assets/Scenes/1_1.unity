@@ -9181,6 +9181,10 @@ Prefab:
       propertyPath: m_LocalRotation.x
       value: -0.7071069
       objectReference: {fileID: 0}
+    - target: {fileID: 1105698319952996, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
   m_IsPrefabAsset: 0
