@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - TPPCamera
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Animal
   - 
   - 
   - 
