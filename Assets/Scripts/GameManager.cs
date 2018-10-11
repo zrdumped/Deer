@@ -131,7 +131,10 @@ public class GameManager : MonoBehaviour {
         }
 
         if(SceneManager.GetSceneByName(sceneName).isLoaded) {
-            cameraController = GameObject.FindWithTag("MainCamera").GetComponent<TPPCamera>();
+            GameObject mainCam = GameObject.FindWithTag("MainCamera");
+            if(mainCam) {
+                cameraController = mainCam.GetComponent<TPPCamera>();
+            }
             if(cameraController) {
                 Debug.Log("Find camera controller");
             }
