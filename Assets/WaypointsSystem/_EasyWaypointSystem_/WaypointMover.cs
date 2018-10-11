@@ -68,7 +68,7 @@ public class WaypointMover : MonoBehaviour
 	int loopNumber = 1;
 	bool inMove = false;
 	bool suspended = false;
-	public int previousWaypoint = 0;
+	int previousWaypoint = 0;
 	float initialMovementSpeed;
 	bool callExitFunction = false;
 	bool onWaypoint;
@@ -76,7 +76,14 @@ public class WaypointMover : MonoBehaviour
 
     private void OnEnable()
     {
+        //currentWaypoint = 0;
+        //direction = 1;
+        //velocity = Vector3.zero;
+        //loopNumber = 1;
+        //inMove = false;
+        //suspended = false;
         previousWaypoint = 0;
+        //callExitFunction = false;
         Start();
     }
 

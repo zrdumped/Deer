@@ -1567,7 +1567,6 @@ Transform:
   m_Children:
   - {fileID: 1944544694}
   - {fileID: 1972751719}
-  - {fileID: 1738363326}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1584,7 +1583,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wayPointsHolder: {fileID: 1944544695}
   characterWayPoint: {fileID: 2092485483}
-  leavePosWayPoint: {fileID: 1738363327}
 --- !u!1001 &1501829580
 Prefab:
   m_ObjectHideFlags: 0
@@ -1636,54 +1634,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 499084, guid: c3899dc68e6a9f64a8e547b423089ccd,
     type: 2}
   m_PrefabInternal: {fileID: 1501829580}
---- !u!1 &1738363325
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1738363326}
-  - component: {fileID: 1738363327}
-  m_Layer: 0
-  m_Name: LeavePosMarker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1738363326
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1738363325}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1420456624}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1738363327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1738363325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bedbdd4581375f4d884fe1a9a2526c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
-  radius: 0.25
-  iconName: 
-  delay: 0
-  angle: 0
-  callFunction: 
-  callExitFunction: 
-  newMoverSpeed: 0
 --- !u!4 &1757772927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 499084, guid: c3899dc68e6a9f64a8e547b423089ccd,
@@ -6910,7 +6860,6 @@ MonoBehaviour:
   preventCollisionDistance: 0
   smoothCollisionPreventing: 0
   dynamicWaypointsUpdate: 1
-  previousWaypoint: 0
 --- !u!135 &1972751721
 SphereCollider:
   m_ObjectHideFlags: 0

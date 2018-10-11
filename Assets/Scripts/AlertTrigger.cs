@@ -9,10 +9,10 @@ public class AlertTrigger : MonoBehaviour {
 
     public WaypointsHolder wayPointsHolder;
     public Waypoint characterWayPoint;
-    public Waypoint leavePosWayPoint;
+    //public Waypoint leavePosWayPoint;
     private List<Waypoint> patrolWayPoints;
     private WaypointMover waypointMover;
-    private Vector3 leavePosition;
+    //private Vector3 leavePosition;
 
     // Use this for initialization
     void Start () {
@@ -28,26 +28,26 @@ public class AlertTrigger : MonoBehaviour {
             waypointMover.enabled = false;
             waypointMover.loopingType = WaypointMover.LoopType.Once;
             wayPointsHolder.waypoints = new List<Waypoint> { characterWayPoint };
-            leavePosWayPoint.transform.position = waypointMover.transform.position;
+            //leavePosWayPoint.transform.position = waypointMover.transform.position;
             waypointMover.enabled = true;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             status = AlertTriggerStatus.Missing;
             waypointMover.enabled = false;
-            waypointMover.loopingType = WaypointMover.LoopType.Once;
-            wayPointsHolder.waypoints = new List<Waypoint> { leavePosWayPoint };
-            waypointMover.enabled = true;
-        }
-
-        if(status == AlertTriggerStatus.Missing && Vector3.Distance(this.transform.position, leavePosWayPoint.transform.position) < 1)
-        {
-            status = AlertTriggerStatus.Patrol;
-            waypointMover.enabled = false;
             waypointMover.loopingType = WaypointMover.LoopType.Cycled;
             wayPointsHolder.waypoints = patrolWayPoints;
             waypointMover.enabled = true;
         }
+
+        //if(status == AlertTriggerStatus.Missing && Vector3.Distance(this.transform.position, leavePosWayPoint.transform.position) < 1)
+        //{
+        //    status = AlertTriggerStatus.Patrol;
+        //    waypointMover.enabled = false;
+        //    waypointMover.loopingType = WaypointMover.LoopType.Cycled;
+        //    wayPointsHolder.waypoints = patrolWayPoints;
+        //    waypointMover.enabled = true;
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
