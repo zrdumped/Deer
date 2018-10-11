@@ -359,7 +359,7 @@ MonoBehaviour:
     threshold: 0.9
     softKnee: 0.5
     radius: 2
-    intensity: 0.52
+    intensity: 0.6
     highQuality: 1
     antiFlicker: 0
     dirtTexture: {fileID: 0}
@@ -372,50 +372,38 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4000010757787762, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
+    - target: {fileID: 4881510185301142, guid: 3eab816ce588d1f4385d8e4dfbae6ed8, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.041
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010757787762, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
+    - target: {fileID: 4881510185301142, guid: 3eab816ce588d1f4385d8e4dfbae6ed8, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010757787762, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
+    - target: {fileID: 4881510185301142, guid: 3eab816ce588d1f4385d8e4dfbae6ed8, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010757787762, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
+    - target: {fileID: 4881510185301142, guid: 3eab816ce588d1f4385d8e4dfbae6ed8, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010757787762, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
+    - target: {fileID: 4881510185301142, guid: 3eab816ce588d1f4385d8e4dfbae6ed8, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010757787762, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
+    - target: {fileID: 4881510185301142, guid: 3eab816ce588d1f4385d8e4dfbae6ed8, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010757787762, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
+    - target: {fileID: 4881510185301142, guid: 3eab816ce588d1f4385d8e4dfbae6ed8, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010757787762, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
+    - target: {fileID: 4881510185301142, guid: 3eab816ce588d1f4385d8e4dfbae6ed8, type: 2}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1000013447617422, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012478860392, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
-      propertyPath: m_Name
-      value: Deer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013521212446, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e9e31f3327ea5f440a8d011634513c8b, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 3eab816ce588d1f4385d8e4dfbae6ed8, type: 2}
   m_IsPrefabAsset: 0
