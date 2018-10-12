@@ -54,6 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4730442635312398}
+  - component: {fileID: 114044982357997320}
   m_Layer: 0
   m_Name: 3dUI
   m_TagString: Untagged
@@ -222,3 +223,19 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &114044982357997320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591425267032538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3da1f0617866224cbc47ddd957801f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+  targetHeight: 1
+  panelSpreadSpeed: 0.08
+  textShowUpSpeed: 0.01
+  textShineSpeed: 0.008
