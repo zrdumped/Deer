@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ForceFieldBasicTriplanarMultiple01
   m_Shader: {fileID: 4800000, guid: 92bc231afc4c4711875711d190f6ad46, type: 3}
@@ -130,7 +130,7 @@ Material:
     - _MaskAppearNoiseTriplanar: 0
     - _MaskAppearNoiseTriplanarTiling: 0.1
     - _MaskAppearPower: 0.5
-    - _MaskAppearProgress: -0.5904537
+    - _MaskAppearProgress: -0.53791744
     - _MaskAppearRemapLocalY: 0.5
     - _MaskAppearSubtract: 0.25
     - _MaskDepthFadeDistance: 3

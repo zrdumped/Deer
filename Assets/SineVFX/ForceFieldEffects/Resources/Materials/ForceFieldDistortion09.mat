@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ForceFieldDistortion09
   m_Shader: {fileID: 4800000, guid: 4bc825f87622481ebc279aac6d670399, type: 3}
@@ -79,7 +79,7 @@ Material:
     - _MaskAppearLocalYRemap: 0.5
     - _MaskAppearNoiseTriplanar: 0
     - _MaskAppearNoiseTriplanarTiling: 0.1
-    - _MaskAppearProgress: -1.1074367
+    - _MaskAppearProgress: -1.0325238
     - _MaskAppearUseWorldPosition: 0
     - _MaskDepthFadeDistance: 12
     - _MaskDepthFadeEnabled: 1
