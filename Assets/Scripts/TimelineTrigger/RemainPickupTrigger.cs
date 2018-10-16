@@ -29,6 +29,9 @@ public class RemainPickupTrigger : MonoBehaviour {
             if(gm) {
                 gm.GetComponent<GameManager>().StopCtrl();
             }
+            Vector3 pos = transform.position;
+            pos.y = player.transform.position.y;
+            player.transform.LookAt(pos);
             timeline.Play();
             countingStart = true;
         }

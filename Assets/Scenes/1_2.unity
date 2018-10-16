@@ -2859,11 +2859,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4085822411898020, guid: 9d7024dd592b2cf4fa59c81009fc702b, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.927276
+      value: -0.68526244
       objectReference: {fileID: 0}
     - target: {fileID: 4085822411898020, guid: 9d7024dd592b2cf4fa59c81009fc702b, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.33409166
+      value: 0.72829616
       objectReference: {fileID: 0}
     - target: {fileID: 4085822411898020, guid: 9d7024dd592b2cf4fa59c81009fc702b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -13866,6 +13866,7 @@ GameObject:
   - component: {fileID: 746056720}
   - component: {fileID: 746056719}
   - component: {fileID: 746056718}
+  - component: {fileID: 746056721}
   m_Layer: 0
   m_Name: '# Outside Light'
   m_TagString: Untagged
@@ -13941,6 +13942,31 @@ Transform:
   m_Father: {fileID: 1117385837}
   m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 11.367001, y: 0, z: 0}
+--- !u!114 &746056721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 746056717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dafc90245bfe9e2408e358f71deace2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SampleCount: 8
+  ScatteringCoef: 0.5
+  ExtinctionCoef: 0.01
+  SkyboxExtinctionCoef: 0.9
+  MieG: 0.1
+  HeightFog: 0
+  HeightScale: 0.1
+  GroundLevel: 0
+  Noise: 1
+  NoiseScale: 0.1
+  NoiseIntensity: 7
+  NoiseIntensityOffset: 0.3
+  NoiseVelocity: {x: 1, y: 1}
+  MaxRayLength: 400
 --- !u!1001 &755396555
 Prefab:
   m_ObjectHideFlags: 0
@@ -14463,7 +14489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &827865224
 Light:
   m_ObjectHideFlags: 0
@@ -26525,6 +26551,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1922076054117636, guid: 9d7024dd592b2cf4fa59c81009fc702b,
     type: 2}
   m_PrefabInternal: {fileID: 42632237}
+--- !u!114 &1780861790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1780861789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eed1d9cbe64423499f1fefc0ce50417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Resolution: 1
+  DefaultSpotCookie: {fileID: 2800000, guid: 5157bf6d690b6df458f6c0ce0c06d329, type: 3}
 --- !u!114 &1780861797
 MonoBehaviour:
   m_ObjectHideFlags: 0
