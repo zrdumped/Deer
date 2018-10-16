@@ -126,16 +126,16 @@ Material:
     - _MaskDepthFadeEnabled: 1
     - _MaskDepthFadeExp: 4
     - _MaskFresnelExp: 2
-    - _Noise01ScrollSpeed: 0.25
+    - _Noise01ScrollSpeed: 0.05
     - _Noise01Tiling: 0.125
     - _Noise02Enabled: 0
-    - _Noise02ScrollSpeed: 0.1
+    - _Noise02ScrollSpeed: 0.01
     - _Noise02Tiling: 0.35
     - _NoiseDistortionEnabled: 1
     - _NoiseDistortionPower: 0.25
     - _NoiseDistortionTiling: 0.1
-    - _NoiseMaskAdd: 1
-    - _NoiseMaskPower: 3.79
+    - _NoiseMaskAdd: 0.4
+    - _NoiseMaskPower: 1
     - _NoisePower: 1
     - _NormalVertexOffset: 0
     - _OpacityPower: 1
