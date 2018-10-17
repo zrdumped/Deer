@@ -93,7 +93,7 @@ Material:
     - _CubemapReflectionEnabled: 0
     - _DepthFadeDistance: 2
     - _DepthFadeExp: 4
-    - _FinalPower: 1.5
+    - _FinalPower: 5
     - _FinalPowerAdjust: 0
     - _FinalPowerSubtract: -1
     - _Float0: 0.5
@@ -142,7 +142,7 @@ Material:
     - _OpacityPowerAdd: 0
     - _ProcedrualGradientEnabled: 0
     - _RampFlip: 0
-    - _RampMultiplyTiling: 1
+    - _RampMultiplyTiling: 1.2
     - _RampofProcedrual: 1
     - _RamporProcedrual: 1
     - _ScreenDistortionPower: 1

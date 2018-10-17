@@ -7,8 +7,8 @@ public class Pattern : MonoBehaviour {
 
     public enum PitchType { Ultralow, Low, Medium, High, Ultrahigh};
     [Header("Pattern Control")]
-    public int minScale = 1;
-    public int maxScale = 10;
+    public float minScale = 1;
+    public float maxScale = 10;
     public int pitchLength = 100;  //seconds
     public int intermissionLength = 2;   //multiple of pitch length
     public int changeFrames = 20; 
@@ -25,12 +25,12 @@ public class Pattern : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         patternLength = pattern.Length;
-        float step = ((float)maxScale - (float)minScale) / 4.0f;
-        patternScale[0] = (float)minScale;
-        patternScale[1] = (float)minScale + step * 1;
-        patternScale[2] = (float)minScale + step * 2;
-        patternScale[3] = (float)minScale + step * 3;
-        patternScale[4] = (float)maxScale;
+        float step = (maxScale - minScale) / 4.0f;
+        patternScale[0] = minScale;
+        patternScale[1] = minScale + step * 1;
+        patternScale[2] = minScale + step * 2;
+        patternScale[3] = minScale + step * 3;
+        patternScale[4] = maxScale;
         this.transform.localScale = new Vector3(0, 0, 0);
     }
 

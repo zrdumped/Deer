@@ -28,18 +28,20 @@ public class InputListener : MonoBehaviour {
             }
             else if(this.GetComponent<Key>() != null)
             {
-                if (this.GetComponentInChildren<Pattern>().onShow)
-                {
-                    messageOnTrigger = this.GetComponentInChildren<Pattern>().StopHint();
-                }
-                else
-                {
-                    messageOnTrigger = this.GetComponentInChildren<Pattern>().StartHint();
-                }
+                messageOnTrigger = this.GetComponent<Key>().TriggerShow();
             }
             GameObject.Find("HintMessage").GetComponent<Text>().text = messageOnTrigger;
         }
-	}
+        //Debug
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (this.GetComponent<Key>() != null)
+            {
+                messageOnTrigger = this.GetComponent<Key>().activate();
+            }
+            GameObject.Find("HintMessage").GetComponent<Text>().text = messageOnTrigger;
+        }
+    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -48,10 +50,6 @@ public class InputListener : MonoBehaviour {
             return;
         active = true;
         GameObject.Find("HintMessage").GetComponent<Text>().text = messageOnActive;
-        if (this.GetComponent<Key>() != null)
-        {
-            this.GetComponentInChildren<Pattern>().enabled = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -60,10 +58,5 @@ public class InputListener : MonoBehaviour {
             return;
         active = false;
         GameObject.Find("HintMessage").GetComponent<Text>().text = "";
-        if (this.GetComponent<Key>() != null)
-        {
-            this.GetComponentInChildren<Pattern>().StopHint();
-            this.GetComponentInChildren<Pattern>().enabled = false;
-        }
     }
 }
