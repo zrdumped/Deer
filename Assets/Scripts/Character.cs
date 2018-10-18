@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour {
     //[Header("Light Ball Settings")]
@@ -17,9 +18,18 @@ public class Character : MonoBehaviour {
     public float maxLightBallScale = 0.15f;
     public float maxLightIntensity = 2;
     public float maxLightRange = 9;
-    [Header("Control By Keyboard")]
-    public float changeTimes = 10;
+    [Header("Durability COnfig")]
+    public Slider durabilityBar;
+    public float maxDecayVelocity = 3;
+    public float durabilityRecoverVelocityNormal = 0.7f;
+    public float durabilityRecoverVelocityEmerge = 0.1f;
+    public float emergeValue = 30;
+    public float maxDurability = 100;
+    public Color normalColor;
+    public Color EmergeColor;
+    public Image BarFill;
     [Header("Keyboard Control Config")]
+    public float changeTimes = 10;
     public KeyCode inflateKey = KeyCode.Z;
     public KeyCode deflateKey = KeyCode.X;
     public KeyCode disappearKey = KeyCode.C;
@@ -31,6 +41,8 @@ public class Character : MonoBehaviour {
     private float LightBallScaleRate;
     private float LightIntensityRate;
     private float LightRangeRate;
+
+    private float durability;
 
     void Start () {
         lightBall = this.transform.Find("LightBall").gameObject;
@@ -46,6 +58,8 @@ public class Character : MonoBehaviour {
             LightIntensityRate = maxLightIntensity / changeTimes;
             LightRangeRate = maxLightRange / changeTimes;
         }
+
+        durability = maxDurability;
     }
 	
 	// Update is called once per frame
@@ -87,5 +101,40 @@ public class Character : MonoBehaviour {
                 lightSphere.GetComponent<Light>().intensity = 0;
             }
         }
+        //recover
+        if(lightBall.transform.localScale.x == 0)
+        {
+            float recoverVelocity;
+            if (durability < emergeValue)
+                recoverVelocity = durabilityRecoverVelocityEmerge;
+            else
+                recoverVelocity = durabilityRecoverVelocityNormal;
+
+            if (durability + recoverVelocity >= maxDurability)
+                durability = maxDurability;
+            else
+                durability += recoverVelocity;
+        }
+        //decay
+        else
+        {
+            float durabilityDecayVelocity = (lightBall.transform.localScale.x / maxLightBallScale) * maxDecayVelocity;
+            if (durability - durabilityDecayVelocity >= 0)
+                durability -= durabilityDecayVelocity;
+            else
+            {
+                durability = 0;
+                lightBall.transform.localScale = new Vector3(0, 0, 0);
+                lightSphere.GetComponent<Light>().range = 0;
+                lightSphere.GetComponent<Light>().intensity = 0;
+            }
+        }
+        durabilityBar.value = durability;
+        //Debug.Log(durability);
+        //Debug.Log(normalColor.ToString());
+        if (durability < emergeValue)
+            BarFill.color = EmergeColor;
+        else
+            BarFill.color = normalColor;
     }
 }
