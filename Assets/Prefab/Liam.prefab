@@ -534,7 +534,6 @@ GameObject:
   - component: {fileID: 33065052990639490}
   - component: {fileID: 23510516286033140}
   - component: {fileID: 135460559347639902}
-  - component: {fileID: 114371825415963272}
   m_Layer: 8
   m_Name: LightBall
   m_TagString: Untagged
@@ -2290,7 +2289,7 @@ GameObject:
   - component: {fileID: 114607403934095238}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: TPPCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4819,7 +4818,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4861,6 +4860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29ab20dfd342f143b5208583a7dc212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableControl: 1
   mouseSensitivity: 10
   target: {fileID: 4166633776736066}
   pitchMin: -40
@@ -4881,21 +4881,6 @@ MonoBehaviour:
     colliding: 0
     adjustedCameraClipPoints: []
     desiredCameraClipPoints: []
---- !u!114 &114371825415963272
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1216789620395232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 986cff351e5a3664b82e6d89ebaafa87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controlByVoice: 0
-  LightBallChangeRate: 0.01
-  inflateKey: 122
-  deflateKey: 120
 --- !u!114 &114436165947823246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4907,6 +4892,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac79e02e5ab9eee41ba54ce7eb882786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlByVoice: 0
+  LightBallChangeRate: 0.05
+  inflateKey: 122
+  deflateKey: 120
+  disappearKey: 99
 --- !u!114 &114511367854897966
 MonoBehaviour:
   m_ObjectHideFlags: 1

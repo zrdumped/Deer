@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: e3ecdb8a3c00ccb4bb7852900912a486
+timeCreated: 1488173310
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ' Footsteps'
+    100002: ' JawNub'
+    100004: Antlers 01
+    100006: Antlers 02
+    100008: Antlers 03
+    100010: Antlers 04
+    100012: Antlers 05
+    100014: CG
+    100016: CG TailNub
+    100018: //RootNode
+    100020: Deer 02
+    100022: Eye L
+    100024: Eye R
+    100026: Head
+    100028: HeadNub
+    100030: Jaw
+    100032: L Calf
+    100034: L Clavicle
+    100036: L Ear
+    100038: L Finger0
+    100040: L Finger0Nub
+    100042: L Foot
+    100044: L Forearm
+    100046: L Hand
+    100048: L HorseLink
+    100050: L Thigh
+    100052: L Toe0
+    100054: L Toe0Nub
+    100056: L UpperArm
+    100058: Neck
+    100060: Neck1
+    100062: Omni001
+    100064: Omni002
+    100066: Omni003
+    100068: Pelvis
+    100070: Ponytail1Nub
+    100072: Ponytail2Nub
+    100074: R Calf
+    100076: R Clavicle
+    100078: R Ear
+    100080: R Finger0
+    100082: R Finger0Nub
+    100084: R Foot
+    100086: R Forearm
+    100088: R Hand
+    100090: R HorseLink
+    100092: R Thigh
+    100094: R Toe0
+    100096: R Toe0Nub
+    100098: R UpperArm
+    100100: Sky001
+    100102: Spine
+    100104: Spine1
+    100106: Spine2
+    100108: Tail
+    100110: Tape001
+    100112: Tape001.Target
+    100114: Deer 003
+    100116: Magic001
+    100118: Spots
+    400000: ' Footsteps'
+    400002: ' JawNub'
+    400004: Antlers 01
+    400006: Antlers 02
+    400008: Antlers 03
+    400010: Antlers 04
+    400012: Antlers 05
+    400014: CG
+    400016: CG TailNub
+    400018: //RootNode
+    400020: Deer 02
+    400022: Eye L
+    400024: Eye R
+    400026: Head
+    400028: HeadNub
+    400030: Jaw
+    400032: L Calf
+    400034: L Clavicle
+    400036: L Ear
+    400038: L Finger0
+    400040: L Finger0Nub
+    400042: L Foot
+    400044: L Forearm
+    400046: L Hand
+    400048: L HorseLink
+    400050: L Thigh
+    400052: L Toe0
+    400054: L Toe0Nub
+    400056: L UpperArm
+    400058: Neck
+    400060: Neck1
+    400062: Omni001
+    400064: Omni002
+    400066: Omni003
+    400068: Pelvis
+    400070: Ponytail1Nub
+    400072: Ponytail2Nub
+    400074: R Calf
+    400076: R Clavicle
+    400078: R Ear
+    400080: R Finger0
+    400082: R Finger0Nub
+    400084: R Foot
+    400086: R Forearm
+    400088: R Hand
+    400090: R HorseLink
+    400092: R Thigh
+    400094: R Toe0
+    400096: R Toe0Nub
+    400098: R UpperArm
+    400100: Sky001
+    400102: Spine
+    400104: Spine1
+    400106: Spine2
+    400108: Tail
+    400110: Tape001
+    400112: Tape001.Target
+    400114: Deer 003
+    400116: Magic001
+    400118: Spots
+    2300000: Antlers 01
+    2300002: Antlers 02
+    2300004: Antlers 03
+    2300006: Antlers 04
+    2300008: Antlers 05
+    3300000: Antlers 01
+    3300002: Antlers 02
+    3300004: Antlers 03
+    3300006: Antlers 04
+    3300008: Antlers 05
+    4300000: Antlers 01
+    4300002: Antlers 03
+    4300004: Antlers 04
+    4300006: Antlers 05
+    4300008: Antlers 02
+    4300010: Deer 02
+    4300012: Deer 003
+    4300014: Spots
+    4300016: Magic001
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Deer 02
+    13700002: Deer 003
+    13700004: Magic001
+    13700006: Spots
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: CG
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

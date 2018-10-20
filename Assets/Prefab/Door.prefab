@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 64352724624903010}
   - component: {fileID: 136091735824699754}
   - component: {fileID: 114228392708909536}
+  - component: {fileID: 114202932563603016}
   m_Layer: 1
   m_Name: Door
   m_TagString: Untagged
@@ -74,8 +75,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870008551878544}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -264.67548, y: -82.43472, z: -17.591}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 0.7846844, y: -1.600751, z: -24.024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4351217008425812}
@@ -124,7 +125,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
+  - {fileID: 2100000, guid: 2fb21ecffc61ba745af1449a1977744c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -159,7 +160,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
+  - {fileID: 2100000, guid: 2fb21ecffc61ba745af1449a1977744c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -291,6 +292,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114202932563603016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870008551878544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4e2deaec28a6e41bc107c82ae03a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageOnActive: Press 'E' to open
+  triggerKey: 101
 --- !u!114 &114228392708909536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -302,10 +316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1fc02264603494bacb4815634ead94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locked: 0
-  otherScene: 1_2_Corridor
-  hintMessage: Press 'E' to Enter
-  enterKey: 101
+  locked: 1
+  unlockTorchNum: 4
+  otherScene: 1_3_Hall
 --- !u!136 &136091735824699754
 CapsuleCollider:
   m_ObjectHideFlags: 1
