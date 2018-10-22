@@ -66,7 +66,7 @@ public class Character : MonoBehaviour {
 	void Update () {
         //LightBall.transform.position = this.transform.position + new Vector3(0, yOffset, 0);
         //Control By Keyboard
-        if (!controlByVoice)
+        if (!controlByVoice && durability > emergeValue)
         {
             if (Input.GetKey(inflateKey))
             {

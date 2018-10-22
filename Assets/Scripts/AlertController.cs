@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class AlertController : MonoBehaviour {
 
-    //private enum AlertTriggerStatus { Patrol, Alert, Missing};
-    //private AlertTriggerStatus status = AlertTriggerStatus.Patrol;
+    private enum AlertTriggerStatus { Patrol, Alert};
+    private AlertTriggerStatus status = AlertTriggerStatus.Patrol;
 
     public WaypointsHolder wayPointsHolder;
     public Waypoint characterWayPoint;
     public float alertMovementSpeed = 4;
     public float patrolMovenmentSpeed = 3;
+
+    public ParticleSystem inactivePS;
+    public ParticleSystem activePS;
     //public Waypoint leavePosWayPoint;
     private List<Waypoint> patrolWayPoints;
     private WaypointMover waypointMover;
@@ -18,6 +21,7 @@ public class AlertController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        inactivePS.Play(true);
         waypointMover = this.GetComponentInChildren<WaypointMover>();
         patrolWayPoints = wayPointsHolder.waypoints;
         waypointMover.movementSpeed = patrolMovenmentSpeed;
@@ -27,11 +31,10 @@ public class AlertController : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Alert();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Patrol();
+            if (status == AlertTriggerStatus.Patrol)
+                Alert();
+            else
+                Patrol();
         }
 
         //if(status == AlertTriggerStatus.Missing && Vector3.Distance(this.transform.position, leavePosWayPoint.transform.position) < 1)
@@ -46,7 +49,9 @@ public class AlertController : MonoBehaviour {
 
     public void Alert()
     {
-        //status = AlertTriggerStatus.Alert;
+        status = AlertTriggerStatus.Alert;
+        activePS.Play(true);
+        inactivePS.Stop(true);
         waypointMover.enabled = false;
         waypointMover.loopingType = WaypointMover.LoopType.Once;
         waypointMover.movementSpeed = alertMovementSpeed;
@@ -57,7 +62,9 @@ public class AlertController : MonoBehaviour {
 
     public void Patrol()
     {
-        //status = AlertTriggerStatus.Missing;
+        activePS.Stop(true);
+        inactivePS.Play(true);
+        status = AlertTriggerStatus.Patrol;
         waypointMover.enabled = false;
         waypointMover.loopingType = WaypointMover.LoopType.Cycled;
         waypointMover.movementSpeed = patrolMovenmentSpeed;
