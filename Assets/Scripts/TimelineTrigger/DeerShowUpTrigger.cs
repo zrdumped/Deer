@@ -26,7 +26,6 @@ public class DeerShowUpTrigger : MonoBehaviour {
             vmCam.transform.position = Camera.main.transform.position;
             vmCam.transform.rotation = Camera.main.transform.rotation;
             if(gm) {
-                Debug.Log("The World !");
                 gm.GetComponent<GameManager>().StopCtrl();
             }
             timeline.Play();
@@ -35,10 +34,8 @@ public class DeerShowUpTrigger : MonoBehaviour {
         if(countingStart == true ) {
             timelineCounter += Time.deltaTime;
             if(timelineCounter > timeline.duration) {
-                Debug.Log("timeline is finished.");
                 countingStart = false;
                 if(gm) {
-                    Debug.Log("Mudah !");
                     gm.GetComponent<GameManager>().StartCtrl();
                 }
             }
