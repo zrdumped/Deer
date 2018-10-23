@@ -49,7 +49,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void FixedUpdate()
         {
             if(controlEnable == true) {
-                Debug.Log("asdfasdfasdfasdf");
                 // read inputs
                 float h = CrossPlatformInputManager.GetAxis("Horizontal");
                 float v = CrossPlatformInputManager.GetAxis("Vertical");
@@ -73,7 +72,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 #endif
 
                 // pass all parameters to the character control script
-                Debug.Log("Move Vector3 : " + m_Move);
                 m_Character.Move(m_Move, crouch, m_Jump);
                 m_Jump = false;
             }
