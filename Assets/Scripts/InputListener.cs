@@ -10,7 +10,7 @@ public class InputListener : MonoBehaviour {
     private string messageOnTrigger;
 
     public KeyCode triggerKey = KeyCode.E;
-
+	public GameObject character = null;
 	// Use this for initialization
 	void Start () {
 		
@@ -49,6 +49,9 @@ public class InputListener : MonoBehaviour {
         if (other.name != "Character")
             return;
         active = true;
+		Debug.Log("triggered" + other);
+		this.character = other.gameObject;
+		Debug.Log("triggered" + character+ other.gameObject);
         GameObject.Find("HintMessage").GetComponent<Text>().text = messageOnActive;
     }
 
@@ -57,6 +60,8 @@ public class InputListener : MonoBehaviour {
         if (other.name != "Character")
             return;
         active = false;
-        GameObject.Find("HintMessage").GetComponent<Text>().text = "";
+		Debug.Log("distriggered" + other);
+		this.character = null;
+		GameObject.Find("HintMessage").GetComponent<Text>().text = "";
     }
 }

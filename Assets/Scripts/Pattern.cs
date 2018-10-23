@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pattern : MonoBehaviour {
-
-
     public enum PitchType { Ultralow, Low, Medium, High, Ultrahigh};
     [Header("Pattern Control")]
     public float minScale = 1;
@@ -68,6 +66,10 @@ public class Pattern : MonoBehaviour {
         }
     }
 
+	public int GetCurrentPitchId() {
+		return pitchID;
+	}
+
     // Update is called once per frame
     IEnumerator showHint() {
         while (true)
@@ -88,7 +90,7 @@ public class Pattern : MonoBehaviour {
             Debug.Log(scaleChangeStep);
             pitchID++;
             if (pitchID == pattern.Length)
-                pitchID = -intermissionLength;
+                pitchID -= intermissionLength;
             yield return new WaitForSeconds(pitchLength);
         }
     }
