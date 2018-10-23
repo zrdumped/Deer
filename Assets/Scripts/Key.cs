@@ -1,17 +1,30 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Key : MonoBehaviour {
     public enum KeyStatus { Inactive, OnShow, Active};
+    [Header("VFX")]
+    //the vfx shown normally
     public GameObject InactiveBall;
+    //the vfx shown after pressing E
+    public GameObject HintBall;
+    //the vfx shown after all matching
     public GameObject ActiveBall;
+    //the vfxs shown after single matching
+    public GameObject AlertBall;
+    public GameObject ConfirmBall;
+    public int DestroySceonds = 1;
+    [Header("Light Up Settings")]
     public Light[] Lights;
+    public float initEmissionScale = 1;
+    public Material LightMaterial;
     public int OnLitFrames = 200;
 	private GameObject character = null;
 
     private float[] lightRangeSteps, lightIntensitySteps;
+    private float lightEmissionScaleStep;
     private int curOnLitFrame;
 	private KeyMatcher matcher = new KeyMatcher();
     private KeyStatus status = KeyStatus.Inactive;
@@ -22,6 +35,9 @@ public class Key : MonoBehaviour {
         ActiveBall.GetComponent<ParticleSystem>().Stop(true);
         lightRangeSteps = new float[Lights.Length];
         lightIntensitySteps = new float[Lights.Length];
+        lightEmissionScaleStep = initEmissionScale / (float)OnLitFrames;
+        //Debug.Log(lightEmissionScaleStep);
+        LightMaterial.SetFloat("_EMISSION", 0);
         int id = 0;
         foreach (Light light in Lights)
         {
@@ -43,6 +59,7 @@ public class Key : MonoBehaviour {
 		{
 			curOnLitFrame++;
 			int id = 0;
+      LightMaterial.SetFloat("_EMISSION", LightMaterial.GetFloat("_EMISSION") + lightEmissionScaleStep);
 			foreach (Light light in Lights)
 			{
 				//light.GetComponent<Light>().enabled = false;
@@ -115,5 +132,36 @@ public class Key : MonoBehaviour {
         return "Activated";
     }
 
+    public int MatchSucceed()
+    {
+        GameObject tmp_ConfirmBall = Instantiate(ConfirmBall, this.transform);
+        tmp_ConfirmBall.transform.position = HintBall.transform.position;
+        tmp_ConfirmBall.transform.localScale = HintBall.transform.localScale;
+        //HintBall.transform.localScale = new Vector3(0, 0, 0);
+        //Debug.Log("haha");
+        tmp_ConfirmBall.SetActive(true);
+        StartCoroutine(WaitAndDestroy(tmp_ConfirmBall, DestroySceonds));
+        return DestroySceonds;
+    }
 
+    public int MatchFail()
+    {
+        GameObject tmp_ConfirmBall = Instantiate(AlertBall, this.transform);
+        tmp_ConfirmBall.transform.position = HintBall.transform.position;
+        tmp_ConfirmBall.transform.localScale = HintBall.transform.localScale;
+        //HintBall.transform.localScale = new Vector3(0, 0, 0);
+        //Debug.Log("haha");
+        tmp_ConfirmBall.SetActive(true);
+        StartCoroutine(WaitAndDestroy(tmp_ConfirmBall, DestroySceonds, false));
+        return DestroySceonds;
+    }
+
+    IEnumerator WaitAndDestroy(GameObject obj, int time, bool match = true)
+    {
+        yield return new WaitForSeconds(time);
+        //HintBall.transform.localScale = obj.transform.localScale;
+        if (!match)
+            HintBall.transform.localScale = new Vector3(0, 0, 0);
+        Destroy(obj);
+    }
 }

@@ -76,14 +76,14 @@ public class WaypointMover : MonoBehaviour
 
     private void OnEnable()
     {
-        //currentWaypoint = 0;
-        //direction = 1;
-        //velocity = Vector3.zero;
-        //loopNumber = 1;
-        //inMove = false;
-        //suspended = false;
+        currentWaypoint = 0;
+        direction = 1;
+        velocity = Vector3.zero;
+        loopNumber = 1;
+        inMove = false;
+        suspended = false;
         previousWaypoint = 0;
-        //callExitFunction = false;
+        callExitFunction = false;
         Start();
     }
 
@@ -348,8 +348,10 @@ public class WaypointMover : MonoBehaviour
 			if (followingType == FollowType.Teleport) 
 				transform.position = targetPosition;
 
+            //Debug.Log("Prev: " + previousWaypoint + " Cur: " + currentWaypoint);
+            //if (currentWaypoint == -1) currentWaypoint++;
 
-			float value = Vector3.Distance(waypointsHolder.waypoints[previousWaypoint].gameObject.transform.position, waypointsHolder.waypoints[currentWaypoint].gameObject.transform.position);  
+            float value = Vector3.Distance(waypointsHolder.waypoints[previousWaypoint].gameObject.transform.position, waypointsHolder.waypoints[currentWaypoint].gameObject.transform.position);  
 			value = Vector3.Distance(transform.position, targetPosition) / value;  
 
 			transform.localEulerAngles = new Vector3 (

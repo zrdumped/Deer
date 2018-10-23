@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -69,52 +69,43 @@ public class Character : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//LightBall.transform.position = this.transform.position + new Vector3(0, yOffset, 0);
-		//Control By Keyboard
-		if (!controlByVoice)
-		{
-			if (Input.GetKey(inflateKey))
-			{
-				//Debug.Log(lightBall.transform.localScale.x + LightBallChangeRate);
-				//Debug.Log(maxLightBallScale);
-				if (lightBall.transform.localScale.x + LightBallScaleRate < maxLightBallScale)
-				{
-					lightBall.transform.localScale += new Vector3(LightBallScaleRate, LightBallScaleRate, LightBallScaleRate);
-					lightSphere.GetComponent<Light>().range += LightRangeRate;
-					lightSphere.GetComponent<Light>().intensity += LightIntensityRate;
-				}
-			}
-			else if (Input.GetKey(deflateKey))
-			{
-				if (lightBall.transform.localScale.x - LightBallScaleRate >= 0)
-				{
-					lightBall.transform.localScale -= new Vector3(LightBallScaleRate, LightBallScaleRate, LightBallScaleRate);
-					lightSphere.GetComponent<Light>().range -= LightRangeRate;
-					lightSphere.GetComponent<Light>().intensity -= LightIntensityRate;
-				}
-				else
-				{
-					lightBall.transform.localScale = new Vector3(0, 0, 0);
-					lightSphere.GetComponent<Light>().range = 0;
-					lightSphere.GetComponent<Light>().intensity = 0;
-				}
-			}
-			else if (Input.GetKeyDown(disappearKey))
-			{
-				lightBall.transform.localScale = new Vector3(0, 0, 0);
-				lightSphere.GetComponent<Light>().range = 0;
-				lightSphere.GetComponent<Light>().intensity = 0;
-			}
-		}
-		else {
+        if (!controlByVoice && durability > emergeValue)
+        {
+            if (Input.GetKey(inflateKey))
+            {
+                //Debug.Log(lightBall.transform.localScale.x + LightBallChangeRate);
+                //Debug.Log(maxLightBallScale);
+                if (lightBall.transform.localScale.x + LightBallScaleRate < maxLightBallScale)
+                {
+                    lightBall.transform.localScale += new Vector3(LightBallScaleRate, LightBallScaleRate, LightBallScaleRate);
+                    lightSphere.GetComponent<Light>().range += LightRangeRate;
+                    lightSphere.GetComponent<Light>().intensity += LightIntensityRate;
+                }
+            }
+            else if (Input.GetKey(deflateKey))
+            {
+                if (lightBall.transform.localScale.x - LightBallScaleRate >= 0)
+                {
+                    lightBall.transform.localScale -= new Vector3(LightBallScaleRate, LightBallScaleRate, LightBallScaleRate);
+                    lightSphere.GetComponent<Light>().range -= LightRangeRate;
+                    lightSphere.GetComponent<Light>().intensity -= LightIntensityRate;
+                }
+                else
+                {
+                    lightBall.transform.localScale = new Vector3(0, 0, 0);
+                    lightSphere.GetComponent<Light>().range = 0;
+                    lightSphere.GetComponent<Light>().intensity = 0;
+                }
+            }
+            else if (Input.GetKeyDown(disappearKey))
+            {
+                lightBall.transform.localScale = new Vector3(0, 0, 0);
+                lightSphere.GetComponent<Light>().range = 0;
+                lightSphere.GetComponent<Light>().intensity = 0;
+            }
+        }
+    else {
 			AdjustLightBallWithSound();
-
-			/*if (lightBall.transform.localScale.x + LightBallScaleRate < maxLightBallScale)
-			{
-				lightBall.transform.localScale += new Vector3(LightBallScaleRate, LightBallScaleRate, LightBallScaleRate);
-				lightSphere.GetComponent<Light>().range += LightRangeRate;
-				lightSphere.GetComponent<Light>().intensity += LightIntensityRate;
-			}*/
 		}
         //recover
         if(lightBall.transform.localScale.x == 0)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class TPPCamera : MonoBehaviour {
 
@@ -38,6 +39,8 @@ public class TPPCamera : MonoBehaviour {
     private float holdTime;
     private Vector3 desiredPosition;
     private float curDistance;
+    private bool lockLocation = false;
+    private Vector3 lockedLocation = Vector3.zero;
     
     
 
@@ -106,6 +109,10 @@ public class TPPCamera : MonoBehaviour {
                     Debug.DrawLine(target.position, collision.adjustedCameraClipPoints[i], Color.green);
                 }
             }
+        }
+
+        if(lockLocation == true) {
+            transform.parent.Find("Character").transform.position = lockedLocation;
         }
     }
 
@@ -245,5 +252,26 @@ public class TPPCamera : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    public void DisableMove() {
+        transform.parent.Find("Character").GetComponent<Animator>().enabled = false;
+        lockedLocation = transform.parent.Find("Character").transform.position;
+        lockLocation = true;
+    }
+
+    public void EnableMove() {
+        transform.parent.Find("Character").GetComponent<Animator>().enabled = true;
+        lockLocation = false;
+    }
+
+    public void DisableCtrl() {
+        enableControl = false;
+        DisableMove();
+    }
+
+    public void EnableCtrl() {
+        enableControl = true;
+        EnableMove();
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TPPCamera
   - Water
+  - TppCharacter
   layers:
   - Default
   - TransparentFX

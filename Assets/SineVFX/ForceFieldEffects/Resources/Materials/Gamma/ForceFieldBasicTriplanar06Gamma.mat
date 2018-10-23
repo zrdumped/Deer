@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ForceFieldBasicTriplanar06Gamma
   m_Shader: {fileID: 4800000, guid: 5cdbfa3dede94fe1b51278b4ab12beca, type: 3}
@@ -118,7 +118,7 @@ Material:
     - _MaskAppearNoiseTriplanar: 0
     - _MaskAppearNoiseTriplanarTiling: 0.1
     - _MaskAppearPower: 0.5
-    - _MaskAppearProgress: -1.1095059
+    - _MaskAppearProgress: -1.0232134
     - _MaskAppearRemapLocalY: 0.5
     - _MaskAppearSubtract: 0.25
     - _MaskAppearUseWorldPosition: 0

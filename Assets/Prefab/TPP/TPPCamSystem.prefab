@@ -688,6 +688,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1 &1527407396678654
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4309554709583004}
+  - component: {fileID: 108977367951958288}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1528033335498504
 GameObject:
   m_ObjectHideFlags: 1
@@ -1513,6 +1529,19 @@ Transform:
   m_Father: {fileID: 4535280562762694}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4309554709583004
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1527407396678654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.198, z: 0.211}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4355902166893238}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4310387051116942
 Transform:
   m_ObjectHideFlags: 1
@@ -1594,6 +1623,7 @@ Transform:
   - {fileID: 4868546775991734}
   - {fileID: 4166154707186948}
   - {fileID: 4949062670678784}
+  - {fileID: 4309554709583004}
   m_Father: {fileID: 4445211227215298}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2334,7 +2364,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443808467838028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.913, y: 0.79599994, z: 0.52199966}
+  m_LocalPosition: {x: 0, y: 1.198, z: 0}
   m_LocalScale: {x: 0.088228, y: 0.088228, z: 0.088228}
   m_Children:
   - {fileID: 4657194151445362}
@@ -2532,6 +2562,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!108 &108977367951958288
+Light:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1527407396678654}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 0.2627451, g: 0.8117647, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!114 &114091548866289014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2563,7 +2630,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlByVoice: 0
-  LightBallChangeRate: 0.05
+  maxLightBallScale: 0.15
+  maxLightIntensity: 2
+  maxLightRange: 9
+  durabilityBar: {fileID: 0}
+  maxDecayVelocity: 3
+  durabilityRecoverVelocityNormal: 1
+  durabilityRecoverVelocityEmerge: 0.4
+  emergeValue: 20
+  maxDurability: 100
+  normalColor: {r: 0.17254902, g: 0.7294118, b: 1, a: 1}
+  EmergeColor: {r: 0.9254902, g: 0.2901961, b: 0.2901961, a: 1}
+  BarFill: {fileID: 0}
+  changeTimes: 10
   inflateKey: 122
   deflateKey: 120
   disappearKey: 99
@@ -2807,8 +2886,8 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1990904986448044}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -6538,9 +6617,9 @@ ParticleSystem:
       type: 0
       properties: 0
   LightsModule:
-    enabled: 0
-    ratio: 0
-    light: {fileID: 0}
+    enabled: 1
+    ratio: 0.26
+    light: {fileID: 108977367951958288}
     randomDistribution: 1
     color: 1
     range: 1

@@ -69,14 +69,28 @@ public class GameManager : MonoBehaviour {
     // Enable player to control the character
     public void StartCtrl() {
         if(cameraController) {
-            cameraController.enableControl = true;
+            cameraController.EnableCtrl();
         }
     }
 
     // Disable player to control the character
     public void StopCtrl() {
         if(cameraController) {
-            cameraController.enableControl = false;
+            cameraController.DisableCtrl();
+        }
+    }
+
+    // Enable player to control the character's movement
+    public void StartMoveCtrl() {
+        if(cameraController) {
+            cameraController.EnableMove();
+        }
+    }
+
+    // Disable player to control the character's movement(but can cantrol view)
+    public void StopMoveCtrl() {
+        if(cameraController) {
+            cameraController.DisableMove();
         }
     }
 
