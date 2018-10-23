@@ -1,0 +1,77 @@
+Pitch Detection
+
+Detects human voice pitch in realtime. Get the notes in midi format, standard notation (C, C#, D, E...) or even the frequency in hertz of any human voice. This script will allow you make singstar-like games in a single step.
+
+Supports Free and Pro Unity Version
+Mobile friendly
+
+Web Demo: http://www.3y3.net/pitchDetector/pitchDetector.html
+Android sample App: http://www.3y3.net/pitchDetector/pitchProject.apk
+
+Demo scene included for web, mobile and desktop devices. The demo shows how to setup the script and microphone to get the samples and also has code for some more interesting tools:
+-Set up the mic sensitivity in decibels
+-Use a buffer to get the statistical 'mode' for the note in a period of milliseconds. This is useful because human voice has some kind of natural vibrato and may confuse the detector by a semitone.
+
+There is also a very simple template scene that will help you to start your project from a minimun funtional pitch detector.
+
+Quick start:
+1) Add this line to the 'using' section of your script:
+using PitchDetector;
+
+2) Declare a pitch detector object in your variables:
+private Detector pitchDetector;
+
+3) Instantiate the detector in the awake function:
+void Awake() {
+	pitchDetector = new Detector();
+	pitchDetector.setSampleRate(AudioSettings.outputSampleRate);
+}
+
+4) Get the mic input from the update function, call the DetectPitch method and then the lastMidiNote() to get the midi note detected:
+.
+.
+.
+audio.GetOutputData(data,0);
+pitchDetector.DetectPitch (data);
+int midiant = pitchDetector.lastMidiNote ();
+.
+.
+.
+
+Thats all! Now you will get the detected note from the mic in real time.
+
+
+Function reference
+==================
+
+Public functions in the Detector object
+
+setSampleRate(int samplerate) 
+Set the sample rate of the mic. You need to set up this just after instantiate the object. Typically you will call this function with:
+pitchDetector.setSampleRate(AudioSettings.outputSampleRate);
+
+public void DetectPitch(float[] inBuffer) 
+Once you get the data from the microphone, you need to pass all the samples tho the Detector to begin the algorithm. Typically you will call this function with:
+audio.GetOutputData(data,0);
+pitchDetector.DetectPitch (data);
+
+public int lastMidiNote () 
+This function returns the last midi note detected or zero if none present.
+
+public float lastMidiNotePrecise () 
+This function returns the last midi note detected with decimals or zero if none present.
+
+public float lastFrequency() 
+This function returns the last frequency detected or zero if none present.
+
+public string lastNote() 
+This function returns the last note detected in standard notation (C, C#, D, D#, E, F...).
+
+public string midiNoteToString(int note)
+This function converts a midi note to a standard notation note.
+
+For any question, please do not hesitate to contact us in
+soft@3y3.net
+
+This code is base on the codeplex example distributed under Microsoft Public License (Ms-PL), which allows to, resell, modify and redistribute freely the algorithm.
+https://pitchtracker.codeplex.com/license

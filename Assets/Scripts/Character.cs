@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +18,7 @@ public class Character : MonoBehaviour {
     public float maxLightBallScale = 0.15f;
     public float maxLightIntensity = 2;
     public float maxLightRange = 9;
-    [Header("Durability COnfig")]
+    [Header("Durability Config")]
     public Slider durabilityBar;
     public float maxDecayVelocity = 3;
     public float durabilityRecoverVelocityNormal = 0.7f;
@@ -33,6 +33,10 @@ public class Character : MonoBehaviour {
     public KeyCode inflateKey = KeyCode.Z;
     public KeyCode deflateKey = KeyCode.X;
     public KeyCode disappearKey = KeyCode.C;
+	[Header("Sound Detection and Calculation")]
+	public SoundDetector soundDetector;
+	public SoundCalcMethodType calcMethod = SoundCalcMethodType.NORMAL;
+	public float soundValueAfterCalc;
     //private enum toolState { Inflate, Deflate, Inactive };
     //private toolState state = toolState.Inactive;
     private GameObject lightBall;
@@ -54,6 +58,7 @@ public class Character : MonoBehaviour {
 
         if (!controlByVoice)
         {
+			Debug.Log("using keyboard!");
             LightBallScaleRate = maxLightBallScale / changeTimes;
             LightIntensityRate = maxLightIntensity / changeTimes;
             LightRangeRate = maxLightRange / changeTimes;
@@ -64,8 +69,6 @@ public class Character : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //LightBall.transform.position = this.transform.position + new Vector3(0, yOffset, 0);
-        //Control By Keyboard
         if (!controlByVoice && durability > emergeValue)
         {
             if (Input.GetKey(inflateKey))
@@ -101,6 +104,9 @@ public class Character : MonoBehaviour {
                 lightSphere.GetComponent<Light>().intensity = 0;
             }
         }
+    else {
+			AdjustLightBallWithSound();
+		}
         //recover
         if(lightBall.transform.localScale.x == 0)
         {
@@ -118,7 +124,7 @@ public class Character : MonoBehaviour {
         //decay
         else
         {
-            float durabilityDecayVelocity = (lightBall.transform.localScale.x / maxLightBallScale) * maxDecayVelocity;
+            /*float durabilityDecayVelocity = (lightBall.transform.localScale.x / maxLightBallScale) * maxDecayVelocity;
             if (durability - durabilityDecayVelocity >= 0)
                 durability -= durabilityDecayVelocity;
             else
@@ -127,7 +133,7 @@ public class Character : MonoBehaviour {
                 lightBall.transform.localScale = new Vector3(0, 0, 0);
                 lightSphere.GetComponent<Light>().range = 0;
                 lightSphere.GetComponent<Light>().intensity = 0;
-            }
+            }*/
         }
         durabilityBar.value = durability;
         //Debug.Log(durability);
@@ -137,4 +143,16 @@ public class Character : MonoBehaviour {
         else
             BarFill.color = normalColor;
     }
+
+	void AdjustLightBallWithSound() {
+		int midi = soundDetector.midi;
+		soundValueAfterCalc = SoundCalculator.calc(midi, calcMethod);
+		//Debug.Log(midi+", "+scale);
+		float lightBallScale = soundValueAfterCalc * maxLightBallScale;
+		float lightIntensity = soundValueAfterCalc * maxLightIntensity;
+		float lightRange = soundValueAfterCalc * maxLightRange;
+		lightBall.transform.localScale = new Vector3(lightBallScale, lightBallScale, lightBallScale);
+		lightSphere.GetComponent<Light>().range = lightRange;
+		lightSphere.GetComponent<Light>().intensity = lightIntensity;
+	}
 }

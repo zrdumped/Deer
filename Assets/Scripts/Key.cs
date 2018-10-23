@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,11 +21,12 @@ public class Key : MonoBehaviour {
     public float initEmissionScale = 1;
     public Material LightMaterial;
     public int OnLitFrames = 200;
+	private GameObject character = null;
 
     private float[] lightRangeSteps, lightIntensitySteps;
     private float lightEmissionScaleStep;
     private int curOnLitFrame;
-
+	private KeyMatcher matcher = new KeyMatcher();
     private KeyStatus status = KeyStatus.Inactive;
 
     // Use this for initialization
@@ -48,25 +49,46 @@ public class Key : MonoBehaviour {
             id++;
         }
         curOnLitFrame = OnLitFrames;
+		matcher.maxMatchTime = this.GetComponentInChildren<Pattern>().pitchLength * 100;
     }
 	
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        while (curOnLitFrame < OnLitFrames)
-        {
-            curOnLitFrame++;
-            int id = 0;
-            LightMaterial.SetFloat("_EMISSION", LightMaterial.GetFloat("_EMISSION") + lightEmissionScaleStep);
-            foreach (Light light in Lights)
-            {
-                //light.GetComponent<Light>().enabled = false;
-                light.GetComponent<Light>().range += lightRangeSteps[id];
-                light.GetComponent<Light>().intensity += lightIntensitySteps[id];
-                id++;
-            }
-            return;
-        }
+		if (curOnLitFrame < OnLitFrames)
+		{
+			curOnLitFrame++;
+			int id = 0;
+      LightMaterial.SetFloat("_EMISSION", LightMaterial.GetFloat("_EMISSION") + lightEmissionScaleStep);
+			foreach (Light light in Lights)
+			{
+				//light.GetComponent<Light>().enabled = false;
+				light.GetComponent<Light>().range += lightRangeSteps[id];
+				light.GetComponent<Light>().intensity += lightIntensitySteps[id];
+				id++;
+			}
+		}
+		int pitchid = GetComponentInChildren<Pattern>().GetCurrentPitchId();
+		if (character && matcher.active && pitchid > 0)
+		{
+			switch (matcher.TestMatch(character.GetComponent<Character>().soundValueAfterCalc, GetComponentInChildren<Pattern>().transform.localScale.x))
+			{
+				case KeyMatchStatus.FAILURE:
+					//warn error
+					matcher.ReSet();
+					break;
+				case KeyMatchStatus.SUCCESS:
+					activate();
+					character = null;
+					break;
+				case KeyMatchStatus.IGNORED:
+				case KeyMatchStatus.INPROGRESS:
+				default: break;
+			}
+		}
+		else if (pitchid < 0) {
+			matcher.ReSet();
+		}
     }
 
     public string TriggerShow()
@@ -77,6 +99,9 @@ public class Key : MonoBehaviour {
             this.GetComponentInChildren<Pattern>().StartHint();
             //walk on stage and disable moving
             status = KeyStatus.OnShow;
+			character = GetComponent<InputListener>().character;
+			Debug.Log("getCharacter: "+character);
+			matcher.ReSet();
             return "Press E to stop. Match the spheres with your voice";
         }
         else if(status == KeyStatus.OnShow)
@@ -85,6 +110,7 @@ public class Key : MonoBehaviour {
             this.GetComponentInChildren<Pattern>().StopHint();
             //walk off stage and enable moving
             status = KeyStatus.Inactive;
+			character = null;
             return "Press E to dispaly.";
         }
         else
