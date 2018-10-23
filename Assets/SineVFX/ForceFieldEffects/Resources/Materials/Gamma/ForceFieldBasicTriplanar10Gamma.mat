@@ -93,7 +93,7 @@ Material:
     - _CubemapReflectionEnabled: 0
     - _DepthFadeDistance: 2
     - _DepthFadeExp: 4
-    - _FinalPower: 1.75
+    - _FinalPower: 3
     - _FinalPowerAdjust: -1
     - _FinalPowerSubtract: -1
     - _Float0: 0.5
@@ -118,7 +118,7 @@ Material:
     - _MaskAppearNoiseTriplanar: 0
     - _MaskAppearNoiseTriplanarTiling: 0.1
     - _MaskAppearPower: 0.5
-    - _MaskAppearProgress: -1.0856843
+    - _MaskAppearProgress: -1.0772848
     - _MaskAppearRemapLocalY: 0.5
     - _MaskAppearSubtract: 0.25
     - _MaskAppearUseWorldPosition: 0

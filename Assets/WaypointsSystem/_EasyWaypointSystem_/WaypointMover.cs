@@ -349,7 +349,7 @@ public class WaypointMover : MonoBehaviour
 				transform.position = targetPosition;
 
             //Debug.Log("Prev: " + previousWaypoint + " Cur: " + currentWaypoint);
-            if (currentWaypoint == -1) currentWaypoint++;
+            //if (currentWaypoint == -1) currentWaypoint++;
 
             float value = Vector3.Distance(waypointsHolder.waypoints[previousWaypoint].gameObject.transform.position, waypointsHolder.waypoints[currentWaypoint].gameObject.transform.position);  
 			value = Vector3.Distance(transform.position, targetPosition) / value;  

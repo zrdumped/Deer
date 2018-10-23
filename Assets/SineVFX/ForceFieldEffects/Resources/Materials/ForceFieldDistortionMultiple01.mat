@@ -81,7 +81,7 @@ Material:
     - _MaskAppearLocalYRemap: 0.5
     - _MaskAppearNoiseTriplanar: 0
     - _MaskAppearNoiseTriplanarTiling: 0.1
-    - _MaskAppearProgress: -0.53791744
+    - _MaskAppearProgress: -0.5409136
     - _MaskDepthFadeDistance: 12
     - _MaskDepthFadeExp: 2
     - _MaskFresnelExp: 0.2

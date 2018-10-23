@@ -13,12 +13,15 @@ public class Pattern : MonoBehaviour {
     public int intermissionLength = 2;   //multiple of pitch length
     public int changeFrames = 20; 
     public PitchType[] pattern;
+    public bool onShow = false;
+    public Key keyController;
+    [Header("Debug")]
+    public bool matchResult = true;
 
 
     private int pitchID = 0;
     private int patternLength;
     private float[] patternScale = new float[5];
-    public bool onShow = false;
     private float scaleChangeStep = 0;
     private int changedFrame = 0;
 
@@ -54,6 +57,12 @@ public class Pattern : MonoBehaviour {
         return "Press 'E' to Display";
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            matchResult = !matchResult;
+    }
+
     void FixedUpdate()
     {
         if (scaleChangeStep != 0 && onShow)
@@ -72,6 +81,25 @@ public class Pattern : MonoBehaviour {
     IEnumerator showHint() {
         while (true)
         {
+            if(pitchID > 0 || pitchID == -intermissionLength)
+            {
+                //get match result, replaced by matchResult temporarily
+                int waitSeconds;
+                if (matchResult)
+                    waitSeconds = keyController.MatchSucceed();
+                else
+                {
+                    waitSeconds = keyController.MatchFail();
+                    pitchID = -1;
+                }
+                yield return new WaitForSeconds(waitSeconds);
+            }
+
+            if(pitchID == -intermissionLength)
+            {
+                keyController.activate();
+            }
+
             float targetScale;
             if (pitchID >= 0)
             {
@@ -85,7 +113,7 @@ public class Pattern : MonoBehaviour {
             }
             //SetTargetScale(targetScale);
             scaleChangeStep = (targetScale - this.transform.localScale.x) / (float)changeFrames;
-            Debug.Log(scaleChangeStep);
+            //Debug.Log(scaleChangeStep);
             pitchID++;
             if (pitchID == pattern.Length)
                 pitchID = -intermissionLength;

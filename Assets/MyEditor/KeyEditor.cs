@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
-[CustomEditor(typeof(Pattern))]
+//[CustomEditor(typeof(Pattern))]
 public class NewBehaviourScript2 : Editor
 {
     private SerializedObject key;
