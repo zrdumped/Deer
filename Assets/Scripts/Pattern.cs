@@ -109,19 +109,21 @@ public class Pattern : MonoBehaviour {
     IEnumerator showHint() {
         while (true)
         {
-            if(pitchID >= 0)
+            if(pitchID > 0)
             {
                 //get match result, replaced by matchResult temporarily
                 int waitSeconds;
 				switch (matchResult) {
 					case KeyMatchStatus.SUCCESS:
-						hitCount++;
+						//hitCount++;
+						if(pitchLength == pattern.Length - 1)
+							pitchID = -intermissionLength;
 						waitSeconds = keyController.MatchSucceed();
 						break;
 					case KeyMatchStatus.FAILURE:
 						waitSeconds = keyController.MatchFail();
 						pitchID = -1;
-						hitCount = 0;
+						//hitCount = 0;
 						break;
 					default:
 						waitSeconds = 0;
@@ -132,15 +134,22 @@ public class Pattern : MonoBehaviour {
                 yield return new WaitForSeconds(waitSeconds);
             }
 			Debug.Log(hitCount + ";" + pattern.Length);
-            if(hitCount == pattern.Length)
+            /*if(hitCount == pattern.Length)
             {
                 keyController.activate();
-            }
+            }*/
+			if (pitchID == -intermissionLength)
+			{
+				keyController.activate();
+			}
             float targetScale;
 			pitchID++;
-			if (pitchID == pattern.Length) {
+			/*if (pitchID == pattern.Length) {
 				pitchID -= pattern.Length;
 				hitCount = 0;
+			}*/
+			if (pitchLength == pattern.Length) { 
+				pitchID = -intermissionLength;
 			}
             if (pitchID >= 0)
             {
