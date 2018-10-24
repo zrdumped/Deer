@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pattern : MonoBehaviour {
+
+
     public enum PitchType { Ultralow, Low, Medium, High, Ultrahigh};
     [Header("Pattern Control")]
     public float minScale = 1;
@@ -14,14 +16,10 @@ public class Pattern : MonoBehaviour {
     public bool onShow = false;
     public Key keyController;
     [Header("Debug")]
-	public KeyMatchStatus matchResult = KeyMatchStatus.IGNORED;
+    public bool matchResult = true;
 
-	[Header("character")]
-	public GameObject character = null;
 
-	private KeyMatcher matcher = new KeyMatcher();
-    private int pitchID = -1;
-	private int hitCount = 0;
+    private int pitchID = 0;
     private int patternLength;
     private float[] patternScale = new float[5];
     private float scaleChangeStep = 0;
@@ -36,8 +34,7 @@ public class Pattern : MonoBehaviour {
         patternScale[2] = minScale + step * 2;
         patternScale[3] = minScale + step * 3;
         patternScale[4] = maxScale;
-		this.transform.localScale = new Vector3(0, 0, 0);
-		matcher.maxMatchTime = pitchLength * 100;
+        this.transform.localScale = new Vector3(0, 0, 0);
     }
 
     public string StartHint()
@@ -62,17 +59,8 @@ public class Pattern : MonoBehaviour {
 
     private void Update()
     {
-		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			if (matchResult == KeyMatchStatus.SUCCESS)
-			{
-				matchResult = KeyMatchStatus.FAILURE;
-			}
-			else 
-			{
-				matchResult = KeyMatchStatus.SUCCESS;
-			}
-		}
-           
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            matchResult = !matchResult;
     }
 
     void FixedUpdate()
@@ -87,75 +75,35 @@ public class Pattern : MonoBehaviour {
                 changedFrame = 0;
             }
         }
-		if (character && matcher.active && pitchID >= 0)
-		{
-			KeyMatchStatus result = matcher.TestMatch(character.GetComponent<Character>().getLightBallScale(), GetComponentInChildren<Pattern>().transform.localScale.x);
-			switch (result)
-			{
-				case KeyMatchStatus.FAILURE:
-				case KeyMatchStatus.SUCCESS:
-					matchResult = result;
-					matcher.ReSet();
-					break;
-			}
-		}
     }
-
-	public int GetCurrentPitchId() {
-		return pitchID;
-	}
 
     // Update is called once per frame
     IEnumerator showHint() {
         while (true)
         {
-            if(pitchID > 0)
+            if(pitchID > 0 || pitchID == -intermissionLength)
             {
                 //get match result, replaced by matchResult temporarily
                 int waitSeconds;
-				switch (matchResult) {
-					case KeyMatchStatus.SUCCESS:
-						//hitCount++;
-						if(pitchLength == pattern.Length - 1)
-							pitchID = -intermissionLength;
-						waitSeconds = keyController.MatchSucceed();
-						break;
-					case KeyMatchStatus.FAILURE:
-						waitSeconds = keyController.MatchFail();
-						pitchID = -1;
-						//hitCount = 0;
-						break;
-					default:
-						waitSeconds = 0;
-						break;
-				}
-				matcher.ReSet();
-				matcher.active = false;
+                if (matchResult)
+                    waitSeconds = keyController.MatchSucceed();
+                else
+                {
+                    waitSeconds = keyController.MatchFail();
+                    pitchID = -1;
+                }
                 yield return new WaitForSeconds(waitSeconds);
             }
-			Debug.Log(hitCount + ";" + pattern.Length);
-            /*if(hitCount == pattern.Length)
+
+            if(pitchID == -intermissionLength)
             {
                 keyController.activate();
-            }*/
-			if (pitchID == -intermissionLength)
-			{
-				keyController.activate();
-			}
+            }
+
             float targetScale;
-			pitchID++;
-			/*if (pitchID == pattern.Length) {
-				pitchID -= pattern.Length;
-				hitCount = 0;
-			}*/
-			if (pitchLength == pattern.Length) { 
-				pitchID = -intermissionLength;
-			}
             if (pitchID >= 0)
             {
                 targetScale = patternScale[(int)pattern[pitchID]];
-				matcher.ReSet();
-				matcher.active = true;
                 //this.transform.localScale = new Vector3(curScale, curScale, curScale);
             }
             else
@@ -166,6 +114,9 @@ public class Pattern : MonoBehaviour {
             //SetTargetScale(targetScale);
             scaleChangeStep = (targetScale - this.transform.localScale.x) / (float)changeFrames;
             //Debug.Log(scaleChangeStep);
+            pitchID++;
+            if (pitchID == pattern.Length)
+                pitchID = -intermissionLength;
             yield return new WaitForSeconds(pitchLength);
         }
     }
