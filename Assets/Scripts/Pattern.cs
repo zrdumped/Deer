@@ -16,17 +16,24 @@ public class Pattern : MonoBehaviour {
     public bool onShow = false;
     public Key keyController;
     [Header("Debug")]
-    public bool matchResult = true;
+    public KeyMatcher.KeyMatchStatus forceMatchResult = KeyMatcher.KeyMatchStatus.IGNORED;
+    //public Character cha;
 
-
+    private KeyMatcher matcher;
+    private KeyMatcher.KeyMatchStatus matchResult = KeyMatcher.KeyMatchStatus.IGNORED;
     private int pitchID = 0;
-    private int patternLength;
+    private int patternLength = 0;
     private float[] patternScale = new float[5];
     private float scaleChangeStep = 0;
     private int changedFrame = 0;
+    private KeyMatcher.KeyMatchStatus wholeResult;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+    }
+
+    public void OnEnable()
+    {
         patternLength = pattern.Length;
         float step = (maxScale - minScale) / 4.0f;
         patternScale[0] = minScale;
@@ -35,17 +42,17 @@ public class Pattern : MonoBehaviour {
         patternScale[3] = minScale + step * 3;
         patternScale[4] = maxScale;
         this.transform.localScale = new Vector3(0, 0, 0);
-    }
 
-    public string StartHint()
-    {
+        matcher = this.GetComponent<KeyMatcher>();
+        matcher.enabled = false;
+
         StartCoroutine("showHint");
         onShow = true;
         //Debug.Log("Start");
-        return "Press 'E' to Stop";
+        //return "Press 'E' to Stop";
     }
 
-    public string StopHint()
+    public void OnDisable()
     {
         StopCoroutine("showHint");
         onShow = false;
@@ -54,13 +61,17 @@ public class Pattern : MonoBehaviour {
         scaleChangeStep = 0;
         changedFrame = 0;
         //Debug.Log("Stop");
-        return "Press 'E' to Display";
+        //return "Press 'E' to Display";
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha2))
-            matchResult = !matchResult;
+            forceMatchResult = KeyMatcher.KeyMatchStatus.SUCCESS;
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+            forceMatchResult = KeyMatcher.KeyMatchStatus.FAILURE;
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+            forceMatchResult = KeyMatcher.KeyMatchStatus.IGNORED;
     }
 
     void FixedUpdate()
@@ -73,32 +84,43 @@ public class Pattern : MonoBehaviour {
             {
                 scaleChangeStep = 0;
                 changedFrame = 0;
+                matcher.enabled = true;
+                Debug.Log("Start Listening");
             }
         }
     }
-
-    // Update is called once per frame
+    
     IEnumerator showHint() {
         while (true)
         {
-            if(pitchID > 0 || pitchID == -intermissionLength)
+            if (pitchID == 0)
+                keyController.MatchReset();
+            if (pitchID > 0 || pitchID == -intermissionLength)
             {
                 //get match result, replaced by matchResult temporarily
-                int waitSeconds;
-                if (matchResult)
-                    waitSeconds = keyController.MatchSucceed();
+                if (forceMatchResult != KeyMatcher.KeyMatchStatus.IGNORED)
+                {
+                    matchResult = forceMatchResult;
+                }
                 else
                 {
-                    waitSeconds = keyController.MatchFail();
+                    matchResult = matcher.TestMatch();
+                    matcher.enabled = false;
+                    Debug.Log("Stop Listening");
+                }
+
+                if (matchResult == KeyMatcher.KeyMatchStatus.SUCCESS)
+                    keyController.MatchSucceed();
+                else if (matchResult == KeyMatcher.KeyMatchStatus.FAILURE)
+                {
+                    keyController.MatchFail();
                     pitchID = -1;
                 }
-                yield return new WaitForSeconds(waitSeconds);
+                yield return new WaitForSeconds(keyController.DestroySeconds);
             }
 
-            if(pitchID == -intermissionLength)
-            {
-                keyController.activate();
-            }
+            if (pitchID == -intermissionLength)
+                keyController.testAllMatch();
 
             float targetScale;
             if (pitchID >= 0)
@@ -116,7 +138,9 @@ public class Pattern : MonoBehaviour {
             //Debug.Log(scaleChangeStep);
             pitchID++;
             if (pitchID == pattern.Length)
+            {
                 pitchID = -intermissionLength;
+            }
             yield return new WaitForSeconds(pitchLength);
         }
     }

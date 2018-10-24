@@ -2,61 +2,63 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyMatcher
-{
+public class KeyMatcher : MonoBehaviour {
 	public float missRange = 100;
 	public int matchScoreRate = 2;
-	public int totalScore;
-	public int maxMatchTime = 100;
-	public int matchTimeStep = 2;
 	public int currentMatchTime;
 	public int passScore = 120;
-	public int ignoreScore;
-	public bool active = true;
-	public void ReSet() {
-		totalScore = 0;
-		ignoreScore = 0;
-		currentMatchTime = 0;
-	}
+    public enum KeyMatchStatus { SUCCESS, FAILURE, IGNORED};
+    private Character character;
+    //public bool active = true;
 
-	public KeyMatchStatus TestMatch(float key, float standardKey)
-	{
-		if (!active)
-			return KeyMatchStatus.INPROGRESS;
-		if (key == 0){
-			ignoreScore += matchScoreRate;
-		}
-		else{
-			bool match = (Mathf.Abs(key - standardKey) < missRange) ? true : false;
-			//Debug.Log(key + "," + standardKey);
-			if (match)
-			{
-				totalScore += matchScoreRate;
-			}
-		}
-		currentMatchTime += matchTimeStep;
-		if (currentMatchTime >= maxMatchTime) {
-			if (totalScore >= passScore){
+    private float standardKey;
+    private int totalScore;
+    private int ignoreScore;
 
-				Debug.Log("SUCCESS" + totalScore);
-				ReSet();
-				return KeyMatchStatus.SUCCESS;
-			}
-			else if(ignoreScore >= passScore){
+    public void Start()
+    {
+        character = GameObject.Find("Character").GetComponent<Character>();
+    }
 
-				ReSet();
-				return KeyMatchStatus.IGNORED;
-			}
-			else {
-				ReSet();
-				return KeyMatchStatus.FAILURE;
-			}
-		}
-		return KeyMatchStatus.INPROGRESS;
-	}
+    public void OnEnable()
+    {
+        standardKey = this.transform.localScale.x;
+        totalScore = 0;
+        ignoreScore = 0;
+    }
 
-}
+    public void Update()
+    {
+        float key = character.getLightBallScale();
+        if (key == 0)
+        {
+            ignoreScore += matchScoreRate;
+        }
+        else
+        {
+            bool match = (Mathf.Abs(key - standardKey) < missRange) ? true : false;
+            //Debug.Log(key + "," + standardKey);
+            if (match)
+            {
+                totalScore += matchScoreRate;
+            }
+        }
+    }
 
-public enum KeyMatchStatus { 
-	SUCCESS, FAILURE, INPROGRESS, IGNORED
+    public KeyMatchStatus TestMatch()
+    {
+        if (totalScore >= passScore)
+        {
+            Debug.Log("SUCCESS" + totalScore);
+            return KeyMatchStatus.SUCCESS;
+        }
+        else if (ignoreScore >= passScore)
+        {
+            return KeyMatchStatus.IGNORED;
+        }
+        else
+        {
+            return KeyMatchStatus.FAILURE;
+        }
+    }
 }

@@ -16,17 +16,20 @@ public class Key : MonoBehaviour
 	//the vfxs shown after single matching
 	public GameObject AlertBall;
 	public GameObject ConfirmBall;
-	public int DestroySceonds = 1;
+	public int DestroySeconds = 1;
 	[Header("Light Up Settings")]
 	public Light[] Lights;
 	public float initEmissionScale = 1;
 	public Material LightMaterial;
 	public int OnLitFrames = 200;
 
+
 	private float[] lightRangeSteps, lightIntensitySteps;
 	private float lightEmissionScaleStep;
 	private int curOnLitFrame;
 	private KeyStatus status = KeyStatus.Inactive;
+    private int curMatchNum = 0;
+    private int targetMatchNum;
 
 	// Use this for initialization
 	void Start()
@@ -49,7 +52,7 @@ public class Key : MonoBehaviour
 			id++;
 		}
 		curOnLitFrame = OnLitFrames;
-	}
+    }
 
 	// Update is called once per frame
 	void FixedUpdate()
@@ -73,20 +76,24 @@ public class Key : MonoBehaviour
 	{
 		if (status == KeyStatus.Inactive)
 		{
-			InactiveBall.GetComponent<ParticleSystem>().Stop(true);
-			this.GetComponentInChildren<Pattern>().StartHint();
-			//walk on stage and disable moving
-			status = KeyStatus.OnShow;
-			GetComponentInChildren<Pattern>().character = GetComponent<InputListener>().character;
+			InactiveBall.SetActive(false);
+            HintBall.SetActive(true);
+            this.GetComponentInChildren<Pattern>().enabled = true;
+            targetMatchNum = this.GetComponentInChildren<Pattern>().pattern.Length;
+            //walk on stage and disable moving
+            status = KeyStatus.OnShow;
+			//GetComponentInChildren<Pattern>().character = GetComponent<InputListener>().character;
 			return "Press E to stop. Match the spheres with your voice";
 		}
 		else if (status == KeyStatus.OnShow)
 		{
-			InactiveBall.GetComponent<ParticleSystem>().Play(true);
-			this.GetComponentInChildren<Pattern>().StopHint();
+            HintBall.SetActive(false);
+            InactiveBall.SetActive(true);
+            //InactiveBall.GetComponent<ParticleSystem>().Play(true);
+            //this.GetComponentInChildren<Pattern>().enabled = false;
 			//walk off stage and enable moving
 			status = KeyStatus.Inactive;
-			GetComponentInChildren<Pattern>().character = null;
+			//GetComponentInChildren<Pattern>().character = null;
 			return "Press E to dispaly.";
 		}
 		else
@@ -95,21 +102,24 @@ public class Key : MonoBehaviour
 		}
 	}
 
-	public string activate()
+	public void activate()
 	{
 		Debug.Log("called activated");
-		this.GetComponentInChildren<Pattern>().StopHint();
-		status = KeyStatus.Active;
-		ActiveBall.GetComponent<ParticleSystem>().Play(true);
-		curOnLitFrame = 0;
+		this.GetComponentInChildren<Pattern>().enabled = false;
+        HintBall.SetActive(false);
+        status = KeyStatus.Active;
+        //ActiveBall.GetComponent<ParticleSystem>().Play(true);
+        ActiveBall.SetActive(true);
+        curOnLitFrame = 0;
 		foreach (Light light in Lights)
 		{
 			light.GetComponent<Light>().enabled = true;
 		}
-		return "Activated";
-	}
+        GameObject.Find("HintMessage").GetComponent<Text>().text = "Activated";
+        //return "Activated";
+    }
 
-	public int MatchSucceed()
+	public void MatchSucceed()
 	{
 		GameObject tmp_ConfirmBall = Instantiate(ConfirmBall, this.transform);
 		tmp_ConfirmBall.transform.position = HintBall.transform.position;
@@ -117,11 +127,13 @@ public class Key : MonoBehaviour
 		//HintBall.transform.localScale = new Vector3(0, 0, 0);
 		//Debug.Log("haha");
 		tmp_ConfirmBall.SetActive(true);
-		StartCoroutine(WaitAndDestroy(tmp_ConfirmBall, DestroySceonds));
-		return DestroySceonds;
+		StartCoroutine(WaitAndDestroy(tmp_ConfirmBall, DestroySeconds));
+        curMatchNum ++;
+
+        return;
 	}
 
-	public int MatchFail()
+	public void MatchFail()
 	{
 		GameObject tmp_ConfirmBall = Instantiate(AlertBall, this.transform);
 		tmp_ConfirmBall.transform.position = HintBall.transform.position;
@@ -129,9 +141,17 @@ public class Key : MonoBehaviour
 		//HintBall.transform.localScale = new Vector3(0, 0, 0);
 		//Debug.Log("haha");
 		tmp_ConfirmBall.SetActive(true);
-		StartCoroutine(WaitAndDestroy(tmp_ConfirmBall, DestroySceonds, false));
-		return DestroySceonds;
+		StartCoroutine(WaitAndDestroy(tmp_ConfirmBall, DestroySeconds, false));
+		return;
 	}
+
+    public void testAllMatch()
+    {
+        if (curMatchNum == targetMatchNum)
+            activate();
+        else
+            GameObject.Find("HintMessage").GetComponent<Text>().text = "You have to match all the pitches to activate it";
+    }
 
 	IEnumerator WaitAndDestroy(GameObject obj, int time, bool match = true)
 	{
@@ -141,4 +161,9 @@ public class Key : MonoBehaviour
 			HintBall.transform.localScale = new Vector3(0, 0, 0);
 		Destroy(obj);
 	}
+
+    public void MatchReset()
+    {
+        curMatchNum = 0;
+    }
 }
