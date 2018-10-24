@@ -18,14 +18,14 @@ public class Key : MonoBehaviour
 	public GameObject ConfirmBall;
 	public int DestroySeconds = 1;
 	[Header("Light Up Settings")]
-	public Light[] Lights;
-	public float initEmissionScale = 1;
-	public Material LightMaterial;
+	public GameObject[] Lights;
+	//public float initEmissionScale = 1;
+    public Material noLightMaterial;
 	public int OnLitFrames = 200;
 
-
-	private float[] lightRangeSteps, lightIntensitySteps;
-	private float lightEmissionScaleStep;
+    private ArrayList onLightMaterial;
+    private float[] lightRangeSteps, lightIntensitySteps;
+	//private float lightEmissionScaleStep;
 	private int curOnLitFrame;
 	private KeyStatus status = KeyStatus.Inactive;
     private int curMatchNum = 0;
@@ -38,18 +38,29 @@ public class Key : MonoBehaviour
 		ActiveBall.GetComponent<ParticleSystem>().Stop(true);
 		lightRangeSteps = new float[Lights.Length];
 		lightIntensitySteps = new float[Lights.Length];
-		lightEmissionScaleStep = initEmissionScale / (float)OnLitFrames;
-		//Debug.Log(lightEmissionScaleStep);
-		LightMaterial.SetFloat("_EMISSION", 0);
-		int id = 0;
-		foreach (Light light in Lights)
+        onLightMaterial = new ArrayList();
+        //lightEmissionScaleStep = initEmissionScale / (float)OnLitFrames;
+        //Debug.Log(lightEmissionScaleStep);
+        //LightMaterial.SetFloat("_EMISSION", 0);
+        int id = 0;
+		foreach (GameObject lightObj in Lights)
 		{
-			lightRangeSteps[id] = light.GetComponent<Light>().range / (float)OnLitFrames;
+            Light light = lightObj.GetComponentInChildren<Light>();
+            lightRangeSteps[id] = light.GetComponent<Light>().range / (float)OnLitFrames;
 			light.GetComponent<Light>().range = 0;
 			lightIntensitySteps[id] = light.GetComponent<Light>().intensity / (float)OnLitFrames;
 			light.GetComponent<Light>().intensity = 0;
 			light.GetComponent<Light>().enabled = false;
-			id++;
+
+            Renderer[] srcRenderers = lightObj.GetComponentsInChildren<Renderer>();
+            onLightMaterial.Add(srcRenderers.Clone());
+            foreach (Renderer render in srcRenderers)
+            {
+                for (int i = 0; i < render.materials.Length; i++)
+                    foreach (Material material in render.materials)
+                        render.materials[i] = noLightMaterial;
+            }
+            id++;
 		}
 		curOnLitFrame = OnLitFrames;
     }
@@ -61,13 +72,25 @@ public class Key : MonoBehaviour
 		{
 			curOnLitFrame++;
 			int id = 0;
-			LightMaterial.SetFloat("_EMISSION", LightMaterial.GetFloat("_EMISSION") + lightEmissionScaleStep);
-			foreach (Light light in Lights)
-			{
-				//light.GetComponent<Light>().enabled = false;
-				light.GetComponent<Light>().range += lightRangeSteps[id];
+            //LightMaterial.SetFloat("_EMISSION", LightMaterial.GetFloat("_EMISSION") + lightEmissionScaleStep);
+            foreach (GameObject lightObj in Lights)
+            {
+                Light light = lightObj.GetComponentInChildren<Light>();
+                //light.GetComponent<Light>().enabled = false;
+                light.GetComponent<Light>().range += lightRangeSteps[id];
 				light.GetComponent<Light>().intensity += lightIntensitySteps[id];
-				id++;
+
+                Renderer[] srcRenderers = (Renderer[])onLightMaterial[id];
+                Renderer[] curRenderers = lightObj.GetComponentsInChildren<Renderer>();
+                foreach (Renderer render in curRenderers)
+                {
+                    for (int i = 0; i < render.materials.Length; i++)
+                        foreach (Material material in render.materials)
+                            render.materials[i] = noLightMaterial;
+                }
+
+
+                id++;
 			}
 		}
 	}
@@ -111,11 +134,13 @@ public class Key : MonoBehaviour
         //ActiveBall.GetComponent<ParticleSystem>().Play(true);
         ActiveBall.SetActive(true);
         curOnLitFrame = 0;
-		foreach (Light light in Lights)
-		{
-			light.GetComponent<Light>().enabled = true;
+        foreach (GameObject lightObj in Lights)
+        {
+            Light light = lightObj.GetComponentInChildren<Light>();
+            light.GetComponent<Light>().enabled = true;
 		}
         GameObject.Find("HintMessage").GetComponent<Text>().text = "Activated";
+        this.GetComponent<KeyCharacterController>().LeaveKey();
         //return "Activated";
     }
 
@@ -165,5 +190,10 @@ public class Key : MonoBehaviour
     public void MatchReset()
     {
         curMatchNum = 0;
+    }
+
+    public KeyStatus GetKeyStatus()
+    {
+        return status;
     }
 }

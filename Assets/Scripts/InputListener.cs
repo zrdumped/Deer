@@ -33,14 +33,14 @@ public class InputListener : MonoBehaviour {
             GameObject.Find("HintMessage").GetComponent<Text>().text = messageOnTrigger;
         }
         //Debug
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (this.GetComponent<Key>() != null)
-            {
-                messageOnTrigger = this.GetComponent<Key>().activate();
-            }
-            GameObject.Find("HintMessage").GetComponent<Text>().text = messageOnTrigger;
-        }
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    if (this.GetComponent<Key>() != null)
+        //    {
+        //        messageOnTrigger = this.GetComponent<Key>().activate();
+        //    }
+        //    GameObject.Find("HintMessage").GetComponent<Text>().text = messageOnTrigger;
+        //}
     }
 
 
@@ -50,6 +50,8 @@ public class InputListener : MonoBehaviour {
             return;
         active = true;
 		this.character = other.gameObject;
+        if (this.GetComponent<Key>() != null && this.GetComponent<Key>().GetKeyStatus() != Key.KeyStatus.Active)
+            messageOnActive = "";
         GameObject.Find("HintMessage").GetComponent<Text>().text = messageOnActive;
     }
 

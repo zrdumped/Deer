@@ -290,13 +290,14 @@ GameObject:
   - component: {fileID: 4366841270009464}
   - component: {fileID: 114720944937431148}
   - component: {fileID: 114350958579436164}
+  - component: {fileID: 114962750855191332}
   m_Layer: 0
   m_Name: HintsBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1889602173277078
 GameObject:
   m_ObjectHideFlags: 1
@@ -368,7 +369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1951481417803490
 GameObject:
   m_ObjectHideFlags: 1
@@ -564,7 +565,7 @@ Transform:
   m_GameObject: {fileID: 1815414650485206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4531057227126246}
   - {fileID: 4129330516544180}
@@ -607,7 +608,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1766041108358678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.21, z: 10.82}
+  m_LocalPosition: {x: 0, y: 1.21, z: -9.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4123540498982302}
@@ -1017,7 +1018,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1815414650485206}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e8ae274f9994cb4f8c6e0dc524713c0, type: 3}
   m_Name: 
@@ -1030,7 +1031,7 @@ MonoBehaviour:
   pattern: 0000000004000000
   onShow: 0
   keyController: {fileID: 114946426020138422}
-  matchResult: 1
+  forceMatchResult: 0
 --- !u!114 &114388724747594566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1133,6 +1134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageOnActive: Press 'E' to display
   triggerKey: 101
+  character: {fileID: 0}
 --- !u!114 &114932629316369720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1162,13 +1164,30 @@ MonoBehaviour:
   ActiveBall: {fileID: 1920756178961904}
   AlertBall: {fileID: 1105374775864240}
   ConfirmBall: {fileID: 1070592318065474}
-  DestroySceonds: 1
+  DestroySeconds: 1
   Lights:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  initEmissionScale: 1
+  LightMaterial: {fileID: 2100000, guid: d4030262dd494c44ebbbaaf0e589201c, type: 2}
   OnLitFrames: 200
+--- !u!114 &114962750855191332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1815414650485206}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5742506aa00240e19c033c5cd6ac946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missRange: 100
+  matchScoreRate: 2
+  currentMatchTime: 0
+  passScore: 120
 --- !u!114 &114963900579995860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1307,7 +1326,7 @@ ParticleSystem:
   stopAction: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -5759,7 +5778,7 @@ ParticleSystem:
   stopAction: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -10211,7 +10230,7 @@ ParticleSystem:
   stopAction: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -14663,7 +14682,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -23729,7 +23748,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -28262,7 +28281,7 @@ ParticleSystem:
   stopAction: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -41780,7 +41799,7 @@ ParticleSystem:
   stopAction: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -46286,7 +46305,7 @@ ParticleSystem:
   stopAction: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -50729,7 +50748,7 @@ ParticleSystem:
   stopAction: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

@@ -59,7 +59,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EMISSION: 0
+    - _EMISSION: 1
     - _EmissionScaleUI: 0
     - _Glossiness: 0.5
     - _Metallic: 0

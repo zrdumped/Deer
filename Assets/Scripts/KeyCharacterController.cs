@@ -54,7 +54,7 @@ public class KeyCharacterController : MonoBehaviour {
             PlayTimeline();
         }
         if(Input.GetKeyDown(KeyCode.E)) {
-            GotoKey();
+            attracting = !attracting;
         }
         
 
@@ -71,6 +71,11 @@ public class KeyCharacterController : MonoBehaviour {
 
     public void GotoKey() {
         attracting = true;
+    }
+
+    public void LeaveKey()
+    {
+        attracting = false;
     }
 
     public void PlayTimeline() {
