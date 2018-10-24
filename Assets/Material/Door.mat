@@ -74,7 +74,7 @@ Material:
     - _ReflectionAmount: 0.757
     - _Reflectivity: 0.551
     - _Roughness: 0.228
-    - _Smoothness: 1
+    - _Smoothness: 0.13
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1

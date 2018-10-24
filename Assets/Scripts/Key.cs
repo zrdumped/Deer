@@ -46,23 +46,49 @@ public class Key : MonoBehaviour
 		foreach (GameObject lightObj in Lights)
 		{
             Light light = lightObj.GetComponentInChildren<Light>();
-            lightRangeSteps[id] = light.GetComponent<Light>().range / (float)OnLitFrames;
-			light.GetComponent<Light>().range = 0;
-			lightIntensitySteps[id] = light.GetComponent<Light>().intensity / (float)OnLitFrames;
-			light.GetComponent<Light>().intensity = 0;
-			light.GetComponent<Light>().enabled = false;
-
+            lightRangeSteps[id] = light.range / (float)OnLitFrames;
+            light.range = 0;
+			lightIntensitySteps[id] = light.intensity / (float)OnLitFrames;
+            light.intensity = 0;
+            light.enabled = false;
+            
             Renderer[] srcRenderers = lightObj.GetComponentsInChildren<Renderer>();
-            onLightMaterial.Add(srcRenderers.Clone());
+            //Debug.Log(srcRenderers[0].materials[0].name);
+            //Debug.Log(srcRenderers[0].materials[1].name);
             foreach (Renderer render in srcRenderers)
             {
+                onLightMaterial.Add(render.materials.Clone());
+                Material[] noLightMs = new Material[render.materials.Length];
                 for (int i = 0; i < render.materials.Length; i++)
-                    foreach (Material material in render.materials)
-                        render.materials[i] = noLightMaterial;
+                    noLightMs[i] = noLightMaterial;
+                render.materials = noLightMs;
             }
+            //Debug.Log(srcRenderers[0].materials[0].name);
+            //Debug.Log(srcRenderers[0].materials[1].name);
             id++;
 		}
 		curOnLitFrame = OnLitFrames;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            int id = 0;
+            foreach (GameObject lightObj in Lights)
+            {
+                Renderer[] curRenderers = lightObj.GetComponentsInChildren<Renderer>();
+                for (int i = 0; i < curRenderers.Length; i++)
+                {
+                    Material[] srcRenderers = (Material[])onLightMaterial[id];
+                    curRenderers[i].materials = srcRenderers;
+                    //Debug.Log(srcRenderers[0].name);
+                    //Debug.Log(srcRenderers[1].name);
+                    id++;
+                }
+            }
+        }
+
     }
 
 	// Update is called once per frame
@@ -77,21 +103,11 @@ public class Key : MonoBehaviour
             {
                 Light light = lightObj.GetComponentInChildren<Light>();
                 //light.GetComponent<Light>().enabled = false;
-                light.GetComponent<Light>().range += lightRangeSteps[id];
-				light.GetComponent<Light>().intensity += lightIntensitySteps[id];
-
-                Renderer[] srcRenderers = (Renderer[])onLightMaterial[id];
-                Renderer[] curRenderers = lightObj.GetComponentsInChildren<Renderer>();
-                foreach (Renderer render in curRenderers)
-                {
-                    for (int i = 0; i < render.materials.Length; i++)
-                        foreach (Material material in render.materials)
-                            render.materials[i] = noLightMaterial;
-                }
-
+                light.range += lightRangeSteps[id];
+                light.intensity += lightIntensitySteps[id];
 
                 id++;
-			}
+            }
 		}
 	}
 
@@ -134,11 +150,20 @@ public class Key : MonoBehaviour
         //ActiveBall.GetComponent<ParticleSystem>().Play(true);
         ActiveBall.SetActive(true);
         curOnLitFrame = 0;
+        int id = 0;
         foreach (GameObject lightObj in Lights)
         {
-            Light light = lightObj.GetComponentInChildren<Light>();
-            light.GetComponent<Light>().enabled = true;
-		}
+            lightObj.GetComponentInChildren<Light>().enabled = true;
+            Renderer[] curRenderers = lightObj.GetComponentsInChildren<Renderer>();
+            for (int i = 0; i < curRenderers.Length; i++)
+            {
+                Material[] srcRenderers = (Material[])onLightMaterial[id];
+                curRenderers[i].materials = srcRenderers;
+                //Debug.Log(srcRenderers[0].name);
+                //Debug.Log(srcRenderers[1].name);
+                id++;
+            }
+        }
         GameObject.Find("HintMessage").GetComponent<Text>().text = "Activated";
         this.GetComponent<KeyCharacterController>().LeaveKey();
         //return "Activated";

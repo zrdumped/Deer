@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29212883, g: 0.35885867, b: 0.43786523, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -2093,6 +2093,10 @@ Prefab:
       propertyPath: m_TagString
       value: MainCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 1527407396678654, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
   m_IsPrefabAsset: 0
@@ -3285,6 +3289,11 @@ Prefab:
       propertyPath: noLightShader
       value: 
       objectReference: {fileID: 2100000, guid: 892acda5c6b2b3b40bea063acf83ffbc, type: 2}
+    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: noLightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
   m_IsPrefabAsset: 0
@@ -8092,6 +8101,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2389158, guid: f79344db40de4094e8db6fc44eac12f6, type: 2}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 482564, guid: f79344db40de4094e8db6fc44eac12f6, type: 2}
       propertyPath: m_LocalPosition.x
       value: -5.91
@@ -8160,6 +8173,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2389158, guid: f79344db40de4094e8db6fc44eac12f6, type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4030262dd494c44ebbbaaf0e589201c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79344db40de4094e8db6fc44eac12f6, type: 2}
   m_IsPrefabAsset: 0
@@ -16080,27 +16097,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11464708, guid: f79344db40de4094e8db6fc44eac12f6, type: 2}
       propertyPath: minFlickerSpeed
-      value: .0199999996
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 11464708, guid: f79344db40de4094e8db6fc44eac12f6, type: 2}
       propertyPath: minLightIntensity
-      value: 1.85000002
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 11464708, guid: f79344db40de4094e8db6fc44eac12f6, type: 2}
       propertyPath: shiftAmount
-      value: .00200000009
+      value: 0.002
       objectReference: {fileID: 0}
     - target: {fileID: 446738, guid: f79344db40de4094e8db6fc44eac12f6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: .00130092772
+      value: 0.0013009277
       objectReference: {fileID: 0}
     - target: {fileID: 446738, guid: f79344db40de4094e8db6fc44eac12f6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .00115187466
+      value: 0.0011518747
       objectReference: {fileID: 0}
     - target: {fileID: 446738, guid: f79344db40de4094e8db6fc44eac12f6, type: 2}
       propertyPath: m_LocalPosition.z
-      value: .168607503
+      value: 0.1686075
       objectReference: {fileID: 0}
     - target: {fileID: 10863604, guid: f79344db40de4094e8db6fc44eac12f6, type: 2}
       propertyPath: m_Intensity
