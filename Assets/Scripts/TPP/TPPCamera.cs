@@ -207,9 +207,13 @@ public class TPPCamera : MonoBehaviour {
         bool CollisionDetectedAtClipPoints(Vector3[] clipPoints, Vector3 fromPosition) {
             for(int i = 0; i < clipPoints.Length; i++) {
                 Ray ray = new Ray(fromPosition, clipPoints[i] - fromPosition);
+                RaycastHit hit;
                 float distance = Vector3.Distance(clipPoints[i], fromPosition);
-                if(Physics.Raycast(ray, distance, collisionLayer)) {
-                    return true;
+                if(Physics.Raycast(ray, out hit, distance, collisionLayer)) {
+                    if (hit.collider.isTrigger)
+                        continue;
+                    else
+                        return true;
                 }
             }
             return false;
