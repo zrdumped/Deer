@@ -7,6 +7,7 @@ TagManager:
   - TPPCamera
   - Water
   - TppCharacter
+  - IntObjList
   layers:
   - Default
   - TransparentFX

@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+    public InteractiveObjManager interactMgr;
+
     private int curChap; // Which chapter 
     private int curScene; // Which scene of current chapter 
     private bool isPause = false;
     private string curSceneStr = "";
     private bool isRunning = true; // Whether the game has been paused
+    private InteractiveObjList interactiveObjList;
+    private GameObject character;
 
     private TPPCamera cameraController;
 
@@ -145,13 +149,31 @@ public class GameManager : MonoBehaviour {
         }
 
         if(SceneManager.GetSceneByName(sceneName).isLoaded) {
+            // Find main camera and TPPSystem when new scene has been loaded.
             GameObject mainCam = GameObject.FindWithTag("MainCamera");
             if(mainCam) {
                 cameraController = mainCam.GetComponent<TPPCamera>();
+                character = GameObject.FindWithTag("TppCharacter");
             }
             if(cameraController) {
                 Debug.Log("Find camera controller");
             }
+
+            // Set character into interactive object manager.
+            if(character) {
+                //interactMgr.
+            }
+
+            // Find Interacive Objects List whent new scene has been loaded.
+            GameObject intObjList = GameObject.FindWithTag("IntObjList");
+            if(intObjList) {
+                interactiveObjList = intObjList.GetComponent<InteractiveObjList>();
+            }
+            if(interactiveObjList) {
+                Debug.Log("Find interactive object list");
+                interactMgr.SetIntObjList(interactiveObjList);
+            }
+
         }
 
     }
@@ -159,6 +181,9 @@ public class GameManager : MonoBehaviour {
 
 
     public void Switch2Scene(int targetChap, int targetScene) {
+        if(interactMgr) {
+            interactMgr.StopLooping();
+        }
         string sceneName = "" + targetChap + "_" + targetScene;
         if(curSceneStr != "") {
             Unload(curSceneStr);
