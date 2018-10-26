@@ -58,6 +58,15 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Delete)) {
             ExitGame();
         }
+
+
+        if(character == null) {
+            character = GameObject.FindWithTag("TppCharacter");
+            // Set character into interactive object manager.
+            if(character) {
+                interactMgr.SetCharacter(character);
+            }
+        }
     }
 
     public void PauseGame() {
@@ -157,11 +166,6 @@ public class GameManager : MonoBehaviour {
             }
             if(cameraController) {
                 Debug.Log("Find camera controller");
-            }
-
-            // Set character into interactive object manager.
-            if(character) {
-                //interactMgr.
             }
 
             // Find Interacive Objects List whent new scene has been loaded.
