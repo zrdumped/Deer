@@ -7,14 +7,18 @@ public class InteractiveObj : MonoBehaviour {
     public List<string> textContents;
     public Material highlightMat;
     public Material normalMat;
+    public bool need3dUI = false;
+    public GameObject threeDUI;
+
+
 
     // flag to mark whether this object is within the interactive range.
     // 1 means near enough to interact, 0 means not.
-    private int status = 0;
+    public int status = 0;
 
 	// Use this for initialization
 	void Start () {
-		// TODO: Find UICanvas in BaseScene 
+		
 	}
 	
 	// Update is called once per frame
@@ -53,5 +57,15 @@ public class InteractiveObj : MonoBehaviour {
         }
     }
 
-    // TODO: Deal with 3dUI system
+    public void OnInteract() {
+        if(threeDUI && need3dUI == true) {
+            threeDUI.GetComponent<ThreeDUIView>().Activate();
+        }
+    }
+
+    public void AfterInteract() {
+        if(threeDUI && need3dUI == true) {
+            threeDUI.GetComponent<ThreeDUIView>().Deactivate();
+        }
+    }
 }

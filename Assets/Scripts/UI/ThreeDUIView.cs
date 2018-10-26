@@ -59,12 +59,12 @@ public class ThreeDUIView : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         // For test ONLY
-        if(Input.GetKeyDown(KeyCode.K)) {
-            Deactivate();
-        }
-        if(Input.GetKeyDown(KeyCode.J)) {
-            Activate();
-        }
+        //if(Input.GetKeyDown(KeyCode.K)) {
+        //    Deactivate();
+        //}
+        //if(Input.GetKeyDown(KeyCode.J)) {
+        //    Activate();
+        //}
 
 
         if(status == 2) {// activate

@@ -625,7 +625,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.812
+      value: -7.67
       objectReference: {fileID: 0}
     - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
       propertyPath: m_LocalPosition.y
@@ -633,15 +633,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 17.267
+      value: 17.698
       objectReference: {fileID: 0}
     - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
       propertyPath: m_LocalRotation.z
@@ -655,9 +655,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &238942272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1591425267032538, guid: 3933f2add6b94684b8a4fb55e4800d76,
+    type: 2}
+  m_PrefabInternal: {fileID: 238942271}
 --- !u!1001 &241406285
 Prefab:
   m_ObjectHideFlags: 0
@@ -6238,6 +6247,9 @@ MonoBehaviour:
   - Press "E" to Investigate
   highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
+  need3dUI: 1
+  threeDUI: {fileID: 238942272}
+  status: 0
 --- !u!1001 &664123569
 Prefab:
   m_ObjectHideFlags: 0
@@ -10493,7 +10505,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - {fileID: 656917077}
-  - {fileID: 1085084240}
 --- !u!1001 &1506128452
 Prefab:
   m_ObjectHideFlags: 0

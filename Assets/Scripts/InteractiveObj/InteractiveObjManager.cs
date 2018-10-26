@@ -8,6 +8,7 @@ public class InteractiveObjManager : MonoBehaviour {
     public Text hintText;
     public float highLightThreshod = 3;
     public float hintThreshod = 1.5f;
+    public KeyCode interactKey = KeyCode.E;
 
     private InteractiveObjList interactiveObjList;
     private int status = 0; // 0:Do Nothing; 1:Loop in the List per frame
@@ -55,6 +56,7 @@ public class InteractiveObjManager : MonoBehaviour {
                 }
                 else {
                     tmp.SetInteractive(false);
+                    tmp.AfterInteract();
                 }
             }
 
@@ -62,6 +64,18 @@ public class InteractiveObjManager : MonoBehaviour {
                 hintText.text = "";
             }
         }
+
+        if(Input.GetKeyDown(interactKey) && status == 1) {
+            foreach(var obj in interactiveObjList.list) {
+                InteractiveObj tmp1 = obj.GetComponent<InteractiveObj>();
+                if(tmp1.status == 1) {
+                    tmp1.OnInteract();
+                    break;
+                }
+            }
+        }
+
+
 	}
 
     public void StopLooping() {
