@@ -78,8 +78,15 @@ public class InteractiveObj : MonoBehaviour {
         }
     }
 
-    public void Trigger() {
-
+    public string Trigger() {
+        string messageOnTrigger = "";
+        if(listenerObj.GetComponent<Door>() != null) {
+            messageOnTrigger = listenerObj.GetComponent<Door>().TryOpen();
+        }
+        else if(listenerObj.GetComponent<Key>() != null) {
+            messageOnTrigger = listenerObj.GetComponent<Key>().TriggerShow();
+        }
+        return messageOnTrigger;
     }
 
     public bool isIntractive() {

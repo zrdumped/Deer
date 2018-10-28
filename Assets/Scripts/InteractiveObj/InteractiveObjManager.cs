@@ -71,7 +71,11 @@ public class InteractiveObjManager : MonoBehaviour {
             foreach(var obj in interactiveObjList.list) {
                 InteractiveObj tmp1 = obj.GetComponent<InteractiveObj>();
                 if(tmp1.status == 1) {
-                    tmp1.Trigger();
+                    string msgOnTrigger = tmp1.Trigger();
+                    if(msgOnTrigger != "") {
+                        // todo 两个 text 分开，给这个加计时
+                        hintText.text = msgOnTrigger;
+                    }
                     break;
                 }
             }
