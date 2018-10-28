@@ -50,7 +50,7 @@ public class InteractiveObjManager : MonoBehaviour {
                     if(tmp.need3dUI == true) {
                         tmp.threeDUI.GetComponent<ThreeDUIView>().Activate();
                     }
-                    else {
+                    if(tmp.needTextUI == true){
                         hintText.text = tmp.GetTextContent(0);
                     }
                     haveSomethingToShow++;
@@ -67,18 +67,18 @@ public class InteractiveObjManager : MonoBehaviour {
             }
         }
 
-        //if(Input.GetKeyDown(interactKey) && status == 1) {
-        //    foreach(var obj in interactiveObjList.list) {
-        //        InteractiveObj tmp1 = obj.GetComponent<InteractiveObj>();
-        //        if(tmp1.status == 1) {
-        //            tmp1.OnInteract();
-        //            break;
-        //        }
-        //    }
-        //}
+        if(Input.GetKeyDown(interactKey) && status == 1) {
+            foreach(var obj in interactiveObjList.list) {
+                InteractiveObj tmp1 = obj.GetComponent<InteractiveObj>();
+                if(tmp1.status == 1) {
+                    tmp1.Trigger();
+                    break;
+                }
+            }
+        }
 
 
-	}
+    }
 
     public void StopLooping() {
         status = 0;

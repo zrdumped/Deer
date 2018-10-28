@@ -8,8 +8,11 @@ public class InteractiveObj : MonoBehaviour {
     public Material highlightMat;
     public Material normalMat;
     public bool need3dUI = false;
+    public bool needTextUI = true;
     public GameObject threeDUI;
     public GameObject highlightPart;
+    // The object who will listen the instruction and do something.(usually with Key or Door scripts on it)
+    public GameObject listenerObj; 
 
 
 
@@ -61,16 +64,22 @@ public class InteractiveObj : MonoBehaviour {
         }
     }
 
+    // Obsolete
     public void OnInteract() {
         if(threeDUI && need3dUI == true) {
             threeDUI.GetComponent<ThreeDUIView>().Activate();
         }
     }
 
+    // Obsolete
     public void AfterInteract() {
         if(threeDUI && need3dUI == true) {
             threeDUI.GetComponent<ThreeDUIView>().Deactivate();
         }
+    }
+
+    public void Trigger() {
+
     }
 
     public bool isIntractive() {
