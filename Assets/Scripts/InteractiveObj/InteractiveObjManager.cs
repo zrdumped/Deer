@@ -29,8 +29,6 @@ public class InteractiveObjManager : MonoBehaviour {
 
                 InteractiveObj tmp = obj.GetComponent<InteractiveObj>();
 
-                //Debug.Log("Distance Between obj and character : " + Vector3.Distance(character.transform.position, obj.transform.position));
-
                 // Set material to normal or highlight according to distance.
                 if(Vector3.Distance(character.transform.position, obj.transform.position) < highLightThreshod) {
                     if(tmp) {
@@ -49,14 +47,18 @@ public class InteractiveObjManager : MonoBehaviour {
                 Vector3 direct = obj.transform.position - character.transform.position;
                 if(Vector3.Distance(character.transform.position, obj.transform.position) < hintThreshod
                     && Vector3.Dot(direct.normalized, character.transform.forward) > 0.5) {
-                    //Debug.Log(obj.name + "Set Text Content");
-                    hintText.text = tmp.GetTextContent(0);
+                    if(tmp.need3dUI == true) {
+                        tmp.threeDUI.GetComponent<ThreeDUIView>().Activate();
+                    }
+                    else {
+                        hintText.text = tmp.GetTextContent(0);
+                    }
                     haveSomethingToShow++;
                     tmp.SetInteractive(true);
                 }
                 else {
                     tmp.SetInteractive(false);
-                    tmp.AfterInteract();
+                    //tmp.AfterInteract();
                 }
             }
 
@@ -65,15 +67,15 @@ public class InteractiveObjManager : MonoBehaviour {
             }
         }
 
-        if(Input.GetKeyDown(interactKey) && status == 1) {
-            foreach(var obj in interactiveObjList.list) {
-                InteractiveObj tmp1 = obj.GetComponent<InteractiveObj>();
-                if(tmp1.status == 1) {
-                    tmp1.OnInteract();
-                    break;
-                }
-            }
-        }
+        //if(Input.GetKeyDown(interactKey) && status == 1) {
+        //    foreach(var obj in interactiveObjList.list) {
+        //        InteractiveObj tmp1 = obj.GetComponent<InteractiveObj>();
+        //        if(tmp1.status == 1) {
+        //            tmp1.OnInteract();
+        //            break;
+        //        }
+        //    }
+        //}
 
 
 	}

@@ -9,6 +9,7 @@ public class InteractiveObj : MonoBehaviour {
     public Material normalMat;
     public bool need3dUI = false;
     public GameObject threeDUI;
+    public GameObject highlightPart;
 
 
 
@@ -30,13 +31,13 @@ public class InteractiveObj : MonoBehaviour {
     // isHighlight == true --- use highlight mat; isHighlight == false --- use normal mat.
     public void SetHighlight(bool isHighlight) {
         if(isHighlight == true) {
-            if(highlightMat) {
-                gameObject.GetComponent<MeshRenderer>().material = highlightMat;
+            if(highlightMat && highlightPart) {
+                highlightPart.GetComponent<MeshRenderer>().material = highlightMat;
             }
         }
         else {
-            if(normalMat) {
-                gameObject.GetComponent<MeshRenderer>().material = normalMat;
+            if(normalMat && highlightPart) {
+                highlightPart.GetComponent<MeshRenderer>().material = normalMat;
             }
         }
     }
@@ -54,6 +55,9 @@ public class InteractiveObj : MonoBehaviour {
         }
         else {
             status = 0;
+            if(threeDUI && need3dUI == true) {
+                threeDUI.GetComponent<ThreeDUIView>().Deactivate();
+            }
         }
     }
 
@@ -66,6 +70,15 @@ public class InteractiveObj : MonoBehaviour {
     public void AfterInteract() {
         if(threeDUI && need3dUI == true) {
             threeDUI.GetComponent<ThreeDUIView>().Deactivate();
+        }
+    }
+
+    public bool isIntractive() {
+        if(status == 1) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
 }

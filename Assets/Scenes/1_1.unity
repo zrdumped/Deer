@@ -6249,6 +6249,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   threeDUI: {fileID: 238942272}
+  highlightPart: {fileID: 656917077}
   status: 0
 --- !u!1001 &664123569
 Prefab:
@@ -7581,6 +7582,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1085084241}
+  - component: {fileID: 1085084242}
   m_Layer: 1
   m_Name: AimTarget
   m_TagString: Untagged
@@ -7601,6 +7603,25 @@ Transform:
   m_Father: {fileID: 1501591044}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1085084242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1085084240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786c4d1a260e1ef4097c78e2a4df5b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textContents:
+  - Press "E" to Open
+  highlightMat: {fileID: 2100000, guid: 2fb21ecffc61ba745af1449a1977744c, type: 2}
+  normalMat: {fileID: 2100000, guid: 2fb21ecffc61ba745af1449a1977744c, type: 2}
+  need3dUI: 0
+  threeDUI: {fileID: 0}
+  highlightPart: {fileID: 1960889750}
+  status: 0
 --- !u!1 &1086109493 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1157187814101594, guid: e04ac5e137797944195baffc33dd7ab5,
@@ -10505,6 +10526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - {fileID: 656917077}
+  - {fileID: 1085084240}
 --- !u!1001 &1506128452
 Prefab:
   m_ObjectHideFlags: 0
@@ -11163,9 +11185,19 @@ Prefab:
       propertyPath: m_Name
       value: HomeA-DoorA
       objectReference: {fileID: 0}
+    - target: {fileID: 114202932563603016, guid: a766244018fa61045ba7bd9cf860ec85,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a766244018fa61045ba7bd9cf860ec85, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1960889750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1650001757868678, guid: a766244018fa61045ba7bd9cf860ec85,
+    type: 2}
+  m_PrefabInternal: {fileID: 1960889749}
 --- !u!1001 &2007183594
 Prefab:
   m_ObjectHideFlags: 0
