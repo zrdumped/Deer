@@ -4460,6 +4460,10 @@ Prefab:
 
         - #4 Jump to Scene 1_4'
       objectReference: {fileID: 0}
+    - target: {fileID: 1396992691451208, guid: 74e8a8d9032c799489a6e11da2f89239, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74e8a8d9032c799489a6e11da2f89239, type: 2}
   m_IsPrefabAsset: 0

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public AudioSource audioBGM;
     public AudioClip mainBGM;
     public AudioClip wakeUpBGM;
+    public MainPanelManager mainPanelMgr;
 
     private int curChap; // Which chapter 
     private int curScene; // Which scene of current chapter 
@@ -161,6 +162,19 @@ public class GameManager : MonoBehaviour {
         }
 
         if(SceneManager.GetSceneByName(sceneName).isLoaded) {
+            // Show the main panel if in main panel scene.
+            if(sceneName == "0_0") {
+                mainPanelMgr.Reset();
+                mainPanelMgr.ShowMainPanel();
+                Debug.Log("Reset and Pop Main Panel");
+            }
+            else {
+                // TODO: other scene: do some blur staff
+                mainPanelMgr.Reset();
+                Debug.Log("Reset no Pop Main Panel");
+            }
+
+
             // Find main camera and TPPSystem when new scene has been loaded.
             GameObject mainCam = GameObject.FindWithTag("MainCamera");
             if(mainCam) {
