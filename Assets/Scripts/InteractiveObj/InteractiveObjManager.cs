@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InteractiveObjManager : MonoBehaviour {
 
     public Text hintText;
+    public Text triggerText;
     public float highLightThreshod = 3;
     public float hintThreshod = 1.5f;
     public KeyCode interactKey = KeyCode.E;
@@ -13,6 +14,10 @@ public class InteractiveObjManager : MonoBehaviour {
     private InteractiveObjList interactiveObjList;
     private int status = 0; // 0:Do Nothing; 1:Loop in the List per frame
     private GameObject character;
+
+    // params need for counting down
+    private bool startCount = false;
+    private float count = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -73,11 +78,22 @@ public class InteractiveObjManager : MonoBehaviour {
                 if(tmp1.status == 1) {
                     string msgOnTrigger = tmp1.Trigger();
                     if(msgOnTrigger != "") {
-                        // todo 两个 text 分开，给这个加计时
-                        hintText.text = msgOnTrigger;
+                        SetTextTimed(msgOnTrigger, 4.0f);
                     }
                     break;
                 }
+            }
+        }
+
+        if(startCount == true) {
+            if(count > Time.deltaTime) {
+                count -= Time.deltaTime;
+            }
+            else {
+                count = 0;
+                startCount = false;
+                triggerText.text = "";
+                hintText.enabled = true;
             }
         }
 
@@ -95,6 +111,14 @@ public class InteractiveObjManager : MonoBehaviour {
 
     public void SetCharacter(GameObject characterIn) {
         character = characterIn;
+    }
+
+    // Set 'text' into hintMsg and it will automatically disappear after 'countDown' seconds.
+    private void SetTextTimed(string text, float countDown) {
+        hintText.enabled = false;
+        triggerText.text = text;
+        count = countDown;
+        startCount = true;
     }
 
 

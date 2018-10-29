@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public InteractiveObjManager interactMgr;
+    public AudioSource audioBGM;
+    public AudioClip mainBGM;
+    public AudioClip wakeUpBGM;
 
     private int curChap; // Which chapter 
     private int curScene; // Which scene of current chapter 
@@ -192,8 +195,21 @@ public class GameManager : MonoBehaviour {
         if(curSceneStr != "") {
             Unload(curSceneStr);
         }
-        //Load(sceneName);
         LoadAsync(sceneName);
+        
+
+        if(sceneName == "0_0" || sceneName == "1_0") {
+            audioBGM.clip = mainBGM;
+            if(curSceneStr != "0_0" && curSceneStr != "1_0") {
+                audioBGM.Play();
+            }
+        }
+        else {
+            audioBGM.clip = wakeUpBGM;
+            if(curSceneStr == "0_0" || curSceneStr == "1_0") {
+                audioBGM.Play();
+            }
+        }
         curSceneStr = sceneName;
     }
 }
