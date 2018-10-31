@@ -18,14 +18,13 @@ public class Key : MonoBehaviour
 	public GameObject AlertBall;
 	public GameObject ConfirmBall;
     public GameObject WrongBall;
-    public GameObject signal;
 	public int DestroySeconds = 1;
 	[Header("Light Up Settings")]
 	public GameObject[] Lights;
 	//public float initEmissionScale = 1;
     public Material noLightMaterial;
 	public int OnLitFrames = 200;
-    public Key[] formerKeys;
+    public GameObject[] formerKeys;
 
     private ArrayList onLightMaterial;
     private float[] lightRangeSteps, lightIntensitySteps;
@@ -34,6 +33,8 @@ public class Key : MonoBehaviour
 	private KeyStatus status = KeyStatus.Inactive;
     private int curMatchNum = 0;
     private int targetMatchNum;
+    private bool waitingSignal = true;
+    private int signalArriveCount = 0;
 
 	// Use this for initialization
 	void Start()
@@ -78,21 +79,10 @@ public class Key : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.U))
         {
-            int id = 0;
-            foreach (GameObject lightObj in Lights)
-            {
-                Renderer[] curRenderers = lightObj.GetComponentsInChildren<Renderer>();
-                for (int i = 0; i < curRenderers.Length; i++)
-                {
-                    Material[] srcRenderers = (Material[])onLightMaterial[id];
-                    curRenderers[i].materials = srcRenderers;
-                    //Debug.Log(srcRenderers[0].name);
-                    //Debug.Log(srcRenderers[1].name);
-                    id++;
-                }
-            }
+            if(formerKeys.Length > 0)
+                Showline(formerKeys[0]);
         }
 
     }
@@ -155,34 +145,15 @@ public class Key : MonoBehaviour
 		}
 	}
 
-    public void activateWrong()
+    private void activateWrong()
     {
         WrongBall.SetActive(true);
         HintBall.SetActive(false);
         StartCoroutine(WaitAndInactive(WrongBall, DestroySeconds));
     }
 
-    public void activate()
+    private void activateSuccess()
 	{
-        if (formerKeys.Length == 1)
-        {
-            if (formerKeys[0].GetKeyStatus() != KeyStatus.Active)
-            {
-                GameObject.Find("HintMessage").GetComponent<Text>().text = "This should not be activated now";
-                activateWrong();
-                return;
-            }
-        }else if(formerKeys.Length == 2)
-        {
-            KeyStatus tmpStatus1 = formerKeys[0].GetKeyStatus();
-            KeyStatus tmpStatus2 = formerKeys[1].GetKeyStatus();
-            if(tmpStatus1 != KeyStatus.Active || tmpStatus2 != KeyStatus.Active)
-            {
-                GameObject.Find("HintMessage").GetComponent<Text>().text = "This should not be activated now";
-                activateWrong();
-                return;
-            }
-        }
         Debug.Log("called activated");
 		this.GetComponentInChildren<Pattern>().enabled = false;
         HintBall.SetActive(false);
@@ -209,7 +180,32 @@ public class Key : MonoBehaviour
         //return "Activated";
     }
 
-	public void MatchSucceed()
+    private bool testActivateOrder()
+    {
+        if (formerKeys.Length == 1)
+        {
+            if (formerKeys[0].GetComponent<Key>().GetKeyStatus() != KeyStatus.Active)
+            {
+                GameObject.Find("HintMessage").GetComponent<Text>().text = "This should not be activated now";
+                activateWrong();
+                return false;
+            }
+        }
+        else if (formerKeys.Length == 2)
+        {
+            KeyStatus tmpStatus1 = formerKeys[0].GetComponent<Key>().GetKeyStatus();
+            KeyStatus tmpStatus2 = formerKeys[1].GetComponent<Key>().GetKeyStatus();
+            if (tmpStatus1 != KeyStatus.Active || tmpStatus2 != KeyStatus.Active)
+            {
+                GameObject.Find("HintMessage").GetComponent<Text>().text = "This should not be activated now";
+                activateWrong();
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void MatchSucceed()
 	{
 		GameObject tmp_ConfirmBall = Instantiate(ConfirmBall, this.transform);
 		tmp_ConfirmBall.transform.position = HintBall.transform.position;
@@ -223,7 +219,7 @@ public class Key : MonoBehaviour
         return;
 	}
 
-	public void MatchFail()
+    public void MatchFail()
 	{
 		GameObject tmp_ConfirmBall = Instantiate(AlertBall, this.transform);
 		tmp_ConfirmBall.transform.position = HintBall.transform.position;
@@ -238,7 +234,23 @@ public class Key : MonoBehaviour
     public void testAllMatch()
     {
         if (curMatchNum == targetMatchNum)
-            activate();
+        {
+            bool rightOrder = testActivateOrder();
+            if (!rightOrder)
+                activateWrong();
+            else
+            {
+                if (formerKeys.Length == 0)
+                {
+                    activateSuccess();
+                    return;
+                }
+                foreach(GameObject k in formerKeys)
+                {
+                    Showline(k);
+                }
+            }
+        }
         else
             GameObject.Find("HintMessage").GetComponent<Text>().text = "You have to match all the pitches to activate it";
     }
@@ -275,10 +287,22 @@ public class Key : MonoBehaviour
         return status;
     }
 
-    public void Showline(GameObject target)
+    private void Showline(GameObject target)
     {
-        Waypoint t = target.GetComponent<Waypoint>();
-        signal.GetComponentInChildren<WaypointsHolder>().waypoints = new List<Waypoint> { t };
-        signal.GetComponentInChildren<WaypointMover>().enabled = true;
+        Waypoint t = this.GetComponent<Waypoint>();
+        target.GetComponentInChildren<WaypointsHolder>().waypoints = new List<Waypoint> { t };
+        target.GetComponentInChildren<WaypointsHolder>().enabled = true;
+        target.GetComponentInChildren<WaypointMover>().enabled = true;
+        target.transform.Find("Signal").gameObject.GetComponentInChildren<ParticleSystem>().Play(true);
+        target.GetComponentInChildren<Signal>().enabled = true;
+    }
+
+    public void signalArrived(GameObject signal)
+    {
+        signalArriveCount++;
+        //signal.SetActive(false);
+        signal.GetComponentInChildren<ParticleSystem>().Stop(true);
+        if (signalArriveCount == formerKeys.Length)
+            activateSuccess();
     }
 }
