@@ -149,6 +149,9 @@ public class Key : MonoBehaviour
     {
         WrongBall.SetActive(true);
         HintBall.SetActive(false);
+        GameObject alert = GameObject.Find("Alert");
+        if (alert != null)
+            alert.GetComponent<AlertController>().Alert();
         StartCoroutine(WaitAndInactive(WrongBall, DestroySeconds));
     }
 
@@ -228,6 +231,9 @@ public class Key : MonoBehaviour
 		//Debug.Log("haha");
 		tmp_ConfirmBall.SetActive(true);
 		StartCoroutine(WaitAndDestroy(tmp_ConfirmBall, DestroySeconds, false));
+        GameObject alert = GameObject.Find("Alert");
+        if (alert != null)
+            alert.GetComponent<AlertController>().Alert();
 		return;
 	}
 

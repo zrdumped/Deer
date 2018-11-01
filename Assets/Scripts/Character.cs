@@ -20,6 +20,7 @@ public class Character : MonoBehaviour {
     public float maxLightRange = 9;
     [Header("Durability Config")]
     public Slider durabilityBar;
+    public bool useBar = true;
     public float maxDecayVelocity = 3;
     public float durabilityRecoverVelocityNormal = 0.7f;
     public float durabilityRecoverVelocityEmerge = 0.1f;
@@ -27,6 +28,7 @@ public class Character : MonoBehaviour {
     public float maxDurability = 100;
     public Color normalColor;
     public Color EmergeColor;
+    public Color DisableColor;
     public Image BarFill;
     [Header("Keyboard Control Config")]
     public float changeTimes = 10;
@@ -100,9 +102,7 @@ public class Character : MonoBehaviour {
 			}
 			else if (Input.GetKeyDown(disappearKey))
 			{
-				lightBall.transform.localScale = new Vector3(0, 0, 0);
-				lightSphere.GetComponent<Light>().range = 0;
-				lightSphere.GetComponent<Light>().intensity = 0;
+                NoConsumeDurability();
 			}
 		}
 		else {
@@ -130,9 +130,9 @@ public class Character : MonoBehaviour {
                 durability += recoverVelocity;
         }
         //decay
-        else
+        else if(useBar)
         {
-            /*float durabilityDecayVelocity = (lightBall.transform.localScale.x / maxLightBallScale) * maxDecayVelocity;
+            float durabilityDecayVelocity = (lightBall.transform.localScale.x / maxLightBallScale) * maxDecayVelocity;
             if (durability - durabilityDecayVelocity >= 0)
                 durability -= durabilityDecayVelocity;
             else
@@ -141,12 +141,14 @@ public class Character : MonoBehaviour {
                 lightBall.transform.localScale = new Vector3(0, 0, 0);
                 lightSphere.GetComponent<Light>().range = 0;
                 lightSphere.GetComponent<Light>().intensity = 0;
-            }*/
+            }
         }
         durabilityBar.value = durability;
         //Debug.Log(durability);
         //Debug.Log(normalColor.ToString());
-        if (durability < emergeValue)
+        if(!useBar)
+            BarFill.color = DisableColor;
+        else if (durability < emergeValue)
             BarFill.color = EmergeColor;
         else
             BarFill.color = normalColor;
@@ -169,4 +171,14 @@ public class Character : MonoBehaviour {
 		return lightBall.transform.localScale.x;
 	}
 
+    public void NoConsumeDurability()
+    {
+        useBar = false;
+        maxDurability = 100;
+    }
+
+    public void ConsumeDurability()
+    {
+        useBar = true;
+    }
 }

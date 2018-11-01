@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class AlertController : MonoBehaviour {
 
-    private enum AlertTriggerStatus { Patrol, Alert};
+    public enum AlertTriggerStatus { Patrol, Alert};
     private AlertTriggerStatus status = AlertTriggerStatus.Patrol;
 
     public WaypointsHolder wayPointsHolder;
     public Waypoint characterWayPoint;
     public float alertMovementSpeed = 4;
     public float patrolMovenmentSpeed = 3;
+    public float prepareSecond = 1;
+    public float missSecond = 4;
 
     public ParticleSystem inactivePS;
     public ParticleSystem activePS;
@@ -54,10 +56,12 @@ public class AlertController : MonoBehaviour {
         inactivePS.Stop(true);
         waypointMover.enabled = false;
         waypointMover.loopingType = WaypointMover.LoopType.Once;
-        waypointMover.movementSpeed = alertMovementSpeed;
+        waypointMover.movementSpeed = 0;
         wayPointsHolder.waypoints = new List<Waypoint> { characterWayPoint };
         //leavePosWayPoint.transform.position = waypointMover.transform.position;
         waypointMover.enabled = true;
+        StartCoroutine(Prepare());
+        StartCoroutine(Miss());
     }
 
     public void Patrol()
@@ -72,5 +76,20 @@ public class AlertController : MonoBehaviour {
         waypointMover.enabled = true;
     }
 
+    IEnumerator Prepare ()
+    {
+        yield return new WaitForSeconds(prepareSecond);
+        waypointMover.movementSpeed = alertMovementSpeed;
+    }
 
+    IEnumerator Miss()
+    {
+        yield return new WaitForSeconds(missSecond);
+        Patrol();
+    }
+
+    public AlertTriggerStatus GetStatus()
+    {
+        return status;
+    }
 }

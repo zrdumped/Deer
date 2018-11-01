@@ -17,15 +17,17 @@ public class AlertTrigger : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(other.name);
-        if (other.name == "LightBall")
+        if (other.name == "LightBallMesh")
             this.GetComponentInParent<AlertController>().Alert();
+        else if (other.name == "Character" && this.GetComponentInParent<AlertController>().GetStatus() == AlertController.AlertTriggerStatus.Alert)
+            Debug.Log("Game Over");
         //status = AlertTriggerStatus.Alert;
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.name == "LightBall")
-            this.GetComponentInParent<AlertController>().Patrol();
-        //status = AlertTriggerStatus.Missing;
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.name == "LightBallMesh")
+    //        this.GetComponentInParent<AlertController>().Patrol();
+    //    //status = AlertTriggerStatus.Missing;
+    //}
 }
