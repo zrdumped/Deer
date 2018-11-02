@@ -25,6 +25,9 @@ public class Key : MonoBehaviour
     public Material noLightMaterial;
 	public int OnLitFrames = 200;
     public GameObject[] formerKeys;
+    [Header("Audio")]
+    public AudioSource ActivatedClip;
+
 
     private ArrayList onLightMaterial;
     private float[] lightRangeSteps, lightIntensitySteps;
@@ -159,6 +162,7 @@ public class Key : MonoBehaviour
 	{
         Debug.Log("called activated");
 		this.GetComponentInChildren<Pattern>().enabled = false;
+        ActivatedClip.Play();
         HintBall.SetActive(false);
         status = KeyStatus.Active;
         //ActiveBall.GetComponent<ParticleSystem>().Play(true);
@@ -215,7 +219,8 @@ public class Key : MonoBehaviour
 		tmp_ConfirmBall.transform.localScale = HintBall.transform.localScale;
 		//HintBall.transform.localScale = new Vector3(0, 0, 0);
 		//Debug.Log("haha");
-		tmp_ConfirmBall.SetActive(true);
+        //Debug.Log(this.name);
+        tmp_ConfirmBall.SetActive(true);
 		StartCoroutine(WaitAndDestroy(tmp_ConfirmBall, DestroySeconds));
         curMatchNum ++;
 

@@ -16,8 +16,14 @@ public class Pattern : MonoBehaviour {
     public bool onShow = false;
     public Key keyController;
     [Header("Debug")]
+    public bool forceMatch = true;
     public KeyMatcher.KeyMatchStatus forceMatchResult = KeyMatcher.KeyMatchStatus.IGNORED;
     //public Character cha;
+    [Header("Audio")]
+    public AudioSource ShowPatternClip;
+    public AudioSource matchSuccessClip;
+    public AudioSource patternHintClip;
+    public AudioSource matchFailClip;
 
     private KeyMatcher matcher;
     private KeyMatcher.KeyMatchStatus matchResult = KeyMatcher.KeyMatchStatus.IGNORED;
@@ -48,6 +54,7 @@ public class Pattern : MonoBehaviour {
 
         StartCoroutine("showHint");
         onShow = true;
+
         //Debug.Log("Start");
         //return "Press 'E' to Stop";
     }
@@ -85,6 +92,8 @@ public class Pattern : MonoBehaviour {
                 scaleChangeStep = 0;
                 changedFrame = 0;
                 matcher.enabled = true;
+                if (pitchID > 0 || pitchID == -intermissionLength)
+                    patternHintClip.Play();
                 Debug.Log("Start Listening");
             }
         }
@@ -94,11 +103,14 @@ public class Pattern : MonoBehaviour {
         while (true)
         {
             if (pitchID == 0)
+            {
                 keyController.MatchReset();
+                ShowPatternClip.Play();
+            }
             if (pitchID > 0 || pitchID == -intermissionLength)
             {
                 //get match result, replaced by matchResult temporarily
-                if (forceMatchResult != KeyMatcher.KeyMatchStatus.IGNORED)
+                if (forceMatch)
                 {
                     matchResult = forceMatchResult;
                 }
@@ -110,9 +122,13 @@ public class Pattern : MonoBehaviour {
                 }
 
                 if (matchResult == KeyMatcher.KeyMatchStatus.SUCCESS)
+                {
+                    matchSuccessClip.Play();
                     keyController.MatchSucceed();
+                }
                 else if (matchResult == KeyMatcher.KeyMatchStatus.FAILURE)
                 {
+                    matchFailClip.Play();
                     keyController.MatchFail();
                     pitchID = -1;
                 }
@@ -120,7 +136,10 @@ public class Pattern : MonoBehaviour {
             }
 
             if (pitchID == -intermissionLength)
+            {
                 keyController.testAllMatch();
+                ShowPatternClip.Play();
+            }
 
             float targetScale;
             if (pitchID >= 0)

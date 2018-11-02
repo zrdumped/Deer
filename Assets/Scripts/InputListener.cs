@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InputListener : MonoBehaviour {
 
-    bool active = false;
+    private bool active = false;
     public string messageOnActive;
     private string messageOnTrigger;
 
