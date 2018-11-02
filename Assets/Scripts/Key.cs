@@ -27,6 +27,7 @@ public class Key : MonoBehaviour
     public GameObject[] formerKeys;
     [Header("Audio")]
     public AudioSource ActivatedClip;
+    public AudioSource ActivateFailClip;
 
 
     private ArrayList onLightMaterial;
@@ -150,6 +151,7 @@ public class Key : MonoBehaviour
 
     private void activateWrong()
     {
+        ActivateFailClip.Play();
         WrongBall.SetActive(true);
         HintBall.SetActive(false);
         GameObject alert = GameObject.Find("Alert");

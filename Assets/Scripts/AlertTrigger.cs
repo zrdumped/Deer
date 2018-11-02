@@ -18,7 +18,9 @@ public class AlertTrigger : MonoBehaviour {
     {
         //Debug.Log(other.name);
         if (other.name == "LightBallMesh")
+        {
             this.GetComponentInParent<AlertController>().Alert();
+        }
         else if (other.name == "Character" && this.GetComponentInParent<AlertController>().GetStatus() == AlertController.AlertTriggerStatus.Alert)
             Debug.Log("Game Over");
         //status = AlertTriggerStatus.Alert;

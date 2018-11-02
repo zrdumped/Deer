@@ -51,6 +51,7 @@ public class AlertController : MonoBehaviour {
 
     public void Alert()
     {
+        this.gameObject.GetComponentInChildren<AudioSource>().Play();
         status = AlertTriggerStatus.Alert;
         activePS.Play(true);
         inactivePS.Stop(true);
@@ -86,6 +87,7 @@ public class AlertController : MonoBehaviour {
     {
         yield return new WaitForSeconds(missSecond);
         Patrol();
+        this.gameObject.GetComponentInChildren<AudioSource>().Stop();
     }
 
     public AlertTriggerStatus GetStatus()
