@@ -2555,9 +2555,10 @@ AudioSource:
   m_GameObject: {fileID: 1105698319952996}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300001, guid: 14f6af35df49c2d49a09178d31163f4a,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2727,11 +2728,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac79e02e5ab9eee41ba54ce7eb882786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlByVoice: 0
+  controlByVoice: 1
   maxLightBallScale: 0.15
   maxLightIntensity: 2
   maxLightRange: 9
   durabilityBar: {fileID: 0}
+  useBar: 1
   maxDecayVelocity: 3
   durabilityRecoverVelocityNormal: 2
   durabilityRecoverVelocityEmerge: 0.5
@@ -2739,6 +2741,7 @@ MonoBehaviour:
   maxDurability: 100
   normalColor: {r: 0.17254902, g: 0.7294118, b: 1, a: 1}
   EmergeColor: {r: 0.9254902, g: 0.2901961, b: 0.2901961, a: 1}
+  DisableColor: {r: 0, g: 0, b: 0, a: 0}
   BarFill: {fileID: 0}
   changeTimes: 10
   inflateKey: 122

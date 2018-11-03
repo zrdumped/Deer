@@ -157,7 +157,7 @@ public class Character : MonoBehaviour {
 	void AdjustLightBallWithSound() {
 		int midi = soundDetector.midi;
 		float scale = SoundCalculator.calc(midi, calcMethod);
-		//Debug.Log(midi+", "+scale);
+		Debug.Log(midi+", "+scale);
 		float lightBallScale = scale * maxLightBallScale;
 		float lightIntensity = scale * maxLightIntensity;
 		float lightRange = scale * maxLightRange;
