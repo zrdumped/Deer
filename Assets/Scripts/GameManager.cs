@@ -166,12 +166,9 @@ public class GameManager : MonoBehaviour {
             if(sceneName == "0_0") {
                 mainPanelMgr.Reset();
                 mainPanelMgr.ShowMainPanel();
-                Debug.Log("Reset and Pop Main Panel");
             }
             else {
-                // TODO: other scene: do some blur staff
                 mainPanelMgr.Reset();
-                Debug.Log("Reset no Pop Main Panel");
             }
 
 

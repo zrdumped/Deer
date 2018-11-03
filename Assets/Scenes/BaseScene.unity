@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -670,6 +670,7 @@ MonoBehaviour:
   startPanelTarget: {fileID: 1747985848}
   mainPanelHome: {fileID: 1469262712}
   startPanelHome: {fileID: 930072767}
+  canvasLogo: {fileID: 1873855201}
 --- !u!1 &348864230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &540772337
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7044,7 +7045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1432176683
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7147,8 +7148,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 344108833}
-        m_MethodName: ShowStartPanel
+      - m_Target: {fileID: 802191033}
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7266,7 +7267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -299.00003, y: 0}
+  m_AnchoredPosition: {x: -299.00003, y: -23}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1521120008
@@ -7753,7 +7754,7 @@ GameObject:
   - component: {fileID: 1873855203}
   - component: {fileID: 1873855202}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: CanvasLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,6 +13,7 @@ public class MainPanelManager : MonoBehaviour {
     public Transform startPanelTarget;
     public Transform mainPanelHome;
     public Transform startPanelHome;
+    public GameObject canvasLogo;
 
 	// Use this for initialization
 	void Start () {
@@ -30,11 +31,16 @@ public class MainPanelManager : MonoBehaviour {
     }
 
     public void ShowMainPanel() {
+        canvasLogo.SetActive(true);
+        mainPanel.gameObject.SetActive(true);
         mainPanel.DOMove(mainPanelTarget.position, 0.3f);
     }
 
     public void HideMainPanel() {
-        mainPanel.DOMove(mainPanelHome.position, 0.3f);
+        //mainPanel.DOMove(mainPanelHome.position, 0.3f);
+        //Debug.Log("MainPanel Move to Home Position");
+        mainPanel.gameObject.SetActive(false);
+        canvasLogo.SetActive(false);
     }
 
     public void ShowStartPanel() {
@@ -48,7 +54,7 @@ public class MainPanelManager : MonoBehaviour {
     }
 
     public void Reset() {
+        Debug.Log("Reset MainPanelManager");
         HideMainPanel();
-        HideStartPanel();
     }
 }
