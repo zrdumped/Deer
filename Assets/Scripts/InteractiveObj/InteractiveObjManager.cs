@@ -52,18 +52,19 @@ public class InteractiveObjManager : MonoBehaviour {
                 Vector3 direct = obj.transform.position - character.transform.position;
                 if(Vector3.Distance(character.transform.position, obj.transform.position) < hintThreshod
                     && Vector3.Dot(direct.normalized, character.transform.forward) > 0.5) {
-                    if(tmp.need3dUI == true) {
-                        tmp.threeDUI.GetComponent<ThreeDUIView>().Activate();
-                    }
                     if(tmp.needTextUI == true){
                         hintText.text = tmp.GetTextContent(0);
                     }
                     haveSomethingToShow++;
-                    tmp.SetInteractive(true);
+                    if(tmp.need3dUI == true) {
+                        tmp.SetInteractive(1);
+                    }
+                    else {
+                        tmp.SetInteractive(2);
+                    }
                 }
                 else {
-                    tmp.SetInteractive(false);
-                    //tmp.AfterInteract();
+                    tmp.SetInteractive(0);
                 }
             }
 
@@ -76,6 +77,9 @@ public class InteractiveObjManager : MonoBehaviour {
             foreach(var obj in interactiveObjList.list) {
                 InteractiveObj tmp1 = obj.GetComponent<InteractiveObj>();
                 if(tmp1.status == 1) {
+                    tmp1.threeDUI.GetComponent<ThreeDUIView>().Activate();
+                }
+                else if(tmp1.status == 2) {
                     string msgOnTrigger = tmp1.Trigger();
                     if(msgOnTrigger != "") {
                         SetTextTimed(msgOnTrigger, 4.0f);

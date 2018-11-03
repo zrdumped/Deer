@@ -17,8 +17,13 @@ public class InteractiveObj : MonoBehaviour {
 
 
     // flag to mark whether this object is within the interactive range.
-    // 1 means near enough to interact, 0 means not.
+    // 0 ------ Too far to interact
+    // 1 ------ Near enough, interact to show 3dUI
+    // 2 ------ interact to get feed back
     public int status = 0;
+
+    // Whether or not the object has been illuminated by the light ball around player
+    public bool hasDetected = false;
 
 	// Use this for initialization
 	void Start () {
@@ -52,12 +57,9 @@ public class InteractiveObj : MonoBehaviour {
     }
 
     // Set current gameObject to be interactive, 
-    public void SetInteractive(bool isInteracive) {
-        if(isInteracive) {
-            status = 1;
-        }
-        else {
-            status = 0;
+    public void SetInteractive(int statusNum) {
+        status = statusNum;
+        if(statusNum == 0) {
             if(threeDUI && need3dUI == true) {
                 threeDUI.GetComponent<ThreeDUIView>().Deactivate();
             }
@@ -87,14 +89,5 @@ public class InteractiveObj : MonoBehaviour {
             messageOnTrigger = listenerObj.GetComponent<Key>().TriggerShow();
         }
         return messageOnTrigger;
-    }
-
-    public bool isIntractive() {
-        if(status == 1) {
-            return true;
-        }
-        else {
-            return false;
-        }
     }
 }
