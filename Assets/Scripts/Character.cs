@@ -47,7 +47,7 @@ public class Character : MonoBehaviour {
     private float LightIntensityRate;
     private float LightRangeRate;
 
-    private float maxRadius = 1.50f;
+    private float maxRadius = 2.0f;
 
     private float durability;
 
