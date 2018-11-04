@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour {
     public AudioClip mainBGM;
     public AudioClip wakeUpBGM;
     public MainPanelManager mainPanelMgr;
+    public bool realTimeAmbientControl = false;
+    [Range(0,5)]
+    public float ambientIntensity;
 
     private int curChap; // Which chapter 
     private int curScene; // Which scene of current chapter 
@@ -30,6 +33,11 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(realTimeAmbientControl == true) {
+            RenderSettings.ambientIntensity = ambientIntensity;
+        }
+
         // For Test ONLY
         if(Input.GetKeyDown(KeyCode.H)) {
             Switch2Scene(0, 0);
@@ -214,12 +222,14 @@ public class GameManager : MonoBehaviour {
             if(curSceneStr != "0_0" && curSceneStr != "1_0") {
                 audioBGM.Play();
             }
+            RenderSettings.ambientIntensity = 1.0f;
         }
         else {
             audioBGM.clip = wakeUpBGM;
             if(curSceneStr == "0_0" || curSceneStr == "1_0") {
                 audioBGM.Play();
             }
+            RenderSettings.ambientIntensity = 0.0f;
         }
         curSceneStr = sceneName;
     }

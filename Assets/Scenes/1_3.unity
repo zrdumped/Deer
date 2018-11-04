@@ -7664,6 +7664,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 542800943}
   highlightPart: {fileID: 772321594}
   listenerObj: {fileID: 772321594}
@@ -8988,6 +8989,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 694634720}
   highlightPart: {fileID: 914362354}
   listenerObj: {fileID: 914362354}
@@ -13742,6 +13744,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 2fb21ecffc61ba745af1449a1977744c, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 2110662497}
   highlightPart: {fileID: 1482901984}
   listenerObj: {fileID: 1482901985}
@@ -15571,6 +15574,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 261241036}
   highlightPart: {fileID: 1561350134}
   listenerObj: {fileID: 1561350134}
@@ -16024,6 +16028,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 1673162888}
   highlightPart: {fileID: 508333328}
   listenerObj: {fileID: 1596981977}
@@ -16645,6 +16650,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: a74066172cf19cd4bacae3c6600a7217, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 2075441558}
   highlightPart: {fileID: 1651024243}
   listenerObj: {fileID: 1651024243}
@@ -20480,10 +20486,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textContents:
   - Press "E" to Investigate
+  - I smelt the dinner. Mom must have prepared dinner for me.
   highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 1
   threeDUI: {fileID: 1099744661}
   highlightPart: {fileID: 1508741307}
   listenerObj: {fileID: 1956594678}
@@ -22046,10 +22054,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textContents:
   - Press "E" to Investigate
+  - Dad and mom are not here. I should go and check the basement.
   highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 1
   threeDUI: {fileID: 1922890289}
   highlightPart: {fileID: 500982484}
   listenerObj: {fileID: 1193734050}

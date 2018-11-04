@@ -94,6 +94,9 @@ public class InteractiveObjManager : MonoBehaviour {
                 InteractiveObj tmp1 = obj.GetComponent<InteractiveObj>();
                 if(tmp1.status == 1) {
                     tmp1.threeDUI.GetComponent<ThreeDUIView>().Activate();
+                    if(tmp1.needOS == true) {
+                        SetTextTimed(tmp1.GetOS(), 5.0f);
+                    }
                 }
                 else if(tmp1.status == 2) {
                     string msgOnTrigger = tmp1.Trigger();

@@ -591,6 +591,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 650097253}
   highlightPart: {fileID: 42461251}
   listenerObj: {fileID: 42461251}
@@ -1246,6 +1247,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 99298345}
   highlightPart: {fileID: 422646207}
   listenerObj: {fileID: 422646207}
@@ -4078,6 +4080,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 318306859}
   highlightPart: {fileID: 1513373059}
   listenerObj: {fileID: 1513373059}
@@ -5688,10 +5691,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textContents:
   - Press "E" to Investigate
+  - I usually hid here for fun when I was a kid.
   highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 1
   threeDUI: {fileID: 1462688887}
   highlightPart: {fileID: 1195388052}
   listenerObj: {fileID: 1195388052}
@@ -7181,6 +7186,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 810325489}
   highlightPart: {fileID: 1110034284}
   listenerObj: {fileID: 1110034284}
@@ -10225,6 +10231,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 786912024}
   highlightPart: {fileID: 1539471028}
   listenerObj: {fileID: 1539471028}

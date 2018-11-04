@@ -9,6 +9,7 @@ public class InteractiveObj : MonoBehaviour {
     public Material normalMat;
     public bool need3dUI = false;
     public bool needTextUI = true;
+    public bool needOS = false;
     public GameObject threeDUI;
     public GameObject highlightPart;
     // The object who will listen the instruction and do something.(usually with Key or Door scripts on it)
@@ -89,5 +90,14 @@ public class InteractiveObj : MonoBehaviour {
             messageOnTrigger = listenerObj.GetComponent<Key>().TriggerShow();
         }
         return messageOnTrigger;
+    }
+
+    public string GetOS() {
+        if(textContents.Count >= 2) {
+            return textContents[1];
+        }
+        else {
+            return "";
+        }
     }
 }
