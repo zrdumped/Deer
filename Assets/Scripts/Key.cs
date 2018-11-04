@@ -120,6 +120,7 @@ public class Key : MonoBehaviour
 	{
 		if (status == KeyStatus.Inactive)
 		{
+            this.transform.position = new Vector3(this.transform.position.x, GameObject.Find("LightBall").transform.position.y, this.transform.position.z);
 			InactiveBall.SetActive(false);
             if(InactiveBall_2 != null)
                 InactiveBall_2.SetActive(false);
