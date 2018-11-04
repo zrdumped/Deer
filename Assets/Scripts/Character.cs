@@ -47,6 +47,8 @@ public class Character : MonoBehaviour {
     private float LightIntensityRate;
     private float LightRangeRate;
 
+    private float maxRadius = 1.50f;
+
     private float durability;
 
     void Start () {
@@ -170,6 +172,10 @@ public class Character : MonoBehaviour {
 	{
 		return lightBall.transform.localScale.x;
 	}
+
+    public float GetLightBallRadius() {
+        return getLightBallScale() * maxRadius / 0.15f;
+    }
 
     public void NoConsumeDurability()
     {

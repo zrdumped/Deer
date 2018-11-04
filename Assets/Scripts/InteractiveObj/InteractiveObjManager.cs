@@ -14,10 +14,12 @@ public class InteractiveObjManager : MonoBehaviour {
     private InteractiveObjList interactiveObjList;
     private int status = 0; // 0:Do Nothing; 1:Loop in the List per frame
     private GameObject character;
+    private Vector3 lightballPos = Vector3.zero;
 
     // params need for counting down
     private bool startCount = false;
     private float count = 0;
+
 
 	// Use this for initialization
 	void Start () {
@@ -30,42 +32,56 @@ public class InteractiveObjManager : MonoBehaviour {
 
             int haveSomethingToShow = 0;
 
+            lightballPos = character.transform.Find("LightBall").transform.position;
+
             foreach(var obj in interactiveObjList.list) {
 
                 InteractiveObj tmp = obj.GetComponent<InteractiveObj>();
 
-                // Set material to normal or highlight according to distance.
-                if(Vector3.Distance(character.transform.position, obj.transform.position) < highLightThreshod) {
-                    if(tmp) {
-                        //Debug.Log(obj.name + "Set Highlignt Mat");
-                        tmp.SetHighlight(true);
-                    }
-                }
-                else {
-                    if(tmp) {
-                        //Debug.Log(obj.name + "Set Normal Mat");
-                        tmp.SetHighlight(false);
-                    }
+                // objects will be interactive ONLY after they are touched by lightball
+                if(Vector3.Distance(lightballPos, tmp.transform.position)
+                    < character.GetComponent<Character>().GetLightBallRadius()) {
+                    Debug.Log("Interactive Object " + tmp.name + " has been detected.");
+                    tmp.hasDetected = true;
                 }
 
-                // Show or hide the hint msg according to distance and toward direct.
-                Vector3 direct = obj.transform.position - character.transform.position;
-                if(Vector3.Distance(character.transform.position, obj.transform.position) < hintThreshod
-                    && Vector3.Dot(direct.normalized, character.transform.forward) > 0.5) {
-                    if(tmp.needTextUI == true){
-                        hintText.text = tmp.GetTextContent(0);
-                    }
-                    haveSomethingToShow++;
-                    if(tmp.need3dUI == true) {
-                        tmp.SetInteractive(1);
+
+                if(tmp.hasDetected == true) {
+
+                    // Set material to normal or highlight according to distance.
+                    if(Vector3.Distance(character.transform.position, obj.transform.position) < highLightThreshod) {
+                        if(tmp) {
+                            //Debug.Log(obj.name + "Set Highlignt Mat");
+                            tmp.SetHighlight(true);
+                        }
                     }
                     else {
-                        tmp.SetInteractive(2);
+                        if(tmp) {
+                            //Debug.Log(obj.name + "Set Normal Mat");
+                            tmp.SetHighlight(false);
+                        }
+                    }
+
+                    // Show or hide the hint msg according to distance and toward direct.
+                    Vector3 direct = obj.transform.position - character.transform.position;
+                    if(Vector3.Distance(character.transform.position, obj.transform.position) < hintThreshod
+                        && Vector3.Dot(direct.normalized, character.transform.forward) > 0.25) {
+                        if(tmp.needTextUI == true) {
+                            hintText.text = tmp.GetTextContent(0);
+                        }
+                        haveSomethingToShow++;
+                        if(tmp.need3dUI == true) {
+                            tmp.SetInteractive(1);
+                        }
+                        else {
+                            tmp.SetInteractive(2);
+                        }
+                    }
+                    else {
+                        tmp.SetInteractive(0);
                     }
                 }
-                else {
-                    tmp.SetInteractive(0);
-                }
+                
             }
 
             if(haveSomethingToShow == 0) {
