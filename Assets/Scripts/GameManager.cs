@@ -233,4 +233,38 @@ public class GameManager : MonoBehaviour {
         }
         curSceneStr = sceneName;
     }
+
+    public void Switch2Scene(string sceneName)
+    {
+        if (interactMgr)
+        {
+            interactMgr.StopLooping();
+        }
+        if (curSceneStr != "")
+        {
+            Unload(curSceneStr);
+        }
+        LoadAsync(sceneName);
+
+
+        if (sceneName == "0_0" || sceneName == "1_0")
+        {
+            audioBGM.clip = mainBGM;
+            if (curSceneStr != "0_0" && curSceneStr != "1_0")
+            {
+                audioBGM.Play();
+            }
+            RenderSettings.ambientIntensity = 1.0f;
+        }
+        else
+        {
+            audioBGM.clip = wakeUpBGM;
+            if (curSceneStr == "0_0" || curSceneStr == "1_0")
+            {
+                audioBGM.Play();
+            }
+            RenderSettings.ambientIntensity = 0.0f;
+        }
+        curSceneStr = sceneName;
+    }
 }

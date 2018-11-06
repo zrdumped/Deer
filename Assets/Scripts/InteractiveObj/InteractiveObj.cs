@@ -26,14 +26,29 @@ public class InteractiveObj : MonoBehaviour {
     // Whether or not the object has been illuminated by the light ball around player
     public bool hasDetected = false;
 
-	// Use this for initialization
-	void Start () {
+    //Display Floating Effects
+    [Header("Floating Settings")]
+    public bool isFloating = false;
+    public float perRadian = 0.03f;
+    public float radius = 0.8f;
+    float radian = 0; 
+
+
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (isFloating)
+        {
+            radian += perRadian; 
+            float dy = Mathf.Cos(radian) * radius; 
+            transform.position = transform.position + new Vector3(0, dy, 0);
+        }
+            
 	}
 
     // Check and change the obj's material(NEED to deduplicate)

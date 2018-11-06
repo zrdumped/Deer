@@ -33,8 +33,9 @@ public class Door : MonoBehaviour {
     {
         if (!locked)
         {
-            PlayerPrefs.SetString("from", SceneManager.GetActiveScene().name);
-            SceneManager.LoadScene(otherScene);
+            //PlayerPrefs.SetString("from", SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(otherScene);
+            GameObject.Find("GameManager").GetComponent<GameManager>().Switch2Scene(otherScene);
             return "Door has been opened";
         }
         else

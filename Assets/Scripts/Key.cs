@@ -131,7 +131,7 @@ public class Key : MonoBehaviour
             this.GetComponent<KeyCharacterController>().GotoKey();
             status = KeyStatus.OnShow;
 			//GetComponentInChildren<Pattern>().character = GetComponent<InputListener>().character;
-			return "Press E to stop. Match the spheres with your voice";
+			return "Match the spheres with your voice.\n Press E to stop";
 		}
 		else if (status == KeyStatus.OnShow)
 		{
@@ -185,7 +185,6 @@ public class Key : MonoBehaviour
                 id++;
             }
         }
-        GameObject.Find("HintMessage").GetComponent<Text>().text = "Activated";
         this.GetComponent<KeyCharacterController>().LeaveKey();
         //return "Activated";
     }
@@ -196,7 +195,7 @@ public class Key : MonoBehaviour
         {
             if (formerKeys[0].GetComponent<Key>().GetKeyStatus() != KeyStatus.Active)
             {
-                GameObject.Find("HintMessage").GetComponent<Text>().text = "This should not be activated now";
+                //GameObject.Find("HintMessage").GetComponent<Text>().text = "This should not be activated now";
                 activateWrong();
                 return false;
             }
@@ -207,7 +206,7 @@ public class Key : MonoBehaviour
             KeyStatus tmpStatus2 = formerKeys[1].GetComponent<Key>().GetKeyStatus();
             if (tmpStatus1 != KeyStatus.Active || tmpStatus2 != KeyStatus.Active)
             {
-                GameObject.Find("HintMessage").GetComponent<Text>().text = "This should not be activated now";
+                //GameObject.Find("HintMessage").GetComponent<Text>().text = "This should not be activated now";
                 activateWrong();
                 return false;
             }
@@ -251,22 +250,29 @@ public class Key : MonoBehaviour
         {
             bool rightOrder = testActivateOrder();
             if (!rightOrder)
+            {
+                GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
+                    "This should not be activated now", DestroySeconds);
                 activateWrong();
+            }
             else
             {
-                if (formerKeys.Length == 0)
-                {
-                    activateSuccess();
-                    return;
-                }
-                foreach(GameObject k in formerKeys)
+                activateSuccess();
+                GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
+                    "Activated. Keep on going.", DestroySeconds);
+                foreach (GameObject k in formerKeys)
                 {
                     Showline(k);
                 }
             }
         }
         else
-            GameObject.Find("HintMessage").GetComponent<Text>().text = "You have to match all the pitches to activate it";
+        {
+            int showTime = HintBall.GetComponent<Pattern>().pitchLength;
+            GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
+                    "You have to match all the pitches to activate it.", showTime);
+            StartCoroutine(WaitAndRestoreMessage(showTime));
+        }
     }
 
 	IEnumerator WaitAndDestroy(GameObject obj, int time, bool match = true)
@@ -289,6 +295,14 @@ public class Key : MonoBehaviour
         if (InactiveBall_2 != null)
             InactiveBall_2.SetActive(true);
         status = KeyStatus.Inactive;
+    }
+
+    IEnumerator WaitAndRestoreMessage(int time)
+    {
+        yield return new WaitForSeconds(time);
+        GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
+                   "Match the spheres with your voice.\n Press E to stop", HintBall.GetComponent<Pattern>().pitchLength);
+
     }
 
     public void MatchReset()

@@ -6249,10 +6249,15 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 238942272}
   highlightPart: {fileID: 656917077}
   listenerObj: {fileID: 0}
   status: 0
+  hasDetected: 0
+  isFloating: 0
+  perRadian: 0.03
+  radius: 0.8
 --- !u!1001 &664123569
 Prefab:
   m_ObjectHideFlags: 0
@@ -7622,10 +7627,15 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 2fb21ecffc61ba745af1449a1977744c, type: 2}
   need3dUI: 0
   needTextUI: 1
+  needOS: 0
   threeDUI: {fileID: 0}
   highlightPart: {fileID: 1960889750}
   listenerObj: {fileID: 1960889751}
   status: 0
+  hasDetected: 0
+  isFloating: 0
+  perRadian: 0.03
+  radius: 0.8
 --- !u!1 &1086109493 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1157187814101594, guid: e04ac5e137797944195baffc33dd7ab5,
@@ -11193,6 +11203,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114228392708909536, guid: a766244018fa61045ba7bd9cf860ec85,
+        type: 2}
+      propertyPath: otherScene
+      value: 1_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a766244018fa61045ba7bd9cf860ec85, type: 2}

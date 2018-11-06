@@ -137,11 +137,14 @@ public class InteractiveObjManager : MonoBehaviour {
     }
 
     // Set 'text' into hintMsg and it will automatically disappear after 'countDown' seconds.
-    private void SetTextTimed(string text, float countDown) {
+    public void SetTextTimed(string text, float countDown) {
         hintText.enabled = false;
         triggerText.text = text;
-        count = countDown;
-        startCount = true;
+        if (countDown > 0)
+        {
+            count = countDown;
+            startCount = true;
+        }
     }
 
 

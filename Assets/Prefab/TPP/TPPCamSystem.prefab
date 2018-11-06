@@ -1302,7 +1302,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1580797894145110}
-  m_LocalRotation: {x: -0.6580573, y: -0.1043866, z: -0.027237156, w: 0.74519944}
+  m_LocalRotation: {x: -0.6580572, y: -0.104386464, z: -0.027237048, w: 0.7451996}
   m_LocalPosition: {x: 0.000000026500013, y: 1.7933403, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
   m_Children:
@@ -1401,7 +1401,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1215082885871694}
   m_LocalRotation: {x: 0.9921988, y: -0.026591143, z: -0.036330264, w: 0.11625201}
-  m_LocalPosition: {x: -0.29682449, y: 0.029011244, z: 0.11154957}
+  m_LocalPosition: {x: -0.29682437, y: 0.029011244, z: 0.11154957}
   m_LocalScale: {x: 1, y: 1, z: 1.0000008}
   m_Children:
   - {fileID: 4809184792286564}
@@ -1806,7 +1806,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1128238290585202}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 5.77, y: 1.68, z: 9.536}
+  m_LocalPosition: {x: -0.143, y: 1.704, z: 10.058}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355902166893238}
@@ -2028,7 +2028,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1848662713079442}
   m_LocalRotation: {x: 0.7490071, y: -0.008848222, z: -0.0046269777, w: 0.6624868}
-  m_LocalPosition: {x: 0.009152889, y: 0.17645788, z: 3.5969722}
+  m_LocalPosition: {x: 0.009153008, y: 0.17645788, z: 3.5969725}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4342373106725180}
@@ -2058,8 +2058,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1138196484500882}
-  m_LocalRotation: {x: 0.9927794, y: 0.04135533, z: -0.010136455, w: 0.112143375}
-  m_LocalPosition: {x: 0.29682446, y: 0.02901117, z: 0.11154849}
+  m_LocalRotation: {x: 0.99277943, y: 0.04135507, z: -0.010136409, w: 0.112143055}
+  m_LocalPosition: {x: 0.29682434, y: 0.029011171, z: 0.11154849}
   m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1.0000007}
   m_Children:
   - {fileID: 4763471804028530}
@@ -2086,8 +2086,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1846606467583004}
-  m_LocalRotation: {x: 0.13460878, y: -0.14626877, z: 0.007766192, w: 0.98001313}
-  m_LocalPosition: {x: 0.000000059604638, y: 1.648574, z: 0}
+  m_LocalRotation: {x: 0.13460831, y: -0.14626901, z: 0.007765923, w: 0.98001313}
+  m_LocalPosition: {x: -0.000000059604638, y: 1.648574, z: 0}
   m_LocalScale: {x: 1, y: 0.9999998, z: 0.99999994}
   m_Children:
   - {fileID: 4026925144703308}
@@ -2100,8 +2100,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1249846298816276}
-  m_LocalRotation: {x: 0.13795406, y: 0.059688345, z: -0.008004835, w: 0.9886061}
-  m_LocalPosition: {x: 0.00000012665987, y: 1.6476022, z: 0.00000017881352}
+  m_LocalRotation: {x: 0.1379541, y: 0.059688617, z: -0.00800479, w: 0.9886061}
+  m_LocalPosition: {x: 0.00000008195639, y: 1.6476024, z: 0.00000020861577}
   m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
   m_Children:
   - {fileID: 4894797169208344}
@@ -2239,8 +2239,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1537599675721094}
-  m_LocalRotation: {x: -0.66749674, y: 0.05117724, z: 0.012747427, w: 0.74274254}
-  m_LocalPosition: {x: 0.00000003215962, y: 1.792283, z: -0.000000030267813}
+  m_LocalRotation: {x: -0.66749674, y: 0.051177062, z: 0.01274723, w: 0.7427426}
+  m_LocalPosition: {x: 0.000000032159623, y: 1.7922833, z: -0.000000030267817}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_Children:
   - {fileID: 4830291070679058}
@@ -2728,7 +2728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac79e02e5ab9eee41ba54ce7eb882786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlByVoice: 1
+  controlByVoice: 0
   maxLightBallScale: 0.15
   maxLightIntensity: 2
   maxLightRange: 9
@@ -2741,7 +2741,7 @@ MonoBehaviour:
   maxDurability: 100
   normalColor: {r: 0.17254902, g: 0.7294118, b: 1, a: 1}
   EmergeColor: {r: 0.9254902, g: 0.2901961, b: 0.2901961, a: 1}
-  DisableColor: {r: 0, g: 0, b: 0, a: 0}
+  DisableColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   BarFill: {fileID: 0}
   changeTimes: 10
   inflateKey: 122
@@ -2915,7 +2915,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105698319952996}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32187365ced0c42219cde2b57c99b323, type: 3}
   m_Name: 
