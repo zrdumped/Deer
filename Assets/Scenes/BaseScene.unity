@@ -643,7 +643,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1018662744071772, guid: 8aa83e84c0afd614cb376cdc6dccd403, type: 2}
       propertyPath: m_Name
-      value: Slider
+      value: DurabilityBar
       objectReference: {fileID: 0}
     - target: {fileID: 224470110039650186, guid: 8aa83e84c0afd614cb376cdc6dccd403,
         type: 2}
@@ -658,6 +658,10 @@ Prefab:
     - target: {fileID: 1018662744071772, guid: 8aa83e84c0afd614cb376cdc6dccd403, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457245769383296, guid: 8aa83e84c0afd614cb376cdc6dccd403, type: 2}
+      propertyPath: m_Name
+      value: DurabilityFill
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aa83e84c0afd614cb376cdc6dccd403, type: 2}

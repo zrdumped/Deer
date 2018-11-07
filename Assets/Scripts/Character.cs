@@ -19,7 +19,6 @@ public class Character : MonoBehaviour {
     public float maxLightIntensity = 2;
     public float maxLightRange = 9;
     [Header("Durability Config")]
-    public Slider durabilityBar;
     public bool useBar = true;
     public float maxDecayVelocity = 3;
     public float durabilityRecoverVelocityNormal = 0.7f;
@@ -29,7 +28,6 @@ public class Character : MonoBehaviour {
     public Color normalColor;
     public Color EmergeColor;
     public Color DisableColor;
-    public Image BarFill;
     [Header("Keyboard Control Config")]
     public float changeTimes = 10;
     public KeyCode inflateKey = KeyCode.Z;
@@ -50,8 +48,13 @@ public class Character : MonoBehaviour {
     private float maxRadius = 2.0f;
 
     private float durability;
+    private Slider durabilityBar;
+    private Image BarFill;
 
     void Start () {
+        durabilityBar = GameObject.Find("DurabilityBar").GetComponent<Slider>();
+        BarFill = GameObject.Find("DurabilityFill").GetComponent<Image>();
+
         lightBall = this.transform.Find("LightBall").gameObject;
         lightBall.transform.localScale = new Vector3(0, 0, 0);
 

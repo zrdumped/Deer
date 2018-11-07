@@ -50,8 +50,8 @@ public class TPPCamera : MonoBehaviour {
         adHold = 0;
         holdTime = 0;
         collision.Initialize(Camera.main);
-        transform.position = target.position;
-        desiredPosition = transform.position;
+        //transform.position = target.position;
+        desiredPosition = target.position;
         curDistance = maxDistance;
         collision.UpdateCameraClipPoints(transform.position, transform.rotation, ref collision.adjustedCameraClipPoints);
         collision.UpdateCameraClipPoints(desiredPosition, transform.rotation, ref collision.desiredCameraClipPoints);

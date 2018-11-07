@@ -1619,7 +1619,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1187537673942454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1595955, y: -1.6714921, z: -0.82326156}
+  m_LocalPosition: {x: 0, y: 0, z: 2.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4508083624763374}
@@ -1806,7 +1806,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1128238290585202}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.143, y: 1.704, z: 10.058}
+  m_LocalPosition: {x: -0.143, y: 0.047, z: 12.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355902166893238}
@@ -2337,8 +2337,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105698319952996}
-  m_LocalRotation: {x: 0.052463755, y: -0.1066828, z: -0.0056246016, w: 0.99289215}
-  m_LocalPosition: {x: -0.143, y: -1.704, z: 10.058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4445211227215298}
@@ -2732,8 +2732,7 @@ MonoBehaviour:
   maxLightBallScale: 0.15
   maxLightIntensity: 2
   maxLightRange: 9
-  durabilityBar: {fileID: 0}
-  useBar: 1
+  useBar: 0
   maxDecayVelocity: 3
   durabilityRecoverVelocityNormal: 2
   durabilityRecoverVelocityEmerge: 0.5
@@ -2742,7 +2741,6 @@ MonoBehaviour:
   normalColor: {r: 0.17254902, g: 0.7294118, b: 1, a: 1}
   EmergeColor: {r: 0.9254902, g: 0.2901961, b: 0.2901961, a: 1}
   DisableColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
-  BarFill: {fileID: 0}
   changeTimes: 10
   inflateKey: 122
   deflateKey: 120
