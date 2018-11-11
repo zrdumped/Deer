@@ -73,7 +73,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _ReflectionOn: 0
-    - _ReflectionRate: 9.92
+    - _ReflectionRate: 12
     - _RefractionOn: 0
     - _RefractionRate: 0.3
     - _SmoothnessTextureChannel: 0

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
     public AudioSource audioBGM;
     public AudioClip mainBGM;
     public AudioClip wakeUpBGM;
+    public AudioClip dangerBGM;
+    public AudioClip fightBGM;
     public MainPanelManager mainPanelMgr;
     public bool realTimeAmbientControl = false;
     [Range(0,5)]
@@ -57,18 +59,30 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Alpha4)) {
             Switch2Scene(1, 4);
         }
-        if(Input.GetKeyDown(KeyCode.P)) {
-            if(this.isRunning) {
-                isRunning = false;
-                PauseGame();
+        //if(Input.GetKeyDown(KeyCode.P)) {
+        //    if(this.isRunning) {
+        //        isRunning = false;
+        //        PauseGame();
+        //    }
+        //    else {
+        //        isRunning = true;
+        //        ResumeGame();
+        //    }
+        //}
+        //if(Input.GetKeyDown(KeyCode.Delete)) {
+        //    ExitGame();
+        //}
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            if(curSceneStr != "1_0" && curSceneStr != "0_0") {
+                if(isRunning) {
+                    isRunning = false;
+                    ShowEscPanel();
+                }
+                else {
+                    isRunning = true;
+                    HideEscPanel();
+                }
             }
-            else {
-                isRunning = true;
-                ResumeGame();
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.Delete)) {
-            ExitGame();
         }
 
 
@@ -82,13 +96,23 @@ public class GameManager : MonoBehaviour {
     }
 
     public void PauseGame() {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         StopCtrl();
     }
 
     public void ResumeGame() {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         StartCtrl();
+    }
+
+    public void ShowEscPanel() {
+        mainPanelMgr.ShowEscPanel();
+        PauseGame();
+    }
+
+    public void HideEscPanel() {
+        mainPanelMgr.HideEscPanel();
+        ResumeGame();
     }
 
     // Enable player to control the character
@@ -120,28 +144,18 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GotoMainPanel() {
+        mainPanelMgr.HideEscPanel();
         Switch2Scene(0, 0);
     }
 
     // Start a new game process and delete the record which is being stored
     public void NewGame() {
         // TODO: clear previously saved record
-
-
         Switch2Scene(1, 0);
     }
 
     public void ExitGame() {
         Application.Quit();
-    }
-
-    // Save the player's current game process(ONLY ONE record is supported)
-    public void SaveProcess() {
-
-    }
-
-    public void LoadProcess() {
-
     }
 
     public void Load(string sceneName) {
@@ -215,7 +229,7 @@ public class GameManager : MonoBehaviour {
             Unload(curSceneStr);
         }
         LoadAsync(sceneName);
-        
+
 
         if(sceneName == "0_0" || sceneName == "1_0") {
             audioBGM.clip = mainBGM;
@@ -223,15 +237,36 @@ public class GameManager : MonoBehaviour {
                 audioBGM.Play();
             }
             RenderSettings.ambientIntensity = 1.0f;
+            RenderSettings.reflectionIntensity = 1.0f;
+        }
+        else if(sceneName == "1_1") {
+            audioBGM.clip = wakeUpBGM;
+            if(curSceneStr == "0_0" || curSceneStr == "1_0" || curSceneStr == "1_4") {
+                audioBGM.Play();
+            }
+            RenderSettings.ambientIntensity = 1.0f;
+            RenderSettings.reflectionIntensity = 1.0f;
+        }
+        else if(sceneName == "1_4") {
+            audioBGM.clip = dangerBGM;
+            audioBGM.Play();
+            RenderSettings.ambientIntensity = 0.0f;
+            RenderSettings.reflectionIntensity = 0.0f;
         }
         else {
             audioBGM.clip = wakeUpBGM;
-            if(curSceneStr == "0_0" || curSceneStr == "1_0") {
+            if(curSceneStr == "0_0" || curSceneStr == "1_0" || curSceneStr == "1_4") {
                 audioBGM.Play();
             }
             RenderSettings.ambientIntensity = 0.0f;
+            RenderSettings.reflectionIntensity = 0.0f;
         }
         curSceneStr = sceneName;
+    }
+
+    public void PlayFightBGM() {
+        audioBGM.clip = fightBGM;
+        audioBGM.Play();
     }
 
     public void Switch2Scene(string sceneName)

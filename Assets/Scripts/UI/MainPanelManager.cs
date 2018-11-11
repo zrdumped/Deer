@@ -8,11 +8,11 @@ using DG.Tweening;
 public class MainPanelManager : MonoBehaviour {
 
     public Transform mainPanel;
-    public Transform startPanel;
+    public Transform escapePanel;
     public Transform mainPanelTarget;
-    public Transform startPanelTarget;
     public Transform mainPanelHome;
-    public Transform startPanelHome;
+    public Transform escPanelTarget;
+    public Transform escPanelHome;
     public GameObject canvasLogo;
 
 	// Use this for initialization
@@ -43,14 +43,22 @@ public class MainPanelManager : MonoBehaviour {
         canvasLogo.SetActive(false);
     }
 
-    public void ShowStartPanel() {
-        HideMainPanel();
-        startPanel.DOMove(startPanelTarget.position, 0.3f);
+    //public void ShowStartPanel() {
+    //    HideMainPanel();
+    //    startPanel.DOMove(startPanelTarget.position, 0.3f);
+    //}
+
+    //public void HideStartPanel() {
+    //    ShowMainPanel();
+    //    startPanel.DOMove(startPanelHome.position, 0.3f);
+    //}
+
+    public void ShowEscPanel() {
+        escapePanel.DOMove(escPanelTarget.position, 0.3f);
     }
 
-    public void HideStartPanel() {
-        ShowMainPanel();
-        startPanel.DOMove(startPanelHome.position, 0.3f);
+    public void HideEscPanel() {
+        escapePanel.DOMove(escPanelHome.position, 0.3f);
     }
 
     public void Reset() {
