@@ -56,14 +56,16 @@ public class KeyCharacterController : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.E)) {
             attracting = !attracting;
         }
-        
 
-        if(countingStart == true) {
-            timelineCounter += Time.deltaTime;
-            if(timelineCounter > timeline.duration) {
-                countingStart = false;
-                if(gm) {
-                    gm.GetComponent<GameManager>().StartCtrl();
+
+        if(timeline) {
+            if(countingStart == true) {
+                timelineCounter += Time.deltaTime;
+                if(timelineCounter > timeline.duration) {
+                    countingStart = false;
+                    if(gm) {
+                        gm.GetComponent<GameManager>().StartCtrl();
+                    }
                 }
             }
         }
@@ -79,16 +81,18 @@ public class KeyCharacterController : MonoBehaviour {
     }
 
     public void PlayTimeline() {
-        if(gm) {
-            gm.GetComponent<GameManager>().StartMoveCtrl();
+        if(timeline) {
+            if(gm) {
+                gm.GetComponent<GameManager>().StartMoveCtrl();
+            }
+            attracting = false;
+            vmCam.transform.position = Camera.main.transform.position;
+            vmCam.transform.rotation = Camera.main.transform.rotation;
+            if(gm) {
+                gm.GetComponent<GameManager>().StopCtrl();
+            }
+            timeline.Play();
+            countingStart = true;
         }
-        attracting = false;
-        vmCam.transform.position = Camera.main.transform.position;
-        vmCam.transform.rotation = Camera.main.transform.rotation;
-        if(gm) {
-            gm.GetComponent<GameManager>().StopCtrl();
-        }
-        timeline.Play();
-        countingStart = true;
     }
 }
