@@ -1302,7 +1302,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1580797894145110}
-  m_LocalRotation: {x: -0.65805715, y: -0.10438648, z: -0.027237063, w: 0.7451996}
+  m_LocalRotation: {x: -0.65805715, y: -0.10438651, z: -0.027237222, w: 0.74519956}
   m_LocalPosition: {x: 0.000000026500013, y: 1.7933403, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
   m_Children:
@@ -1400,8 +1400,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1215082885871694}
-  m_LocalRotation: {x: 0.9921988, y: -0.026591143, z: -0.036330264, w: 0.11625201}
-  m_LocalPosition: {x: -0.29682434, y: 0.029011244, z: 0.11154957}
+  m_LocalRotation: {x: 0.9921989, y: -0.026591081, z: -0.03633021, w: 0.116251655}
+  m_LocalPosition: {x: -0.29682449, y: 0.029011244, z: 0.11154957}
   m_LocalScale: {x: 1, y: 1, z: 1.0000008}
   m_Children:
   - {fileID: 4809184792286564}
@@ -1806,7 +1806,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1128238290585202}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.143, y: 0.047, z: 12.67}
+  m_LocalPosition: {x: -5.621547, y: 0.07, z: 14.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355902166893238}
@@ -2028,7 +2028,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1848662713079442}
   m_LocalRotation: {x: 0.7490071, y: -0.008848222, z: -0.0046269777, w: 0.6624868}
-  m_LocalPosition: {x: 0.009153038, y: 0.17645788, z: 3.5969725}
+  m_LocalPosition: {x: 0.009152889, y: 0.17645788, z: 3.5969727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4342373106725180}
@@ -2058,8 +2058,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1138196484500882}
-  m_LocalRotation: {x: 0.99277943, y: 0.04135505, z: -0.010136362, w: 0.11214297}
-  m_LocalPosition: {x: 0.29682437, y: 0.029011171, z: 0.11154849}
+  m_LocalRotation: {x: 0.9927794, y: 0.041355304, z: -0.010136457, w: 0.11214321}
+  m_LocalPosition: {x: 0.29682446, y: 0.02901117, z: 0.11154849}
   m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1.0000007}
   m_Children:
   - {fileID: 4763471804028530}
@@ -2086,8 +2086,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1846606467583004}
-  m_LocalRotation: {x: 0.13460824, y: -0.14626905, z: 0.0077659437, w: 0.98001313}
-  m_LocalPosition: {x: 0, y: 1.648574, z: 0}
+  m_LocalRotation: {x: 0.13460852, y: -0.14626881, z: 0.007766288, w: 0.98001313}
+  m_LocalPosition: {x: 0.000000059604638, y: 1.648574, z: 0}
   m_LocalScale: {x: 1, y: 0.9999998, z: 0.99999994}
   m_Children:
   - {fileID: 4026925144703308}
@@ -2100,8 +2100,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1249846298816276}
-  m_LocalRotation: {x: 0.13795412, y: 0.059688617, z: -0.008004783, w: 0.9886061}
-  m_LocalPosition: {x: 0.000000067055225, y: 1.6476024, z: 0.00000020861577}
+  m_LocalRotation: {x: 0.13795356, y: 0.05968854, z: -0.008004516, w: 0.98860615}
+  m_LocalPosition: {x: 0.00000014156103, y: 1.6476024, z: 0.00000020861577}
   m_LocalScale: {x: 1, y: 0.9999999, z: 0.99999994}
   m_Children:
   - {fileID: 4894797169208344}
@@ -2239,7 +2239,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1537599675721094}
-  m_LocalRotation: {x: -0.66749674, y: 0.051177062, z: 0.01274723, w: 0.7427426}
+  m_LocalRotation: {x: -0.66749656, y: 0.05117719, z: 0.012747098, w: 0.7427428}
   m_LocalPosition: {x: 0.000000032159623, y: 1.7922833, z: -0.000000030267817}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_Children:
@@ -2714,7 +2714,7 @@ MonoBehaviour:
   m_JumpPower: 2.4
   m_GravityMultiplier: 4
   m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 0.1
+  m_MoveSpeedMultiplier: 0.15
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.5
 --- !u!114 &114234073462523366

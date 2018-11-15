@@ -118,6 +118,7 @@ public class Key : MonoBehaviour
 
 	public string TriggerShow()
 	{
+        Debug.Log("Trigger normal key show");
 		if (status == KeyStatus.Inactive)
 		{
             this.transform.position = new Vector3(this.transform.position.x, GameObject.Find("LightBall").transform.position.y, this.transform.position.z);

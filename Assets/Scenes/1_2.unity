@@ -5502,9 +5502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4e2deaec28a6e41bc107c82ae03a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageOnActive: Press 'E' to open
-  triggerKey: 101
-  character: {fileID: 0}
 --- !u!1 &103503425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1650001757868678, guid: a766244018fa61045ba7bd9cf860ec85,
@@ -23373,21 +23370,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: formerKeys.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_SceneBindings.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_ExposedReferences.m_References.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -23398,7 +23380,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 11.41
+      value: 11.03
       objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalRotation.x
@@ -23420,6 +23402,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114388724747594566, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: vmCam
+      value: 
+      objectReference: {fileID: 1100953168}
+    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[2].value
+      value: 
+      objectReference: {fileID: 2143035690}
+    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[3].value
+      value: 
+      objectReference: {fileID: 2143035691}
+    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[4].value
+      value: 
+      objectReference: {fileID: 1100953168}
+    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[5].value
+      value: 
+      objectReference: {fileID: 1948475950}
+    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: m_ExposedReferences.m_References.Array.data[0].second
+      value: 
+      objectReference: {fileID: 1100953169}
+    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: m_ExposedReferences.m_References.Array.data[1].second
+      value: 
+      objectReference: {fileID: 1948475951}
     - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
         type: 2}
       propertyPath: Lights.Array.data[0]
@@ -23441,68 +23458,6 @@ Prefab:
       value: 
       objectReference: {fileID: 997427761}
     - target: {fileID: 114388724747594566, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: vmCam
-      value: 
-      objectReference: {fileID: 1100953168}
-    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_SceneBindings.Array.data[2].value
-      value: 
-      objectReference: {fileID: 2143035690}
-    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_SceneBindings.Array.data[3].value
-      value: 
-      objectReference: {fileID: 2143035691}
-    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_ExposedReferences.m_References.Array.data[0].second
-      value: 
-      objectReference: {fileID: 1100953169}
-    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: noLightMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
-    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_SceneBindings.Array.data[4].key
-      value: 
-      objectReference: {fileID: 114894608404362970, guid: a4f24ee39935f854ea5cfd47a4a35871,
-        type: 2}
-    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_SceneBindings.Array.data[4].value
-      value: 
-      objectReference: {fileID: 1100953168}
-    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_ExposedReferences.m_References.Array.data[1].first
-      value: dd2387905ff05014a8bc3a3e04d2a907
-      objectReference: {fileID: 0}
-    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_ExposedReferences.m_References.Array.data[1].second
-      value: 
-      objectReference: {fileID: 1948475951}
-    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_SceneBindings.Array.data[5].key
-      value: 
-      objectReference: {fileID: 114004642923507844, guid: a4f24ee39935f854ea5cfd47a4a35871,
-        type: 2}
-    - target: {fileID: 320592224435212138, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_SceneBindings.Array.data[5].value
-      value: 
-      objectReference: {fileID: 1948475950}
-    - target: {fileID: 114388724747594566, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114922622531448902, guid: 648eb80c9906fcd40a86b386449617de,
         type: 2}
       propertyPath: m_Enabled
       value: 0
@@ -27888,9 +27843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4e2deaec28a6e41bc107c82ae03a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageOnActive: Press 'E' to open
-  triggerKey: 101
-  character: {fileID: 0}
 --- !u!95 &2143035690
 Animator:
   serializedVersion: 3

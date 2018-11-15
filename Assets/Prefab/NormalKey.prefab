@@ -447,7 +447,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4551946641139214}
   - component: {fileID: 114946426020138422}
-  - component: {fileID: 114922622531448902}
   - component: {fileID: 320592224435212138}
   - component: {fileID: 95085444323363650}
   - component: {fileID: 114388724747594566}
@@ -967,7 +966,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1766041108358678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.65, y: 1, z: 12.591}
+  m_LocalPosition: {x: 0, y: 1.21, z: 11.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4878270932017908}
@@ -2293,7 +2292,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1766041108358678}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a0846859299b14408056f878fb0ca6e, type: 3}
   m_Name: 
@@ -2420,20 +2419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e74689708d23a40b03c394d5c35ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114922622531448902
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1766041108358678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae4e2deaec28a6e41bc107c82ae03a22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messageOnActive: Press 'E' to display
-  triggerKey: 101
-  character: {fileID: 0}
 --- !u!114 &114932629316369720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2466,11 +2451,14 @@ MonoBehaviour:
   ConfirmBall: {fileID: 1070592318065474}
   WrongBall: {fileID: 1920756178961904}
   DestroySeconds: 1
-  Lights: []
+  Lights:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   noLightMaterial: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   OnLitFrames: 200
-  formerKeys:
-  - {fileID: 0}
+  formerKeys: []
   ActivatedClip: {fileID: 82551304568389580}
   ActivateFailClip: {fileID: 82621251374560078}
 --- !u!114 &114962750855191332
@@ -80054,6 +80042,11 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 114336091223210460, guid: a4f24ee39935f854ea5cfd47a4a35871, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 114894608404362970, guid: a4f24ee39935f854ea5cfd47a4a35871, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114004642923507844, guid: a4f24ee39935f854ea5cfd47a4a35871, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - db9cb09e648213545a13686bea97aa54: {fileID: 0}
+    - dd2387905ff05014a8bc3a3e04d2a907: {fileID: 0}
