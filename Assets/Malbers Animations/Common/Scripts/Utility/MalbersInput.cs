@@ -169,6 +169,8 @@ namespace MalbersAnimations
             v = alwaysForward ? 1 : CrossPlatformInputManager.GetAxis(Vertical);
 #endif
             SetInput();
+
+            character.Action = true;
         }
 
       public virtual Vector3 CameraInputBased()
