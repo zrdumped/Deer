@@ -1,18 +1,27 @@
 # Deer
 A video game made with Unity
 
-## 10/9/2018[TODO] ##
-### Scene 1
-* Hint Ball: The visual effects of inactive ball (dim light & particle systems), partially active ball (proper point light, particle systems and force field) and totally active ball (particle systems & a strong point light to light up a large field).
-* Chatacter Control: Control the light ball's scale according to the voice. Trigger the hint ball or traps with the light ball or keyboard input (depend on the design). The visual effects of the light ball.
-* UI
-* Puzzlements and scripts bound to the staff in the scene. Traps and debuff.
-* Animation of the deer
-* Logic in the scene: judge the orders to light up the hint ball and take effect, open the door...
-* BGM, sound effect, voice recordings
+## Introduction
+Deer is an RPG game made with Unity3D about a boy surviving after an earthquake. In the real world, he was buried under the ruins of his house but protected by his mother before the house collapsed and not hurt seriously. In the dead’s world, people change into deer and their memory vanishes as the time goes, so does the light around them. His mom also changed into a deer but led him back to the real world before she lost her memory. On the way bac to home, the boy will come across many deer, some of them are kind and some are not. The only way to communicate with them and keep going is utilizing the power of his voice, which is given by her mother. Player acts as the boy and solve the puzzlements with his voice through microphone, which represents the cry for help in real world. The hints are hidden in dark and the only way to light up the surroundings is making voice.
+  
+## Screenshots
+* The Start Screen
+<p align="center">
+    <img src="https://github.com/zrdumped/ScreenshotsForDeer/blob/master/11.png" alt="Sample"  width="683" height="384">
+</p>
 
-### Scene 2
-* Build the scene
+* Searching in the dark and interactive with alert or trigger
+<p align="center">
+    <img src="https://github.com/zrdumped/ScreenshotsForDeer/blob/master/12.png" alt="Sample"  width="342" height="192">
+    <img src="https://github.com/zrdumped/ScreenshotsForDeer/blob/master/15.png" alt="Sample"  width="342" height="192">
+</p>
 
-### Scene 3
-* Build the scene
+* Get hind within the scene 
+<p align="center">
+    <img src="https://github.com/zrdumped/ScreenshotsForDeer/blob/master/14.png" alt="Sample"  width="683" height="384">
+</p>
+
+* Escape with the help of DEER 
+<p align="center">
+    <img src="https://github.com/zrdumped/ScreenshotsForDeer/blob/master/13.png" alt="Sample"  width="683" height="384">
+</p>
