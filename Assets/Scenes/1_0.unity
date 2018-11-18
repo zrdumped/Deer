@@ -1812,6 +1812,7 @@ GameObject:
   - component: {fileID: 695573964}
   - component: {fileID: 695573966}
   - component: {fileID: 695573965}
+  - component: {fileID: 695573967}
   m_Layer: 0
   m_Name: TimelineEarthquakeHappen
   m_TagString: Untagged
@@ -1882,8 +1883,27 @@ PlayableDirector:
     value: {fileID: 2098411004}
   - key: {fileID: 114453144309348462, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
     value: {fileID: 2138400580}
+  - key: {fileID: 114024944829554048, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
+    value: {fileID: 1440543860}
+  - key: {fileID: 114385317907994792, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
+    value: {fileID: 695573965}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &695573967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 695573963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ee0df6b23620a499c3529224db693e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initVolume: 0.1
+  curVolume: 0.1
+  jumpToScene: 1_1
+  startJump: 0
 --- !u!1 &724913451
 GameObject:
   m_ObjectHideFlags: 0
@@ -4612,6 +4632,106 @@ Transform:
   m_Father: {fileID: 233781403}
   m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1440543859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1028571739776030, guid: e04ac5e137797944195baffc33dd7ab5,
+    type: 2}
+  m_PrefabInternal: {fileID: 966537630}
+--- !u!82 &1440543860
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1440543859}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.16111112
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1460788229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 488000, guid: d6ce6c1bb821d7140abd93042029807d,

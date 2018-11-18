@@ -8,6 +8,7 @@ TagManager:
   - Water
   - TppCharacter
   - IntObjList
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - Force Field
   - Deer Friendly
-  - 
+  - MainPanel
   - 
   - 
   - 
