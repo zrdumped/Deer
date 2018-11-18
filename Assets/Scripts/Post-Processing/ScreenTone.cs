@@ -6,6 +6,7 @@ public class ScreenTone : PostEffectsBase {
 
     public Shader screenToneShader;
     private Material screenToneMaterial = null;
+
     public Material material {
         get {
             screenToneMaterial = CheckShaderAndCreateMaterial(screenToneShader, screenToneMaterial);
@@ -13,7 +14,9 @@ public class ScreenTone : PostEffectsBase {
         }
     }
 
-    public Color color;
+    public Color MulColor = Color.white;
+    public Color AddColor = Color.black;
+
 
     [Range(1, 8)]
     public int downSample = 2;
@@ -29,7 +32,8 @@ public class ScreenTone : PostEffectsBase {
             // compress
             Graphics.Blit(src, buffer0);
 
-            material.SetColor("_ToneColor", color);
+            material.SetColor("_MulColor", MulColor);
+            material.SetColor("_AddColor", AddColor);
 
             Graphics.Blit(buffer0, dest, material, 0);
             RenderTexture.ReleaseTemporary(buffer0);

@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
     public AudioClip wakeUpBGM;
     public AudioClip dangerBGM;
     public AudioClip fightBGM;
+    public AudioClip wildBGM;
+    public AudioClip castleBGM;
     public MainPanelManager mainPanelMgr;
     public bool realTimeAmbientControl = false;
     [Range(0,5)]
@@ -58,6 +60,12 @@ public class GameManager : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.Alpha4)) {
             Switch2Scene(1, 4);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha5)) {
+            Switch2Scene(2, 0);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha6)) {
+            Switch2Scene(3, 0);
         }
         //if(Input.GetKeyDown(KeyCode.P)) {
         //    if(this.isRunning) {
@@ -252,6 +260,20 @@ public class GameManager : MonoBehaviour {
             audioBGM.Play();
             RenderSettings.ambientIntensity = 0.0f;
             RenderSettings.reflectionIntensity = 0.0f;
+        }
+        else if(sceneName == "2_0") {
+            mainPanelMgr.HideMainPanel(); // Disable the logo Bloom Camera
+            audioBGM.clip = wildBGM;
+            audioBGM.Play();
+            RenderSettings.ambientIntensity = 1.0f;
+            RenderSettings.reflectionIntensity = 1.0f;
+        }
+        else if(sceneName == "3_0") {
+            mainPanelMgr.HideMainPanel(); // Disable the logo Bloom Camera
+            audioBGM.clip = castleBGM;
+            audioBGM.Play();
+            RenderSettings.ambientIntensity = 1.0f;
+            RenderSettings.reflectionIntensity = 1.0f;
         }
         else {
             audioBGM.clip = wakeUpBGM;

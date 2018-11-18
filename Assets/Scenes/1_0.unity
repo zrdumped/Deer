@@ -1902,7 +1902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initVolume: 0.1
   curVolume: 0.1
-  jumpToScene: 1_1
+  jumpToChap: 1
+  jumpToScene: 1
   startJump: 0
 --- !u!1 &724913451
 GameObject:
@@ -10416,8 +10417,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2098410992}
-  m_LocalRotation: {x: 0, y: 0.38556936, z: -0, w: -0.9226788}
-  m_LocalPosition: {x: -7.370884, y: 1.28, z: 15.251418}
+  m_LocalRotation: {x: 0, y: -0.38556936, z: 0, w: 0.9226789}
+  m_LocalPosition: {x: -7.37, y: 1.18, z: 15.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10524,11 +10525,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2098410992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c054ce2b489616c4b8e4c6899c12065e, type: 3}
+  m_Script: {fileID: 11500000, guid: a86d63f69f43d694a8fae7a7b41c4280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenToneShader: {fileID: 4800000, guid: 43b62a407b5822e43bf4c98065f1ac2d, type: 3}
-  color: {r: 1, g: 1, b: 1, a: 0}
+  screenToneShader: {fileID: 4800000, guid: 4014cd8962332e347be39d2f7bf22b69, type: 3}
+  MulColor: {r: 1, g: 1, b: 1, a: 1}
+  AddColor: {r: 0, g: 0, b: 0, a: 1}
   downSample: 1
 --- !u!114 &2098411003
 MonoBehaviour:

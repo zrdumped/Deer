@@ -14,6 +14,7 @@ public class MainPanelManager : MonoBehaviour {
     public Transform escPanelTarget;
     public Transform escPanelHome;
     public GameObject canvasLogo;
+    public GameObject canvasCamera;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +33,7 @@ public class MainPanelManager : MonoBehaviour {
 
     public void ShowMainPanel() {
         canvasLogo.SetActive(true);
+        canvasCamera.SetActive(true);
         mainPanel.gameObject.SetActive(true);
         mainPanel.DOMove(mainPanelTarget.position, 0.3f);
     }
@@ -41,6 +43,7 @@ public class MainPanelManager : MonoBehaviour {
         //Debug.Log("MainPanel Move to Home Position");
         mainPanel.gameObject.SetActive(false);
         canvasLogo.SetActive(false);
+        canvasCamera.SetActive(false);
     }
 
     //public void ShowStartPanel() {

@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0_0.unity
     guid: cc2930b15c02c7845af0ea20d18bc5b9
+  - enabled: 1
+    path: Assets/LowPolyLandscape/Maps/2_0.unity
+    guid: 42c14d38b9d4dce468c99ed85d071129
+  - enabled: 1
+    path: Assets/PolygonDungeon/Scenes/3_0.unity
+    guid: 2a0142ad730f2064abeaf6666431da88
   m_configObjects: {}
