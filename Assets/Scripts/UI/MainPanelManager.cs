@@ -23,12 +23,6 @@ public class MainPanelManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetKeyDown(KeyCode.T)) {
-            ShowMainPanel();
-        }
-        if(Input.GetKeyDown(KeyCode.U)) {
-            HideMainPanel();
-        }
     }
 
     public void ShowMainPanel() {
@@ -38,12 +32,17 @@ public class MainPanelManager : MonoBehaviour {
         mainPanel.DOMove(mainPanelTarget.position, 0.3f);
     }
 
-    public void HideMainPanel() {
+    public void HideMainPanel(bool needDisableCam) {
         //mainPanel.DOMove(mainPanelHome.position, 0.3f);
         //Debug.Log("MainPanel Move to Home Position");
         mainPanel.gameObject.SetActive(false);
         canvasLogo.SetActive(false);
-        canvasCamera.SetActive(false);
+        if(needDisableCam == true) {
+            canvasCamera.SetActive(false);
+        }
+        else {
+            canvasCamera.SetActive(true);
+        }
     }
 
     //public void ShowStartPanel() {
@@ -66,6 +65,6 @@ public class MainPanelManager : MonoBehaviour {
 
     public void Reset() {
         Debug.Log("Reset MainPanelManager");
-        HideMainPanel();
+        HideMainPanel(false);
     }
 }

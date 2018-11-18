@@ -6837,6 +6837,7 @@ MonoBehaviour:
   - {fileID: 1561350134}
   - {fileID: 1596981977}
   - {fileID: 2013486643}
+  - {fileID: 951027608}
 --- !u!4 &226081356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4231327009415166, guid: fcd2af9145fe1bc4393996625be1492a,
@@ -23004,6 +23005,37 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0e04902ed0f4a545be2e2735d233628, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &951027608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1661837057807788, guid: b0e04902ed0f4a545be2e2735d233628,
+    type: 2}
+  m_PrefabInternal: {fileID: 951027607}
+--- !u!114 &951027609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951027608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786c4d1a260e1ef4097c78e2a4df5b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textContents:
+  - Press "E" to Open
+  highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
+  normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
+  need3dUI: 0
+  needTextUI: 1
+  needOS: 0
+  threeDUI: {fileID: 0}
+  highlightPart: {fileID: 951027608}
+  listenerObj: {fileID: 951027608}
+  status: 0
+  hasDetected: 0
+  isFloating: 0
+  perRadian: 0.03
+  radius: 0.8
 --- !u!1001 &952259826
 Prefab:
   m_ObjectHideFlags: 0

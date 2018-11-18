@@ -246,6 +246,7 @@ public class GameManager : MonoBehaviour {
             }
             RenderSettings.ambientIntensity = 1.0f;
             RenderSettings.reflectionIntensity = 1.0f;
+            mainPanelMgr.HideMainPanel(true); // Disable the logo Bloom Camera
         }
         else if(sceneName == "1_1") {
             audioBGM.clip = wakeUpBGM;
@@ -262,14 +263,14 @@ public class GameManager : MonoBehaviour {
             RenderSettings.reflectionIntensity = 0.0f;
         }
         else if(sceneName == "2_0") {
-            mainPanelMgr.HideMainPanel(); // Disable the logo Bloom Camera
+            mainPanelMgr.HideMainPanel(true); // Disable the logo Bloom Camera
             audioBGM.clip = wildBGM;
             audioBGM.Play();
             RenderSettings.ambientIntensity = 1.0f;
             RenderSettings.reflectionIntensity = 1.0f;
         }
         else if(sceneName == "3_0") {
-            mainPanelMgr.HideMainPanel(); // Disable the logo Bloom Camera
+            mainPanelMgr.HideMainPanel(true); // Disable the logo Bloom Camera
             audioBGM.clip = castleBGM;
             audioBGM.Play();
             RenderSettings.ambientIntensity = 1.0f;

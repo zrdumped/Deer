@@ -7623,7 +7623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textContents:
   - Press "E" to Open
-  highlightMat: {fileID: 2100000, guid: 2fb21ecffc61ba745af1449a1977744c, type: 2}
+  highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
   normalMat: {fileID: 2100000, guid: 2fb21ecffc61ba745af1449a1977744c, type: 2}
   need3dUI: 0
   needTextUI: 1
@@ -7632,7 +7632,7 @@ MonoBehaviour:
   highlightPart: {fileID: 1960889750}
   listenerObj: {fileID: 1960889751}
   status: 0
-  hasDetected: 0
+  hasDetected: 1
   isFloating: 0
   perRadian: 0.03
   radius: 0.8
