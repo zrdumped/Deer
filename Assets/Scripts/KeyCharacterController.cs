@@ -21,6 +21,7 @@ public class KeyCharacterController : MonoBehaviour {
     private bool attracting = false;
     private bool countingStart = false;
     private float timelineCounter = 0; // count time that the timeline has played
+    private bool moveEnable = true;
 
     // Use this for initialization
     void Start () {
@@ -33,8 +34,11 @@ public class KeyCharacterController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         if(attracting == true) {
-            if(Vector3.Distance(character.transform.position, transform.position) > 1.3) {
-               
+            Vector3 tmp1 = character.transform.position;
+            tmp1.y = 0;
+            Vector3 tmp2 = transform.position;
+            tmp2.y = 0;
+            if(Vector3.Distance(tmp1, tmp2) > 0.1) {
                 Vector3 direct = transform.position - character.transform.position;
                 direct.y = 0;
                 direct = direct.normalized;
@@ -43,19 +47,26 @@ public class KeyCharacterController : MonoBehaviour {
             else {
                 if(gm) {
                     gm.GetComponent<GameManager>().StopMoveCtrl();
+                    moveEnable = false;
                 }
+            }
+        }
+        else {
+            if(moveEnable == false) {
+                gm.GetComponent<GameManager>().StartMoveCtrl();
+                moveEnable = true;
             }
         }
 	}
 
     void Update() {
         // Fot Test ONLY
-        if(Input.GetKeyDown(KeyCode.R)) {
-            PlayTimeline();
-        }
-        if(Input.GetKeyDown(KeyCode.E)) {
-            attracting = !attracting;
-        }
+        //if(Input.GetKeyDown(KeyCode.R)) {
+        //    PlayTimeline();
+        //}
+        //if(Input.GetKeyDown(KeyCode.E)) {
+        //    attracting = !attracting;
+        //}
 
 
         if(timeline) {
@@ -72,6 +83,7 @@ public class KeyCharacterController : MonoBehaviour {
     }
 
     public void GotoKey() {
+        Debug.Log("KeyCharacterController : GotoKey called");
         attracting = true;
     }
 
