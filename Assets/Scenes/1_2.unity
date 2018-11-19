@@ -5213,6 +5213,91 @@ LightProbeGroup:
   - {x: -1, y: 1, z: -1}
   - {x: -1, y: -1, z: 1}
   - {x: -1, y: -1, z: -1}
+--- !u!1001 &65332254
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1761348334}
+    m_Modifications:
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.277
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.324
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.18046811
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.6937878
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.6756138
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.17215021
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 87.398
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -266.702
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730442635312398, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -61.084003
+      objectReference: {fileID: 0}
+    - target: {fileID: 102033942822271272, guid: 3933f2add6b94684b8a4fb55e4800d76,
+        type: 2}
+      propertyPath: m_Text
+      value: "Use the hints hidden in the staff\n in your house like this to \nfollow
+        your parents\u2019 steps"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541954228409786, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.2309687
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541954228409786, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000016723
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541954228409786, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.0000000021737
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541954228409786, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.0000000093104
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541954228409786, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.81915
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3933f2add6b94684b8a4fb55e4800d76, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &65332255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1591425267032538, guid: 3933f2add6b94684b8a4fb55e4800d76,
+    type: 2}
+  m_PrefabInternal: {fileID: 65332254}
 --- !u!4 &75427190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435908, guid: e9295f9fb1b60234580ddd962dc357f0,
@@ -10913,6 +10998,7 @@ MonoBehaviour:
   threshodDistance: 2
   timeline: {fileID: 1212539607}
   vmCam: {fileID: 1750928055}
+  Book: {fileID: 1761348335}
 --- !u!114 &703192896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24539,15 +24625,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 492126, guid: 0a3ea2d3d82318141adc226be7423660, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.4005926
+      value: 4.092
       objectReference: {fileID: 0}
     - target: {fileID: 492126, guid: 0a3ea2d3d82318141adc226be7423660, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.478513
+      value: -0.779
       objectReference: {fileID: 0}
     - target: {fileID: 492126, guid: 0a3ea2d3d82318141adc226be7423660, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -10.425263
+      value: -10.376
       objectReference: {fileID: 0}
     - target: {fileID: 492126, guid: 0a3ea2d3d82318141adc226be7423660, type: 2}
       propertyPath: m_LocalRotation.x
@@ -24597,6 +24683,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 492126, guid: 0a3ea2d3d82318141adc226be7423660,
     type: 2}
   m_PrefabInternal: {fileID: 1761348333}
+--- !u!1 &1761348335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 179930, guid: 0a3ea2d3d82318141adc226be7423660,
+    type: 2}
+  m_PrefabInternal: {fileID: 1761348333}
+--- !u!114 &1761348336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1761348335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e838c67cbbb1942b9b0f0cbf389ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FloatingHeight: 0.3
+  normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
+  highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
+  character: {fileID: 1637763776}
+  TreeDUI: {fileID: 65332255}
 --- !u!4 &1774817318 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 412468, guid: b43052b8e42b17a45a40d9752c121fdd,

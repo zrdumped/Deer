@@ -147,5 +147,14 @@ public class InteractiveObjManager : MonoBehaviour {
         }
     }
 
+    public void SetTextUntimed(string text) {
+        hintText.enabled = false;
+        triggerText.text = text;
+    }
+
+    public void ClearText() {
+        triggerText.text = "";
+    }
+
 
 }

@@ -9,6 +9,7 @@ public class RemainPickupTrigger : MonoBehaviour {
     public float threshodDistance = 10;
     public PlayableDirector timeline;
     public GameObject vmCam;
+    public GameObject Book;
 
     private bool hasPlayed = false;
     private GameObject gm;
@@ -43,6 +44,9 @@ public class RemainPickupTrigger : MonoBehaviour {
                 countingStart = false;
                 if(gm) {
                     gm.GetComponent<GameManager>().StartCtrl();
+                }
+                if(Book) {
+                    Book.GetComponent<BookTut>().FocusOnDelay();
                 }
             }
         }
