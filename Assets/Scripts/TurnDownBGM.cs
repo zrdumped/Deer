@@ -11,6 +11,8 @@ public class TurnDownBGM : MonoBehaviour {
     public int jumpToChap = 1;
     public int jumpToScene = 1;
     public bool startJump = false;
+    public bool startBgm = false;
+    private bool bgmDisplaying = false;
     private float lastFrameVolume = 0.1f;
     private GameManager gm;
 
@@ -29,8 +31,19 @@ public class TurnDownBGM : MonoBehaviour {
         }
 
         if(startJump == true) {
+            while (gm.audioBGM.volume < 0.15f)
+            {
+                gm.audioBGM.volume += 0.005f;
+                return;
+            }
             gm.Switch2Scene(jumpToChap, jumpToScene);
-            gm.audioBGM.volume = 0.15f;
+        }
+
+        if(startBgm && !bgmDisplaying)
+        {
+            gm.DisplayBGM();
+            gm.audioBGM.volume = 0.04f;
+            bgmDisplaying = true;
         }
 	}
 

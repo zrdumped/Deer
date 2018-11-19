@@ -160,6 +160,7 @@ public class GameManager : MonoBehaviour {
     public void NewGame() {
         // TODO: clear previously saved record
         Switch2Scene(1, 0);
+        audioBGM.Stop();
     }
 
     public void ExitGame() {
@@ -259,7 +260,7 @@ public class GameManager : MonoBehaviour {
         }
         else if(sceneName == "1_1") {
             audioBGM.clip = wakeUpBGM;
-            if(curSceneStr == "0_0" || curSceneStr == "1_0" || curSceneStr == "1_4") {
+            if(curSceneStr == "0_0" || curSceneStr == "1_4") {
                 audioBGM.Play();
             }
             RenderSettings.ambientIntensity = 1.0f;
@@ -303,35 +304,12 @@ public class GameManager : MonoBehaviour {
 
     public void Switch2Scene(string sceneName)
     {
-        if (interactMgr)
-        {
-            interactMgr.StopLooping();
-        }
-        if (curSceneStr != "")
-        {
-            Unload(curSceneStr);
-        }
-        LoadAsync(sceneName);
+        Switch2Scene((int)sceneName[0], (int)sceneName[2]);
+    }
 
-
-        if (sceneName == "0_0" || sceneName == "1_0")
-        {
-            audioBGM.clip = mainBGM;
-            if (curSceneStr != "0_0" && curSceneStr != "1_0")
-            {
-                audioBGM.Play();
-            }
-            RenderSettings.ambientIntensity = 1.0f;
-        }
-        else
-        {
-            audioBGM.clip = wakeUpBGM;
-            if (curSceneStr == "0_0" || curSceneStr == "1_0")
-            {
-                audioBGM.Play();
-            }
-            RenderSettings.ambientIntensity = 0.0f;
-        }
-        curSceneStr = sceneName;
+    public void DisplayBGM()
+    {
+        audioBGM.clip = wakeUpBGM;
+        audioBGM.Play();
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29212883, g: 0.35885867, b: 0.43786523, a: 1}
+  m_IndirectSpecularColor: {r: 0.29212934, g: 0.35885867, b: 0.43786538, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -1889,6 +1889,16 @@ PlayableDirector:
     value: {fileID: 695573965}
   - key: {fileID: 114487368342909206, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
     value: {fileID: 966537632}
+  - key: {fileID: 114841594066303254, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114223560342674932, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114068050746455050, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114057317131224746, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114366560032513072, guid: 39757676e6060bd4089653c22c7c8faa, type: 2}
+    value: {fileID: 821476564}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &695573967
@@ -1907,6 +1917,7 @@ MonoBehaviour:
   jumpToChap: 1
   jumpToScene: 1
   startJump: 0
+  startBgm: 0
 --- !u!1 &724913451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,6 +2327,106 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 488000, guid: d6ce6c1bb821d7140abd93042029807d,
     type: 2}
   m_PrefabInternal: {fileID: 1646563422}
+--- !u!1 &821476562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1828693568733482, guid: e04ac5e137797944195baffc33dd7ab5,
+    type: 2}
+  m_PrefabInternal: {fileID: 966537630}
+--- !u!82 &821476564
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821476562}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &826894423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435228, guid: 8c3d87308d725ec4cb1a636666c7e903,
@@ -10519,8 +10630,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2098410992}
-  m_LocalRotation: {x: 0, y: 0.38556936, z: -0, w: -0.9226788}
-  m_LocalPosition: {x: -7.370884, y: 1.28, z: 15.251418}
+  m_LocalRotation: {x: 0, y: -0.38556936, z: 0, w: 0.9226789}
+  m_LocalPosition: {x: -7.37, y: 1.18, z: 15.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
