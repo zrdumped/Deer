@@ -236,6 +236,15 @@ public class GameManager : MonoBehaviour {
         if(curSceneStr != "") {
             Unload(curSceneStr);
         }
+
+        // some hard code
+        if(targetChap == 2 && targetScene == 0) {
+            sceneName = "Example_Night";
+        }
+
+        if(targetChap == 3 && targetScene == 0) {
+            sceneName = "Demo_modify";
+        }
         LoadAsync(sceneName);
 
 
@@ -262,14 +271,14 @@ public class GameManager : MonoBehaviour {
             RenderSettings.ambientIntensity = 0.0f;
             RenderSettings.reflectionIntensity = 0.0f;
         }
-        else if(sceneName == "2_0") {
+        else if(sceneName == "Example_Night") {
             mainPanelMgr.HideMainPanel(true); // Disable the logo Bloom Camera
             audioBGM.clip = wildBGM;
             audioBGM.Play();
             RenderSettings.ambientIntensity = 1.0f;
             RenderSettings.reflectionIntensity = 1.0f;
         }
-        else if(sceneName == "3_0") {
+        else if(sceneName == "Demo_modify") {
             mainPanelMgr.HideMainPanel(true); // Disable the logo Bloom Camera
             audioBGM.clip = castleBGM;
             audioBGM.Play();
