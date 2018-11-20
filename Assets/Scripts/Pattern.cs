@@ -106,6 +106,9 @@ public class Pattern : MonoBehaviour {
             {
                 keyController.MatchReset();
                 ShowPatternClip.Play();
+                Debug.Log("Set forever");
+                GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
+                    "Match the spheres with your voice.\n Press Q to stop", -1);
             }
             if (pitchID > 0 || pitchID == -intermissionLength)
             {

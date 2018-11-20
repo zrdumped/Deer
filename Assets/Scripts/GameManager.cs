@@ -248,11 +248,6 @@ public class GameManager : MonoBehaviour {
             sceneName = "Demo_modify";
         }
 
-        if (sceneName == "1_3" || sceneName == "1_4")
-        {
-            UseBar();
-        }
-
         LoadAsync(sceneName);
 
 
@@ -302,6 +297,15 @@ public class GameManager : MonoBehaviour {
             RenderSettings.reflectionIntensity = 0.0f;
         }
         curSceneStr = sceneName;
+
+        if (sceneName == "1_3" || sceneName == "1_4")
+        {
+            UseBar();
+        }
+        else
+        {
+            durabilityBar.SetActive(false);
+        }
     }
 
     public void PlayFightBGM() {

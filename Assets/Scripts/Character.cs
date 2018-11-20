@@ -52,8 +52,18 @@ public class Character : MonoBehaviour {
     private Image BarFill;
 
     void Start () {
-        durabilityBar = null;
-        BarFill = null;
+        try
+        {
+            durabilityBar = GameObject.Find("DurabilityBar").GetComponent<Slider>();
+            BarFill = GameObject.Find("DurabilityFill").GetComponent<Image>();
+            useBar = true;
+        }
+        catch
+        {
+            durabilityBar = null;
+            BarFill = null;
+            useBar = false;
+        }
 
         lightBall = this.transform.Find("LightBall").gameObject;
         lightBall.transform.localScale = new Vector3(0, 0, 0);
@@ -160,6 +170,12 @@ public class Character : MonoBehaviour {
             else
                 BarFill.color = normalColor;
         }
+        else
+        {
+            lightBall.transform.localScale = new Vector3(0, 0, 0);
+            lightSphere.GetComponent<Light>().range = 0;
+            lightSphere.GetComponent<Light>().intensity = 0;
+        }
     }
 
 	void AdjustLightBallWithSound() {
@@ -198,5 +214,6 @@ public class Character : MonoBehaviour {
     {
         durabilityBar = GameObject.Find("DurabilityBar").GetComponent<Slider>();
         BarFill = GameObject.Find("DurabilityFill").GetComponent<Image>();
+        useBar = true;
     }
 }

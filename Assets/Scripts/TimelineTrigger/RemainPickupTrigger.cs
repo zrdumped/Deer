@@ -44,6 +44,7 @@ public class RemainPickupTrigger : MonoBehaviour {
                 countingStart = false;
                 if(gm) {
                     gm.GetComponent<GameManager>().StartCtrl();
+                    gm.GetComponent<GameManager>().UseBar();
                 }
                 if(Book) {
                     Book.GetComponent<BookTut>().FocusOnDelay();

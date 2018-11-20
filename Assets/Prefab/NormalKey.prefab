@@ -452,6 +452,7 @@ GameObject:
   - component: {fileID: 114388724747594566}
   - component: {fileID: 114555119584596214}
   - component: {fileID: 135802260865846124}
+  - component: {fileID: 114730091735978398}
   m_Layer: 0
   m_Name: NormalKey
   m_TagString: Untagged
@@ -1415,7 +1416,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f7e8822a06986f4498dd16873315dd61, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 0.8
   Loop: 1
   Mute: 0
@@ -1510,7 +1511,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: abb9c1d8e536c9242a6f4511341fec88, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.4
   m_Pitch: 1.1
   Loop: 0
   Mute: 0
@@ -1605,7 +1606,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0fb58c97432ad2e4e94e2d0efca55dfe, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1700,7 +1701,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3a24fd32762c09040ad03becb73d1d15, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1795,7 +1796,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 30fc51d43093e964898f5caba0b16f59, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1890,7 +1891,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fc8d9faedeb71a74d9e7320d76b3bd45, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 0.3
   m_Pitch: 1.5
   Loop: 0
   Mute: 0
@@ -2277,11 +2278,11 @@ MonoBehaviour:
   pitchLength: 3
   intermissionLength: 2
   changeFrames: 20
-  pattern: 0000000004000000020000000300000001000000
+  pattern: 02000000
   onShow: 0
   keyController: {fileID: 114946426020138422}
   forceMatch: 1
-  forceMatchResult: 2
+  forceMatchResult: 0
   ShowPatternClip: {fileID: 82367909533240178}
   matchSuccessClip: {fileID: 82862719218558478}
   patternHintClip: {fileID: 82543533499089302}
@@ -2394,6 +2395,31 @@ MonoBehaviour:
   controlParticleSystem: {fileID: 198391245521280882}
   getRenderersInChildren: {fileID: 1701880458050724}
   getRenderersCustom: []
+--- !u!114 &114730091735978398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766041108358678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786c4d1a260e1ef4097c78e2a4df5b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textContents: []
+  highlightMat: {fileID: 0}
+  normalMat: {fileID: 0}
+  need3dUI: 0
+  needTextUI: 1
+  needOS: 0
+  threeDUI: {fileID: 0}
+  highlightPart: {fileID: 0}
+  listenerObj: {fileID: 1766041108358678}
+  status: 0
+  hasDetected: 1
+  isFloating: 0
+  perRadian: 0.03
+  radius: 0.8
 --- !u!114 &114811520547352030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2459,6 +2485,7 @@ MonoBehaviour:
   noLightMaterial: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   OnLitFrames: 200
   formerKeys: []
+  targetDoor: {fileID: 0}
   ActivatedClip: {fileID: 82551304568389580}
   ActivateFailClip: {fileID: 82621251374560078}
 --- !u!114 &114962750855191332
@@ -2586,7 +2613,7 @@ SphereCollider:
   m_GameObject: {fileID: 1766041108358678}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

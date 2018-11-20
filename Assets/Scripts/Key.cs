@@ -25,6 +25,7 @@ public class Key : MonoBehaviour
     public Material noLightMaterial;
 	public int OnLitFrames = 200;
     public GameObject[] formerKeys;
+    public GameObject targetDoor = null;
     [Header("Audio")]
     public AudioSource ActivatedClip;
     public AudioSource ActivateFailClip;
@@ -83,10 +84,9 @@ public class Key : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (status == KeyStatus.OnShow && Input.GetKeyDown(KeyCode.Q))
         {
-            if(formerKeys.Length > 0)
-                Showline(formerKeys[0]);
+            TriggerShow();
         }
 
     }
@@ -131,19 +131,24 @@ public class Key : MonoBehaviour
             //walk on stage and disable moving
             this.GetComponent<KeyCharacterController>().GotoKey();
             status = KeyStatus.OnShow;
+            GameObject.Find("Character").GetComponent<Character>().NoConsumeDurability();
 			//GetComponentInChildren<Pattern>().character = GetComponent<InputListener>().character;
-			return "Match the spheres with your voice.\n Press E to stop";
+			return "";
 		}
 		else if (status == KeyStatus.OnShow)
 		{
+            Debug.Log("haha");
             HintBall.SetActive(false);
             InactiveBall.SetActive(true);
             if (InactiveBall_2 != null)
                 InactiveBall_2.SetActive(true);
             status = KeyStatus.Inactive;
-            //this.GetComponent<KeyCharacterController>().LeaveKey();
-            GameObject.Find("GameManager").GetComponent<GameManager>().StopMoveCtrl();
+            this.GetComponent<KeyCharacterController>().LeaveKey();
+            GameObject.Find("Character").GetComponent<Character>().ConsumeDurability();
+            //GameObject.Find("GameManager").GetComponent<GameManager>().StopMoveCtrl();
             //GetComponentInChildren<Pattern>().character = null;
+            GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
+                "", DestroySeconds);
             return "Press E to dispaly.";
 		}
 		else
@@ -188,6 +193,12 @@ public class Key : MonoBehaviour
             }
         }
         this.GetComponent<KeyCharacterController>().LeaveKey();
+        GameObject.Find("Character").GetComponent<Character>().ConsumeDurability();
+        this.GetComponent<InteractiveObj>().textContents[0] = "";
+        //for(int i = 0; i < formerKeys.Length; i++)
+        //    Showline(this.gameObject, formerKeys[i]);
+        //if(targetDoor!=null)
+         //   Showline(targetDoor, this.gameObject);
         //return "Activated";
     }
 
@@ -260,11 +271,22 @@ public class Key : MonoBehaviour
             else
             {
                 activateSuccess();
-                GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
-                    "Activated. Keep on going.", DestroySeconds);
-                foreach (GameObject k in formerKeys)
+                if (targetDoor == null)
                 {
-                    Showline(k);
+                    GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
+                        "Activated. Keep on going.", DestroySeconds);
+                    foreach (GameObject k in formerKeys)
+                    {
+                        Showline(this.gameObject, k);
+                    }
+                }
+                else
+                {
+                    GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
+                        "Door has been unlocked", DestroySeconds * 2);
+                    Showline(targetDoor, this.gameObject);
+                    targetDoor.GetComponent<Door>().locked = false;
+                    targetDoor.GetComponentInChildren<InteractiveObj>().hasDetected = true;
                 }
             }
         }
@@ -273,7 +295,7 @@ public class Key : MonoBehaviour
             int showTime = HintBall.GetComponent<Pattern>().pitchLength;
             GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
                     "You have to match all the pitches to activate it.", showTime);
-            StartCoroutine(WaitAndRestoreMessage(showTime));
+            //StartCoroutine(WaitAndRestoreMessage(showTime));
         }
     }
 
@@ -303,7 +325,7 @@ public class Key : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
-                   "Match the spheres with your voice.\n Press E to stop", HintBall.GetComponent<Pattern>().pitchLength);
+                   "Match the spheres with your voice.\n Press Q to stop", -1);
 
     }
 
@@ -317,14 +339,14 @@ public class Key : MonoBehaviour
         return status;
     }
 
-    private void Showline(GameObject target)
+    private void Showline(GameObject target, GameObject source)
     {
-        Waypoint t = this.GetComponent<Waypoint>();
-        target.GetComponentInChildren<WaypointsHolder>().waypoints = new List<Waypoint> { t };
-        target.GetComponentInChildren<WaypointsHolder>().enabled = true;
-        target.GetComponentInChildren<WaypointMover>().enabled = true;
-        target.transform.Find("Signal").gameObject.GetComponentInChildren<ParticleSystem>().Play(true);
-        target.GetComponentInChildren<Signal>().enabled = true;
+        Waypoint t = target.GetComponent<Waypoint>();
+        source.GetComponentInChildren<WaypointsHolder>().waypoints = new List<Waypoint> { t };
+        source.GetComponentInChildren<WaypointsHolder>().enabled = true;
+        source.GetComponentInChildren<WaypointMover>().enabled = true;
+        source.transform.Find("Signal").gameObject.GetComponentInChildren<ParticleSystem>().Play(true);
+        source.GetComponentInChildren<Signal>().enabled = true;
     }
 
     public void signalArrived(GameObject signal)

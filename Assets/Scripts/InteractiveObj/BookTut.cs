@@ -62,6 +62,7 @@ public class BookTut : MonoBehaviour {
             Vector3 pos = transform.position;
             pos.y = character.transform.position.y;
 
+            gm.UseBar();
             gm.interactMgr.SetTextUntimed("Use your voice with different pitches through microphone to control the light. Try to touch the book with the light surrounding you.");
 
             Sequence sequence = DOTween.Sequence();
