@@ -52,8 +52,8 @@ public class Character : MonoBehaviour {
     private Image BarFill;
 
     void Start () {
-        durabilityBar = GameObject.Find("DurabilityBar").GetComponent<Slider>();
-        BarFill = GameObject.Find("DurabilityFill").GetComponent<Image>();
+        durabilityBar = null;
+        BarFill = null;
 
         lightBall = this.transform.Find("LightBall").gameObject;
         lightBall.transform.localScale = new Vector3(0, 0, 0);
@@ -148,15 +148,18 @@ public class Character : MonoBehaviour {
                 lightSphere.GetComponent<Light>().intensity = 0;
             }
         }
-        durabilityBar.value = durability;
-        //Debug.Log(durability);
-        //Debug.Log(normalColor.ToString());
-        if(!useBar)
-            BarFill.color = DisableColor;
-        else if (durability < emergeValue)
-            BarFill.color = EmergeColor;
-        else
-            BarFill.color = normalColor;
+        if (durabilityBar != null)
+        {
+            durabilityBar.value = durability;
+            //Debug.Log(durability);
+            //Debug.Log(normalColor.ToString());
+            if (!useBar)
+                BarFill.color = DisableColor;
+            else if (durability < emergeValue)
+                BarFill.color = EmergeColor;
+            else
+                BarFill.color = normalColor;
+        }
     }
 
 	void AdjustLightBallWithSound() {
@@ -189,5 +192,11 @@ public class Character : MonoBehaviour {
     public void ConsumeDurability()
     {
         useBar = true;
+    }
+
+    public void UseBar()
+    {
+        durabilityBar = GameObject.Find("DurabilityBar").GetComponent<Slider>();
+        BarFill = GameObject.Find("DurabilityFill").GetComponent<Image>();
     }
 }

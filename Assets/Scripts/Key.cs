@@ -141,7 +141,8 @@ public class Key : MonoBehaviour
             if (InactiveBall_2 != null)
                 InactiveBall_2.SetActive(true);
             status = KeyStatus.Inactive;
-            this.GetComponent<KeyCharacterController>().LeaveKey();
+            //this.GetComponent<KeyCharacterController>().LeaveKey();
+            GameObject.Find("GameManager").GetComponent<GameManager>().StopMoveCtrl();
             //GetComponentInChildren<Pattern>().character = null;
             return "Press E to dispaly.";
 		}

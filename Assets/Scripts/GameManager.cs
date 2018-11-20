@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     public AudioClip castleBGM;
     public MainPanelManager mainPanelMgr;
     public bool realTimeAmbientControl = false;
+    public GameObject durabilityBar;
     [Range(0,5)]
     public float ambientIntensity;
 
@@ -246,6 +247,12 @@ public class GameManager : MonoBehaviour {
         if(targetChap == 3 && targetScene == 0) {
             sceneName = "Demo_modify";
         }
+
+        if (sceneName == "1_3" || sceneName == "1_4")
+        {
+            UseBar();
+        }
+
         LoadAsync(sceneName);
 
 
@@ -304,12 +311,18 @@ public class GameManager : MonoBehaviour {
 
     public void Switch2Scene(string sceneName)
     {
-        Switch2Scene((int)sceneName[0], (int)sceneName[2]);
+        Switch2Scene((int)sceneName[0] - 48, (int)sceneName[2] - 48);
     }
 
     public void DisplayBGM()
     {
         audioBGM.clip = wakeUpBGM;
         audioBGM.Play();
+    }
+
+    public void UseBar()
+    {
+        durabilityBar.SetActive(true);
+        GameObject.Find("Character").GetComponent<Character>().UseBar();
     }
 }

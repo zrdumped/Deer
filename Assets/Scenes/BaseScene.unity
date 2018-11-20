@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -658,15 +658,25 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1018662744071772, guid: 8aa83e84c0afd614cb376cdc6dccd403, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1457245769383296, guid: 8aa83e84c0afd614cb376cdc6dccd403, type: 2}
       propertyPath: m_Name
       value: DurabilityFill
       objectReference: {fileID: 0}
+    - target: {fileID: 114319442155180108, guid: 8aa83e84c0afd614cb376cdc6dccd403,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aa83e84c0afd614cb376cdc6dccd403, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &309950227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1018662744071772, guid: 8aa83e84c0afd614cb376cdc6dccd403,
+    type: 2}
+  m_PrefabInternal: {fileID: 309950226}
 --- !u!1 &330202792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,6 +1200,7 @@ MonoBehaviour:
   castleBGM: {fileID: 8300000, guid: 6d13ede1d76531e4d86d075936d1247b, type: 3}
   mainPanelMgr: {fileID: 344108833}
   realTimeAmbientControl: 0
+  durabilityBar: {fileID: 309950227}
   ambientIntensity: 0
 --- !u!1 &862423281
 GameObject:
