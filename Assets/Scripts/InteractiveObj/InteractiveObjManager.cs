@@ -7,9 +7,11 @@ public class InteractiveObjManager : MonoBehaviour {
 
     public Text hintText;
     public Text triggerText;
+    public GameObject hintArea;
     public float highLightThreshod = 3;
     public float hintThreshod = 1.5f;
     public KeyCode interactKey = KeyCode.E;
+    public bool needTopLeftHint = false;
 
     private InteractiveObjList interactiveObjList;
     private int status = 0; // 0:Do Nothing; 1:Loop in the List per frame
@@ -19,6 +21,7 @@ public class InteractiveObjManager : MonoBehaviour {
     // params need for counting down
     private bool startCount = false;
     private float count = 0;
+    private int curDisplayedHint = 0;
 
 
 	// Use this for initialization
@@ -97,11 +100,17 @@ public class InteractiveObjManager : MonoBehaviour {
                     if(tmp1.needOS == true) {
                         SetTextTimed(tmp1.GetOS(), 5.0f);
                     }
+                    if(needTopLeftHint) {
+                        SetTopLeftHint(tmp1.GetHint());
+                    }
                 }
                 else if(tmp1.status == 2) {
                     string msgOnTrigger = tmp1.Trigger();
                     if(msgOnTrigger != "") {
                         SetTextTimed(msgOnTrigger, 4.0f);
+                    }
+                    if(needTopLeftHint) {
+                        SetTopLeftHint(tmp1.GetHint());
                     }
                     break;
                 }
@@ -121,6 +130,18 @@ public class InteractiveObjManager : MonoBehaviour {
         }
 
 
+    }
+
+    private void SetTopLeftHint(List<string> content) {
+        if(content[0] == "") {
+            return; 
+        }
+        for(int i = 0; i < content.Count; i++) {
+            if(curDisplayedHint < 7) {
+                hintArea.transform.Find("Text" + (curDisplayedHint + 1)).GetComponent<Text>().text = content[i];
+                curDisplayedHint++;
+            }
+        }
     }
 
     public void StopLooping() {

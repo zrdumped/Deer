@@ -115,4 +115,27 @@ public class InteractiveObj : MonoBehaviour {
             return "";
         }
     }
+
+    // which will be displayed on top-left of screen
+    public List<string> GetHint() {
+        List<string> answer = new List<string>();
+        if(textContents.Count <= 1) {
+            answer.Add("");
+            return answer;
+        }
+        // Handle special case of "plate on the table"(offer two hints)
+        if(needOS == true && textContents.Count == 4) {
+            answer.Add(textContents[2]);
+            answer.Add(textContents[3]);
+            return answer;
+        }
+        if(needOS == true && textContents.Count > 2) {
+            answer.Add(textContents[2]);
+            return answer;
+        }
+        else {
+            answer.Add(textContents[1]);
+            return answer;
+        }
+    }
 }

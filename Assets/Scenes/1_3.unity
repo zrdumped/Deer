@@ -16704,6 +16704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textContents:
   - Press "E" to Investigate
+  - "\u25E3 Someone entered the house from the front door"
   highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
@@ -23023,6 +23024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textContents:
   - Press "E" to Open
+  - "\u25E3 Someone went to basement to look for me to have dinner"
   highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 0
@@ -28941,6 +28943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textContents:
   - Press "E" to Investigate
+  - "\u25E3 Someone just opened a bottle of wine by the bar"
   highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
@@ -30018,6 +30021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textContents:
   - Press "E" to Investigate
+  - "\u25E3 The newspaper of today is put on the table "
   highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
   normalMat: {fileID: 2100000, guid: a74066172cf19cd4bacae3c6600a7217, type: 2}
   need3dUI: 1
@@ -33867,6 +33871,7 @@ MonoBehaviour:
   textContents:
   - Press "E" to Investigate
   - I smelt the dinner. Mom must have prepared dinner for me.
+  - "\u25E3 Someone cooked dinner in kitchen"
   highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1
@@ -35558,6 +35563,8 @@ MonoBehaviour:
   textContents:
   - Press "E" to Investigate
   - Dad and mom are not here. I should go and check the basement.
+  - "\u25E3 A used bottle is left on the table in dining room"
+  - "\u25E3 Tableware has been well prepared and meals were ready"
   highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
   normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   need3dUI: 1

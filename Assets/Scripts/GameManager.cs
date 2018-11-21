@@ -247,6 +247,14 @@ public class GameManager : MonoBehaviour {
         if(targetChap == 3 && targetScene == 0) {
             sceneName = "Demo_modify";
         }
+        if(targetChap == 1 && targetScene == 3) {
+            interactMgr.needTopLeftHint = true;
+            interactMgr.hintArea.SetActive(true);
+        }
+        else {
+            interactMgr.needTopLeftHint = false;
+            interactMgr.hintArea.SetActive(false);
+        }
 
         LoadAsync(sceneName);
 
