@@ -10,11 +10,14 @@ public class RemainPickupTrigger : MonoBehaviour {
     public PlayableDirector timeline;
     public GameObject vmCam;
     public GameObject Book;
+    public GameObject StarPlatinum;
 
     private bool hasPlayed = false;
     private GameObject gm;
     private float timelineCounter = 0; // count time that the timeline has played
     private bool countingStart = false;
+    private Vector3 recordPosition;
+    private Quaternion recordRotation;
 
     // Use this for initialization
     void Start () {
@@ -33,6 +36,7 @@ public class RemainPickupTrigger : MonoBehaviour {
             Vector3 pos = transform.position;
             pos.y = player.transform.position.y;
             player.transform.LookAt(pos);
+            StandShow();
             timeline.Play();
             countingStart = true;
         }
@@ -42,6 +46,7 @@ public class RemainPickupTrigger : MonoBehaviour {
             if(timelineCounter > timeline.duration) {
                 Debug.Log("timeline is finished.");
                 countingStart = false;
+                StandRetrieve();
                 if(gm) {
                     gm.GetComponent<GameManager>().StartCtrl();
                     gm.GetComponent<GameManager>().UseBar();
@@ -51,5 +56,15 @@ public class RemainPickupTrigger : MonoBehaviour {
                 }
             }
         }
+    }
+
+    private void StandShow() {
+        player.transform.Find("LiamMesh").gameObject.SetActive(false);
+        StarPlatinum.SetActive(true);
+    }
+
+    private void StandRetrieve() {
+        StarPlatinum.SetActive(false);
+        player.transform.Find("LiamMesh").gameObject.SetActive(true);
     }
 }
