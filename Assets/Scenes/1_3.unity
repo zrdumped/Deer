@@ -125,6 +125,11 @@ Prefab:
       propertyPath: Lights.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114730091735978398, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: textContents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.x
       value: -13.104
@@ -191,9 +196,19 @@ Prefab:
       propertyPath: formerKeys.Array.data[0]
       value: 
       objectReference: {fileID: 2050048128}
+    - target: {fileID: 114730091735978398, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: textContents.Array.data[0]
+      value: Press "E" to display
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &10094673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1766041108358678, guid: 648eb80c9906fcd40a86b386449617de,
+    type: 2}
+  m_PrefabInternal: {fileID: 10094672}
 --- !u!1 &10934600
 GameObject:
   m_ObjectHideFlags: 0
@@ -6838,6 +6853,10 @@ MonoBehaviour:
   - {fileID: 1596981977}
   - {fileID: 2013486643}
   - {fileID: 951027608}
+  - {fileID: 1295449688}
+  - {fileID: 2050048128}
+  - {fileID: 10094673}
+  - {fileID: 1830323841}
 --- !u!4 &226081356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4231327009415166, guid: fcd2af9145fe1bc4393996625be1492a,
@@ -12682,6 +12701,11 @@ Prefab:
       propertyPath: formerKeys.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114730091735978398, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: textContents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.x
       value: -7.06
@@ -12719,6 +12743,11 @@ Prefab:
       propertyPath: Lights.Array.data[0]
       value: 
       objectReference: {fileID: 1118315331}
+    - target: {fileID: 114730091735978398, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: textContents.Array.data[0]
+      value: Press "E" to display
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
   m_IsPrefabAsset: 0
@@ -31916,6 +31945,11 @@ Prefab:
       propertyPath: formerKeys.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114730091735978398, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: textContents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.x
       value: -12.782116
@@ -31996,6 +32030,11 @@ Prefab:
         type: 2}
       propertyPath: formerKeys.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114730091735978398, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: textContents.Array.data[0]
+      value: Press "E" to display
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
@@ -34518,6 +34557,11 @@ Prefab:
       propertyPath: formerKeys.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114730091735978398, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: textContents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.x
       value: -17
@@ -34608,6 +34652,11 @@ Prefab:
       propertyPath: Lights.Array.data[6]
       value: 
       objectReference: {fileID: 1374794163}
+    - target: {fileID: 114730091735978398, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: textContents.Array.data[0]
+      value: Press "E" to display
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
   m_IsPrefabAsset: 0

@@ -31,7 +31,11 @@ public class InteractiveObj : MonoBehaviour {
     public bool isFloating = false;
     public float perRadian = 0.03f;
     public float radius = 0.8f;
-    float radian = 0; 
+    float radian = 0;
+
+    // When the message first show up, it is proper to add the message to Top-left hint area,
+    // while is it is not the first time, it is improper.
+    private bool messageShowed = false;
 
 
 
@@ -119,10 +123,12 @@ public class InteractiveObj : MonoBehaviour {
     // which will be displayed on top-left of screen
     public List<string> GetHint() {
         List<string> answer = new List<string>();
-        if(textContents.Count <= 1) {
+        if(textContents.Count <= 1 || messageShowed == true) {
             answer.Add("");
             return answer;
         }
+
+        messageShowed = true;
         // Handle special case of "plate on the table"(offer two hints)
         if(needOS == true && textContents.Count == 4) {
             answer.Add(textContents[2]);
