@@ -239,6 +239,8 @@ public class GameManager : MonoBehaviour {
             Unload(curSceneStr);
         }
 
+        audioBGM.GetComponent<AudioSource>().volume = 0.12f;
+
         // some hard code
         if(targetChap == 2 && targetScene == 0) {
             sceneName = "Example_Night";
