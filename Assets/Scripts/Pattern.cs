@@ -91,9 +91,12 @@ public class Pattern : MonoBehaviour {
             {
                 scaleChangeStep = 0;
                 changedFrame = 0;
-                matcher.enabled = true;
                 if (pitchID > 0 || pitchID == -intermissionLength)
+                {
                     patternHintClip.Play();
+                    matcher.enabled = true;
+                    Debug.Log("enabled");
+                }
                 Debug.Log("Start Listening");
             }
         }
@@ -106,7 +109,7 @@ public class Pattern : MonoBehaviour {
             {
                 keyController.MatchReset();
                 ShowPatternClip.Play();
-                Debug.Log("Set forever");
+                //Debug.Log("Set forever");
                 GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
                     "Match the spheres with your voice.\n Press Q to stop", -1);
             }

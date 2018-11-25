@@ -18,7 +18,7 @@ public class Key : MonoBehaviour
 	public GameObject AlertBall;
 	public GameObject ConfirmBall;
     public GameObject WrongBall;
-	public int DestroySeconds = 1;
+	public int DestroySeconds = 2;
 	[Header("Light Up Settings")]
 	public GameObject[] Lights;
 	//public float initEmissionScale = 1;
@@ -94,6 +94,27 @@ public class Key : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
+        if (status == KeyStatus.OnShow && Input.GetKey(KeyCode.M))
+        {
+            activateSuccess();
+            if (targetDoor == null)
+            {
+                GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
+                    "Activated. Keep on going.", DestroySeconds);
+            }
+            else
+            {
+                GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
+                    "Door has been unlocked", DestroySeconds * 2);
+                Showline(targetDoor, this.gameObject);
+                targetDoor.GetComponent<Door>().locked = false;
+                targetDoor.GetComponentInChildren<InteractiveObj>().hasDetected = true;
+            }
+            foreach (GameObject k in formerKeys)
+            {
+                Showline(this.gameObject, k);
+            }
+        }
         if(status == KeyStatus.Inactive && InactiveBall_2 != null)
         {
             InactiveBall.transform.RotateAround(this.transform.position, Vector3.up, 90 * Time.deltaTime);
@@ -251,9 +272,16 @@ public class Key : MonoBehaviour
 		//Debug.Log("haha");
 		tmp_ConfirmBall.SetActive(true);
 		StartCoroutine(WaitAndDestroy(tmp_ConfirmBall, DestroySeconds, false));
-        GameObject alert = GameObject.Find("Alert");
-        if (alert != null)
+        GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
+            "The pitch is wrong or time is not long enough, try again", DestroySeconds);
+        try
+        {
+            GameObject alert = GameObject.Find("Alert");
             alert.GetComponent<AlertController>().Alert();
+        }
+        catch
+        {
+        }
 		return;
 	}
 
@@ -275,10 +303,6 @@ public class Key : MonoBehaviour
                 {
                     GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
                         "Activated. Keep on going.", DestroySeconds);
-                    foreach (GameObject k in formerKeys)
-                    {
-                        Showline(this.gameObject, k);
-                    }
                 }
                 else
                 {
@@ -287,6 +311,10 @@ public class Key : MonoBehaviour
                     Showline(targetDoor, this.gameObject);
                     targetDoor.GetComponent<Door>().locked = false;
                     targetDoor.GetComponentInChildren<InteractiveObj>().hasDetected = true;
+                }
+                foreach (GameObject k in formerKeys)
+                {
+                    Showline(this.gameObject, k);
                 }
             }
         }

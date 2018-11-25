@@ -23697,7 +23697,18 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 12.67
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114234073462523366, guid: 577bbfae8896ac8479a72dc7a4017ffa,
+        type: 2}
+      propertyPath: controlByVoice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 81887276096451468, guid: 577bbfae8896ac8479a72dc7a4017ffa,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114770882699232416, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &1413576898 stripped
@@ -25188,7 +25199,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 11.15
+      value: -9.78
       objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalRotation.x
@@ -25344,6 +25355,16 @@ Prefab:
         type: 2}
       propertyPath: textContents.Array.data[0]
       value: Press "E" to Display
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: forceMatch
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114962750855191332, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: missRange
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}

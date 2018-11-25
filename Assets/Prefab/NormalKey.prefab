@@ -967,7 +967,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1766041108358678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.21, z: 11.03}
+  m_LocalPosition: {x: -43.128593, y: -22.83, z: 26.754759}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4878270932017908}
@@ -2155,7 +2155,7 @@ MonoBehaviour:
   movementSpeed: 2
   waypointActivationDistance: 0.1
   numberOfLoops: 0
-  preventCollisionDistance: 0.5
+  preventCollisionDistance: -3.62
   smoothCollisionPreventing: 0
   dynamicWaypointsUpdate: 1
 --- !u!114 &114043591132302840
@@ -2278,10 +2278,10 @@ MonoBehaviour:
   pitchLength: 3
   intermissionLength: 2
   changeFrames: 20
-  pattern: 02000000
+  pattern: 0200000000000000
   onShow: 0
   keyController: {fileID: 114946426020138422}
-  forceMatch: 1
+  forceMatch: 0
   forceMatchResult: 0
   ShowPatternClip: {fileID: 82367909533240178}
   matchSuccessClip: {fileID: 82862719218558478}
@@ -2406,7 +2406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786c4d1a260e1ef4097c78e2a4df5b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textContents: []
+  textContents:
+  - Press "E" to display
   highlightMat: {fileID: 0}
   normalMat: {fileID: 0}
   need3dUI: 0
@@ -2481,7 +2482,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   noLightMaterial: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
   OnLitFrames: 200
   formerKeys: []
@@ -2499,10 +2499,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5742506aa00240e19c033c5cd6ac946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missRange: 100
+  missRange: 2
   matchScoreRate: 2
   currentMatchTime: 0
-  passScore: 120
+  passScore: 50
 --- !u!114 &114963900579995860
 MonoBehaviour:
   m_ObjectHideFlags: 1

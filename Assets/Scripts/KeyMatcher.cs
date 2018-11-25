@@ -22,25 +22,26 @@ public class KeyMatcher : MonoBehaviour {
 
     public void OnEnable()
     {
-        standardKey = this.transform.localScale.x;
+        standardKey = this.transform.lossyScale.x;
         totalScore = 0;
         ignoreScore = 0;
     }
 
     public void Update()
     {
-        float key = character.getLightBallScale();
+        float key = character.getLightBallLossyScale();
         if (key == 0)
         {
             ignoreScore += matchScoreRate;
         }
         else
         {
-            bool match = (Mathf.Abs(key - standardKey) < missRange) ? true : false;
-            //Debug.Log(key + "," + standardKey);
+            bool match = (Mathf.Abs(key - standardKey) * 100 < missRange) ? true : false;
+            Debug.Log(key + "," + standardKey + "," + match);
             if (match)
             {
                 totalScore += matchScoreRate;
+                Debug.Log(totalScore);
             }
         }
     }

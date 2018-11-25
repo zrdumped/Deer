@@ -125,6 +125,16 @@ Prefab:
       propertyPath: Lights.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: formerKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114730091735978398, guid: 648eb80c9906fcd40a86b386449617de,
         type: 2}
       propertyPath: textContents.Array.size
@@ -200,6 +210,31 @@ Prefab:
         type: 2}
       propertyPath: textContents.Array.data[0]
       value: Press "E" to display
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: targetDoor
+      value: 
+      objectReference: {fileID: 951027608}
+    - target: {fileID: 114010768156134470, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: smoothCollisionPreventing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010768156134470, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: preventCollisionDistance
+      value: -4.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 114962750855191332, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: passScore
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
@@ -1075,7 +1110,7 @@ Transform:
   m_Children:
   - {fileID: 1118315334}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &122141661
 Prefab:
@@ -6906,7 +6941,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114234073462523366, guid: 577bbfae8896ac8479a72dc7a4017ffa,
+        type: 2}
+      propertyPath: controlByVoice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 81887276096451468, guid: 577bbfae8896ac8479a72dc7a4017ffa,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114770882699232416, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &231704882
@@ -12696,14 +12742,9 @@ Prefab:
       propertyPath: Lights.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
         type: 2}
-      propertyPath: formerKeys.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114730091735978398, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: textContents.Array.size
+      propertyPath: pattern.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
@@ -12743,10 +12784,20 @@ Prefab:
       propertyPath: Lights.Array.data[0]
       value: 
       objectReference: {fileID: 1118315331}
-    - target: {fileID: 114730091735978398, guid: 648eb80c9906fcd40a86b386449617de,
+    - target: {fileID: 114010768156134470, guid: 648eb80c9906fcd40a86b386449617de,
         type: 2}
-      propertyPath: textContents.Array.data[0]
-      value: Press "E" to display
+      propertyPath: smoothCollisionPreventing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010768156134470, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: preventCollisionDistance
+      value: -2.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[1]
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
@@ -15263,7 +15314,7 @@ Transform:
   - {fileID: 1724875651}
   - {fileID: 1560340602}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &576140240
 Prefab:
@@ -31495,7 +31546,7 @@ Transform:
   - {fileID: 1525248738}
   - {fileID: 557672158}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1793873239 stripped
 Transform:
@@ -31940,6 +31991,11 @@ Prefab:
       propertyPath: Lights.Array.size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
         type: 2}
       propertyPath: formerKeys.Array.size
@@ -31980,7 +32036,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1766041108358678, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_Name
@@ -32035,6 +32091,21 @@ Prefab:
         type: 2}
       propertyPath: textContents.Array.data[0]
       value: Press "E" to display
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010768156134470, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: smoothCollisionPreventing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010768156134470, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: preventCollisionDistance
+      value: -3.37
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
@@ -34552,6 +34623,11 @@ Prefab:
       propertyPath: Lights.Array.size
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
         type: 2}
       propertyPath: formerKeys.Array.size
@@ -34564,7 +34640,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -17
+      value: -17.471
       objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.y
@@ -34572,7 +34648,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 7.829295
+      value: 9.254
       objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalRotation.x
@@ -34656,6 +34732,21 @@ Prefab:
         type: 2}
       propertyPath: textContents.Array.data[0]
       value: Press "E" to display
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010768156134470, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: smoothCollisionPreventing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010768156134470, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: preventCollisionDistance
+      value: -2.42
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}

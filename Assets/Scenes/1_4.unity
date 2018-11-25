@@ -1352,6 +1352,10 @@ MonoBehaviour:
   - {fileID: 142119466}
   - {fileID: 609846542}
   - {fileID: 1110034284}
+  - {fileID: 1598974807}
+  - {fileID: 361079088}
+  - {fileID: 1833012208}
+  - {fileID: 2146918156}
 --- !u!4 &150039967
 Transform:
   m_ObjectHideFlags: 0
@@ -2600,6 +2604,11 @@ Prefab:
       propertyPath: Lights.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: formerKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.x
       value: -42.83711
@@ -2651,6 +2660,16 @@ Prefab:
       propertyPath: formerKeys.Array.data[0]
       value: 
       objectReference: {fileID: 1598974807}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
   m_IsPrefabAsset: 0
@@ -6947,6 +6966,11 @@ Prefab:
       propertyPath: Lights.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: formerKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.x
       value: -51.15437
@@ -7003,6 +7027,21 @@ Prefab:
       propertyPath: formerKeys.Array.data[0]
       value: 
       objectReference: {fileID: 1833012208}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: targetDoor
+      value: 
+      objectReference: {fileID: 1513373059}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
   m_IsPrefabAsset: 0
@@ -8281,6 +8320,11 @@ Prefab:
     - target: {fileID: 4445211227215298, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114234073462523366, guid: 577bbfae8896ac8479a72dc7a4017ffa,
+        type: 2}
+      propertyPath: controlByVoice
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
@@ -10261,16 +10305,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: Lights.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
-        type: 2}
-      propertyPath: formerKeys.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.x
       value: -43.128593
@@ -10318,6 +10352,11 @@ Prefab:
       propertyPath: Lights.Array.data[2]
       value: 
       objectReference: {fileID: 172602322}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
   m_IsPrefabAsset: 0
@@ -10452,6 +10491,11 @@ Prefab:
       propertyPath: Lights.Array.data[1]
       value: 
       objectReference: {fileID: 19792866}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
   m_IsPrefabAsset: 0
@@ -12076,6 +12120,11 @@ Prefab:
       propertyPath: Lights.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: formerKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4551946641139214, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
       propertyPath: m_LocalPosition.x
       value: -59.569862
@@ -12147,6 +12196,16 @@ Prefab:
       propertyPath: formerKeys.Array.data[0]
       value: 
       objectReference: {fileID: 361079088}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: pattern.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648eb80c9906fcd40a86b386449617de, type: 2}
   m_IsPrefabAsset: 0
@@ -14447,3 +14506,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 499396, guid: a76b2f231b5b00445b14a314145a001f,
     type: 2}
   m_PrefabInternal: {fileID: 2140859499}
+--- !u!1 &2146918156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1766041108358678, guid: 648eb80c9906fcd40a86b386449617de,
+    type: 2}
+  m_PrefabInternal: {fileID: 1097489503}
