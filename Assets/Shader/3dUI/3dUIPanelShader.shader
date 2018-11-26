@@ -2,7 +2,7 @@
 {
 	Properties
 	{
-		_MainTex ("Texture", 2D) = "white" {}
+		_MainTex ("Texture", 2D) = "black" {}
 		_Color("Tint", Color) = (1,1,1,1)
 	}
 	SubShader

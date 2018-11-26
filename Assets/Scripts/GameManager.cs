@@ -260,7 +260,7 @@ public class GameManager : MonoBehaviour {
             interactMgr.needTopLeftHint = false;
             interactMgr.hintArea.SetActive(false);
         }
-
+        
         LoadAsync(sceneName);
 
 
@@ -291,15 +291,15 @@ public class GameManager : MonoBehaviour {
             mainPanelMgr.HideMainPanel(true); // Disable the logo Bloom Camera
             audioBGM.clip = wildBGM;
             audioBGM.Play();
-            RenderSettings.ambientIntensity = 1.0f;
-            RenderSettings.reflectionIntensity = 1.0f;
+            RenderSettings.ambientIntensity = 0.0f;
+            RenderSettings.reflectionIntensity = 0.0f;
         }
         else if(sceneName == "Demo_modify") {
             mainPanelMgr.HideMainPanel(true); // Disable the logo Bloom Camera
             audioBGM.clip = castleBGM;
             audioBGM.Play();
-            RenderSettings.ambientIntensity = 1.0f;
-            RenderSettings.reflectionIntensity = 1.0f;
+            RenderSettings.ambientIntensity = 0.0f;
+            RenderSettings.reflectionIntensity = 0.0f;
         }
         else {
             audioBGM.clip = wakeUpBGM;

@@ -1357,6 +1357,7 @@ MonoBehaviour:
   - {fileID: 1833012208}
   - {fileID: 2146918156}
   - {fileID: 1612778876}
+  - {fileID: 1513373059}
 --- !u!4 &150039967
 Transform:
   m_ObjectHideFlags: 0
@@ -9698,7 +9699,7 @@ Prefab:
     - target: {fileID: 114001708577302000, guid: b0e04902ed0f4a545be2e2735d233628,
         type: 2}
       propertyPath: otherScene
-      value: 2_1
+      value: 2_0
       objectReference: {fileID: 0}
     - target: {fileID: 4811473479639136, guid: b0e04902ed0f4a545be2e2735d233628, type: 2}
       propertyPath: m_LocalPosition.y
@@ -9734,6 +9735,52 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1661837057807788, guid: b0e04902ed0f4a545be2e2735d233628,
     type: 2}
   m_PrefabInternal: {fileID: 1513373057}
+--- !u!114 &1513373060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513373059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786c4d1a260e1ef4097c78e2a4df5b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textContents:
+  - Press "E" to Open
+  - "\u25E3 Someone went to basement to look for me to have dinner"
+  highlightMat: {fileID: 2100000, guid: 16fe4dd1da3ae844daac3bca598c1fe0, type: 2}
+  normalMat: {fileID: 2100000, guid: 184813b37501c314bbebaadf8001a9c0, type: 2}
+  need3dUI: 0
+  needTextUI: 1
+  needOS: 0
+  threeDUI: {fileID: 318306859}
+  highlightPart: {fileID: 1513373059}
+  listenerObj: {fileID: 1513373059}
+  status: 0
+  hasDetected: 0
+  isFloating: 0
+  perRadian: 0.03
+  radius: 0.8
+--- !u!114 &1513373061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513373059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bedbdd4581375f4d884fe1a9a2526c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  radius: 0.25
+  iconName: 
+  delay: 0
+  angle: 0
+  callFunction: 
+  callExitFunction: 
+  newMoverSpeed: 0
 --- !u!1001 &1515415441
 Prefab:
   m_ObjectHideFlags: 0
