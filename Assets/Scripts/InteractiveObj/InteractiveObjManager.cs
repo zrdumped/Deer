@@ -70,6 +70,7 @@ public class InteractiveObjManager : MonoBehaviour {
                     if(Vector3.Distance(character.transform.position, obj.transform.position) < hintThreshod
                         && Vector3.Dot(direct.normalized, character.transform.forward) > 0.25) {
                         if(tmp.needTextUI == true) {
+                            //hintText.enabled = true;
                             hintText.text = tmp.GetTextContent(0);
                         }
                         haveSomethingToShow++;
@@ -125,6 +126,7 @@ public class InteractiveObjManager : MonoBehaviour {
                 count = 0;
                 startCount = false;
                 triggerText.text = "";
+                hintText.text = "";
                 hintText.enabled = true;
             }
         }
@@ -175,6 +177,8 @@ public class InteractiveObjManager : MonoBehaviour {
 
     public void ClearText() {
         triggerText.text = "";
+        hintText.text = "";
+        hintText.enabled = true;
     }
 
 
