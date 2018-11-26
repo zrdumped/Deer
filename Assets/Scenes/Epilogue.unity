@@ -1070,6 +1070,7 @@ GameObject:
   - component: {fileID: 1146108468}
   - component: {fileID: 1146108470}
   - component: {fileID: 1146108469}
+  - component: {fileID: 1146108471}
   m_Layer: 0
   m_Name: RescueTimeline
   m_TagString: Untagged
@@ -1132,8 +1133,27 @@ PlayableDirector:
     value: {fileID: 673891195}
   - key: {fileID: 114467877953045740, guid: 93ae94bb2b7fbb543b65366691c7b64a, type: 2}
     value: {fileID: 726778422}
+  - key: {fileID: 114663171288747256, guid: 93ae94bb2b7fbb543b65366691c7b64a, type: 2}
+    value: {fileID: 1146108469}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1146108471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1146108467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ee0df6b23620a499c3529224db693e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initVolume: 0.1
+  curVolume: 0.1
+  jumpToChap: 0
+  jumpToScene: 0
+  startJump: 0
+  startBgm: 0
 --- !u!1 &1662968034
 GameObject:
   m_ObjectHideFlags: 0

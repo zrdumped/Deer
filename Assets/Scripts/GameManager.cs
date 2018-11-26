@@ -249,6 +249,9 @@ public class GameManager : MonoBehaviour {
         if(targetChap == 3 && targetScene == 0) {
             sceneName = "Demo_modify";
         }
+        if(targetChap == 4 && targetScene == 0) {
+            sceneName = "Epilogue";
+        }
         if(targetChap == 1 && (targetScene == 3 || targetScene == 4)) {
             interactMgr.needTopLeftHint = true;
             interactMgr.hintArea.SetActive(true);
