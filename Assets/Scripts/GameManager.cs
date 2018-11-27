@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour {
     public GameObject durabilityBar;
     [Range(0,5)]
     public float ambientIntensity;
+    public Material defaultSkybox;
+    public Material nightSkybox;
 
     private int curChap; // Which chapter 
     private int curScene; // Which scene of current chapter 
@@ -291,15 +293,32 @@ public class GameManager : MonoBehaviour {
             mainPanelMgr.HideMainPanel(true); // Disable the logo Bloom Camera
             audioBGM.clip = wildBGM;
             audioBGM.Play();
-            RenderSettings.ambientIntensity = 0.0f;
-            RenderSettings.reflectionIntensity = 0.0f;
+            RenderSettings.skybox = nightSkybox;
+            RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
+            Color targetColor;
+            ColorUtility.TryParseHtmlString("#0E187B", out targetColor);
+            RenderSettings.ambientLight = targetColor;
+            RenderSettings.reflectionIntensity = 0.996f;
+            RenderSettings.fog = true;
+            RenderSettings.fogMode = FogMode.Exponential;
+            RenderSettings.fogDensity = 0.001f;
+            ColorUtility.TryParseHtmlString("#114081", out targetColor);
+            RenderSettings.fogColor = targetColor;
         }
         else if(sceneName == "Demo_modify") {
             mainPanelMgr.HideMainPanel(true); // Disable the logo Bloom Camera
             audioBGM.clip = castleBGM;
             audioBGM.Play();
+            RenderSettings.skybox = defaultSkybox;
+            RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Skybox;
             RenderSettings.ambientIntensity = 0.0f;
             RenderSettings.reflectionIntensity = 0.0f;
+            Color targetColor;
+            RenderSettings.fog = true;
+            RenderSettings.fogMode = FogMode.Exponential;
+            RenderSettings.fogDensity = 0.002f;
+            ColorUtility.TryParseHtmlString("#197FBC", out targetColor);
+            RenderSettings.fogColor = targetColor;
         }
         else {
             audioBGM.clip = wakeUpBGM;

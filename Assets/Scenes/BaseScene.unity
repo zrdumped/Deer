@@ -1382,6 +1382,8 @@ MonoBehaviour:
   realTimeAmbientControl: 0
   durabilityBar: {fileID: 309950227}
   ambientIntensity: 0
+  defaultSkybox: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  nightSkybox: {fileID: 2100000, guid: 2b7fb56d20961ec46972840ba18259e2, type: 2}
 --- !u!1 &862423281
 GameObject:
   m_ObjectHideFlags: 0
