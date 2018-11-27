@@ -15,6 +15,9 @@ public class MainPanelManager : MonoBehaviour {
     public Transform escPanelHome;
     public GameObject canvasLogo;
     public GameObject canvasCamera;
+    public GameObject cheatSheet;
+
+    private bool cheatSheetOpen = false;
 
 	// Use this for initialization
 	void Start () {
@@ -61,10 +64,25 @@ public class MainPanelManager : MonoBehaviour {
 
     public void HideEscPanel() {
         escapePanel.DOMove(escPanelHome.position, 0.3f);
+        if(cheatSheetOpen == true) {
+            cheatSheetOpen = false;
+            cheatSheet.SetActive(false);
+        }
     }
 
     public void Reset() {
         Debug.Log("Reset MainPanelManager");
         HideMainPanel(false);
+    }
+
+    public void ShowHideCheatSheet() {
+        if(cheatSheetOpen == false) {
+            cheatSheetOpen = true;
+            cheatSheet.SetActive(true);
+        }
+        else {
+            cheatSheetOpen = false;
+            cheatSheet.SetActive(false);
+        }
     }
 }

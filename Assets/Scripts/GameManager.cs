@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
     public float ambientIntensity;
     public Material defaultSkybox;
     public Material nightSkybox;
+    public GameObject cheatLight;
 
     private int curChap; // Which chapter 
     private int curScene; // Which scene of current chapter 
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour {
     private GameObject character;
 
     private TPPCamera cameraController;
+    private bool cheatLightOn = false;
 
 
 	// Use this for initialization
@@ -69,6 +71,9 @@ public class GameManager : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.Alpha6)) {
             Switch2Scene(3, 0);
+        }
+        if(Input.GetKeyDown(KeyCode.L)) {
+            SwitchCheatLight();
         }
         //if(Input.GetKeyDown(KeyCode.P)) {
         //    if(this.isRunning) {
@@ -243,6 +248,12 @@ public class GameManager : MonoBehaviour {
 
         audioBGM.GetComponent<AudioSource>().volume = 0.12f;
 
+        // Disable cheat when switch scene
+        if(cheatLightOn == true) {
+            cheatLightOn = false;
+            cheatLight.SetActive(false);
+        }
+
         // some hard code
         if(targetChap == 2 && targetScene == 0) {
             sceneName = "Example_Night";
@@ -351,6 +362,17 @@ public class GameManager : MonoBehaviour {
     public void PlayFightBGM() {
         audioBGM.clip = fightBGM;
         audioBGM.Play();
+    }
+
+    public void SwitchCheatLight() {
+        if(cheatLightOn == true) {
+            cheatLightOn = false;
+            cheatLight.SetActive(false);
+        }
+        else {
+            cheatLightOn = true;
+            cheatLight.SetActive(true);
+        }
     }
 
     public void Switch2Scene(string sceneName)
