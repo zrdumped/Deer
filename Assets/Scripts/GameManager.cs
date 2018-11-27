@@ -254,9 +254,17 @@ public class GameManager : MonoBehaviour {
         if(targetChap == 4 && targetScene == 0) {
             sceneName = "Epilogue";
         }
-        if(targetChap == 1 && (targetScene == 3 || targetScene == 4)) {
+        if(targetChap == 1 && targetScene == 3) {
             interactMgr.needTopLeftHint = true;
             interactMgr.hintArea.SetActive(true);
+        }
+        else if(targetChap == 1 && targetScene == 4) {
+            interactMgr.needTopLeftHint = true;
+            interactMgr.hintArea.SetActive(true);
+            for(int i = 1; i < 8; i++) {
+                string foo = "Text" + i;
+                interactMgr.hintArea.transform.Find(foo).gameObject.SetActive(false);
+            }
         }
         else {
             interactMgr.needTopLeftHint = false;
