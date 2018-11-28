@@ -66071,6 +66071,7 @@ GameObject:
   - component: {fileID: 1021179396}
   - component: {fileID: 1021179404}
   - component: {fileID: 1021179403}
+  - component: {fileID: 1021179405}
   m_Layer: 0
   m_Name: Character
   m_TagString: TppCharacter
@@ -66261,6 +66262,17 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1021179405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1021179394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680b2fe77a9fd7342ba7dae7ed6f6f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1026443481
 Prefab:
   m_ObjectHideFlags: 0

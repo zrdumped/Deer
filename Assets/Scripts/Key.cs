@@ -88,33 +88,15 @@ public class Key : MonoBehaviour
         {
             TriggerShow();
         }
-
+        if (status == KeyStatus.OnShow && Input.GetKey(KeyCode.M))
+        {
+            testAllMatch(true);
+        }
     }
 
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-        if (status == KeyStatus.OnShow && Input.GetKey(KeyCode.M))
-        {
-            activateSuccess();
-            if (targetDoor == null)
-            {
-                GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
-                    "Activated. Keep on going.", DestroySeconds);
-            }
-            else
-            {
-                GameObject.Find("InteractiveObjManager").GetComponent<InteractiveObjManager>().SetTextTimed(
-                    "Door has been unlocked", DestroySeconds * 2);
-                Showline(targetDoor, this.gameObject);
-                targetDoor.GetComponent<Door>().locked = false;
-                targetDoor.GetComponentInChildren<InteractiveObj>().hasDetected = true;
-            }
-            foreach (GameObject k in formerKeys)
-            {
-                Showline(this.gameObject, k);
-            }
-        }
         if(status == KeyStatus.Inactive && InactiveBall_2 != null)
         {
             InactiveBall.transform.RotateAround(this.transform.position, Vector3.up, 90 * Time.deltaTime);
@@ -285,9 +267,9 @@ public class Key : MonoBehaviour
 		return;
 	}
 
-    public void testAllMatch()
+    public void testAllMatch(bool forceTest = false)
     {
-        if (curMatchNum == targetMatchNum)
+        if (curMatchNum == targetMatchNum || forceTest)
         {
             bool rightOrder = testActivateOrder();
             if (!rightOrder)

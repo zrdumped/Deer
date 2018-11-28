@@ -25179,6 +25179,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114946426020138422, guid: 648eb80c9906fcd40a86b386449617de,
+        type: 2}
+      propertyPath: Lights.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 114350958579436164, guid: 648eb80c9906fcd40a86b386449617de,
         type: 2}
       propertyPath: pattern.Array.size

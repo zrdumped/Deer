@@ -73,12 +73,12 @@ public class Pattern : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            forceMatchResult = KeyMatcher.KeyMatchStatus.SUCCESS;
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-            forceMatchResult = KeyMatcher.KeyMatchStatus.FAILURE;
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-            forceMatchResult = KeyMatcher.KeyMatchStatus.IGNORED;
+    //    if (Input.GetKeyDown(KeyCode.Alpha2))
+    //        forceMatchResult = KeyMatcher.KeyMatchStatus.SUCCESS;
+    //    else if (Input.GetKeyDown(KeyCode.Alpha3))
+    //        forceMatchResult = KeyMatcher.KeyMatchStatus.FAILURE;
+    //    else if (Input.GetKeyDown(KeyCode.Alpha4))
+    //        forceMatchResult = KeyMatcher.KeyMatchStatus.IGNORED;
     }
 
     void FixedUpdate()
