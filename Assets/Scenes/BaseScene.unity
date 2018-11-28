@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1348,7 +1348,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -16.23, y: -7.71}
-  m_SizeDelta: {x: 358.33, y: 220.21}
+  m_SizeDelta: {x: 358.33, y: 248.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &570698244
 MonoBehaviour:
@@ -1385,7 +1385,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1396,18 +1396,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'We provide some hot keys for player who want to go though our game process
-    swiftly:
+  m_Text: 'We provide some hot keys for player who wants to go though our game quickly:
 
 
     - Press "L" to enlight the whole scene. Press the same button again to return
     to darkness.
 
 
-    - Press "M" when you are matching any key to make the match successful.
+    - Press "M" when you are matching any key to make the match successful without
+    making voice.
 
 
-    But notice that cheating will harm the experience we designed for you.
+    - Press "1" to "6" to view all the scenes and plots we completed directly
+
+
+    These instructions could be viewed during game by pressing "Esc". But notice that
+    cheating will harm the game experience we designed for you.
 
 
     May you enjoy this game.'
@@ -6833,7 +6837,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cheat  sheet
+  m_Text: Cheat
 --- !u!222 &1192778522
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7717,7 +7721,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cheat Sheet
+  m_Text: Cheat
 --- !u!222 &1432112220
 CanvasRenderer:
   m_ObjectHideFlags: 0

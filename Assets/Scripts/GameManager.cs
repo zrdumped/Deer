@@ -51,9 +51,9 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.H)) {
             Switch2Scene(0, 0);
         }
-        if(Input.GetKeyDown(KeyCode.Alpha0)) {
-            Switch2Scene(1, 0);
-        }
+        //if(Input.GetKeyDown(KeyCode.Alpha0)) {
+        //    Switch2Scene(1, 0);
+        //}
         if(Input.GetKeyDown(KeyCode.Alpha1)) {
             Switch2Scene(1, 1);
         }
@@ -238,7 +238,9 @@ public class GameManager : MonoBehaviour {
 
 
     public void Switch2Scene(int targetChap, int targetScene) {
-        if(interactMgr) {
+        if (mainPanelMgr.GetCheatSheet())
+            mainPanelMgr.ShowHideCheatSheet();
+        if (interactMgr) {
             interactMgr.StopLooping();
         }
         string sceneName = "" + targetChap + "_" + targetScene;
@@ -348,6 +350,14 @@ public class GameManager : MonoBehaviour {
             RenderSettings.reflectionIntensity = 0.0f;
         }
         curSceneStr = sceneName;
+        if (sceneName == "Example_Night" || sceneName == "Demo_modify")
+        {
+            interactMgr.SetTextUntimed("The playable contents in this scene are still under development");
+        }
+        else
+        {
+            interactMgr.SetTextUntimed("");
+        }
 
         if (sceneName == "1_3" || sceneName == "1_4")
         {

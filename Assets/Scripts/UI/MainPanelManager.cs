@@ -85,4 +85,9 @@ public class MainPanelManager : MonoBehaviour {
             cheatSheet.SetActive(false);
         }
     }
+
+    public bool GetCheatSheet()
+    {
+        return cheatSheetOpen;
+    }
 }
