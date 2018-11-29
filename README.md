@@ -2,7 +2,7 @@
 A video game made with Unity
 
 ## Introduction
-Deer is an RPG game made with Unity3D about a boy surviving after an earthquake. In the real world, he was buried under the ruins of his house but protected by his mother before the house collapsed and not hurt seriously. In the dead’s world, people change into deer and their memory vanishes as the time goes, so does the light around them. His mom also changed into a deer but led him back to the real world before she lost her memory. On the way bac to home, the boy will come across many deer, some of them are kind and some are not. The only way to communicate with them and keep going is utilizing the power of his voice, which is given by her mother. Player acts as the boy and solve the puzzlements with his voice through microphone, which represents the cry for help in real world. The hints are hidden in dark and the only way to light up the surroundings is making voice.
+Deer is an RPG game made with Unity3D about a boy surviving after an earthquake. In the real world, he was buried under the ruins of his house but protected by his mother before the house collapsed and not hurt seriously. In the dead’s world, people change into deer and their memory vanishes as the time goes, so does the light around them. His mom also changed into a deer but led him back to the real world before she lost her memory. On the way back home, the boy will come across many deers, some of them are kind while others are not. The only way to communicate with them and keep going is utilizing the power of his voice, which is given by her mother. Player acts as the boy and solve the puzzlements with his voice through microphone, which represents the cry for help in real world. The hints are hidden in dark and the only way to light up the surroundings is making voice.
   
 ## Screenshots
 * The Start Screen
@@ -10,13 +10,13 @@ Deer is an RPG game made with Unity3D about a boy surviving after an earthquake.
     <img src="https://github.com/zrdumped/ScreenshotsForDeer/blob/master/11.png" alt="Sample"  width="683" height="384">
 </p>
 
-* Searching in the dark and interactive with alert or trigger
+* Searching in the dark and interacting with alert or trigger
 <p align="center">
     <img src="https://github.com/zrdumped/ScreenshotsForDeer/blob/master/12.png" alt="Sample"  width="342" height="192">
     <img src="https://github.com/zrdumped/ScreenshotsForDeer/blob/master/15.png" alt="Sample"  width="342" height="192">
 </p>
 
-* Get hind within the scene 
+* Get hints within the scene 
 <p align="center">
     <img src="https://github.com/zrdumped/ScreenshotsForDeer/blob/master/14.png" alt="Sample"  width="683" height="384">
 </p>
