@@ -294,6 +294,8 @@ public class GameManager : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        interactMgr.ClearText();
+
         if(sceneName == "0_0" || sceneName == "1_0") {
             audioBGM.clip = mainBGM;
             if(curSceneStr != "0_0" && curSceneStr != "1_0") {
