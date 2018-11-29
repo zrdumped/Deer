@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29212934, g: 0.35885867, b: 0.43786538, a: 1}
+  m_IndirectSpecularColor: {r: 0.29212967, g: 0.3588589, b: 0.43786594, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -10192,7 +10192,6 @@ GameObject:
   - component: {fileID: 2098411000}
   - component: {fileID: 2098411001}
   - component: {fileID: 2098411003}
-  - component: {fileID: 2098411002}
   - component: {fileID: 2098411004}
   m_Layer: 0
   m_Name: Camera
@@ -10255,7 +10254,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
+  m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
@@ -10368,20 +10367,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2098411002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2098410992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c054ce2b489616c4b8e4c6899c12065e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screenToneShader: {fileID: 4800000, guid: 43b62a407b5822e43bf4c98065f1ac2d, type: 3}
-  color: {r: 1, g: 1, b: 1, a: 0}
-  downSample: 1
 --- !u!114 &2098411003
 MonoBehaviour:
   m_ObjectHideFlags: 0

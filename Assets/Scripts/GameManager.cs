@@ -122,11 +122,15 @@ public class GameManager : MonoBehaviour {
     }
 
     public void ShowEscPanel() {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         mainPanelMgr.ShowEscPanel();
         PauseGame();
     }
 
     public void HideEscPanel() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         mainPanelMgr.HideEscPanel();
         ResumeGame();
     }
@@ -286,6 +290,8 @@ public class GameManager : MonoBehaviour {
         
         LoadAsync(sceneName);
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         if(sceneName == "0_0" || sceneName == "1_0") {
             audioBGM.clip = mainBGM;
@@ -295,6 +301,11 @@ public class GameManager : MonoBehaviour {
             RenderSettings.ambientIntensity = 1.0f;
             RenderSettings.reflectionIntensity = 1.0f;
             mainPanelMgr.HideMainPanel(true); // Disable the logo Bloom Camera
+
+            if(sceneName == "0_0") {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
         else if(sceneName == "1_1") {
             audioBGM.clip = wakeUpBGM;
