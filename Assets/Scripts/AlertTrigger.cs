@@ -22,7 +22,11 @@ public class AlertTrigger : MonoBehaviour {
             this.GetComponentInParent<AlertController>().Alert();
         }
         else if (other.name == "Character" && this.GetComponentInParent<AlertController>().GetStatus() == AlertController.AlertTriggerStatus.Alert)
+        {
             Debug.Log("Game Over");
+            GameObject.Find("GameManager").GetComponent<GameManager>().tobeDead = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().Switch2Scene(1, 4);
+        }
         //status = AlertTriggerStatus.Alert;
     }
 

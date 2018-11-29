@@ -168,6 +168,8 @@ public class Key : MonoBehaviour
         GameObject alert = GameObject.Find("Alert");
         if (alert != null)
             alert.GetComponent<AlertController>().Alert();
+        this.GetComponent<KeyCharacterController>().LeaveKey();
+        GameObject.Find("Character").GetComponent<Character>().ConsumeDurability();
         StartCoroutine(WaitAndInactive(WrongBall, DestroySeconds));
     }
 

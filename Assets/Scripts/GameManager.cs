@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     public Material defaultSkybox;
     public Material nightSkybox;
     public GameObject cheatLight;
+    public bool tobeDead = false;
 
     private int curChap; // Which chapter 
     private int curScene; // Which scene of current chapter 

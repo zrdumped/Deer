@@ -8331,6 +8331,24 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 577bbfae8896ac8479a72dc7a4017ffa, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1290312504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1187537673942454, guid: 577bbfae8896ac8479a72dc7a4017ffa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1290312503}
+--- !u!114 &1290312505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1290312504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680b2fe77a9fd7342ba7dae7ed6f6f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: You are found by alert
+  playable: 1
 --- !u!1001 &1314565147
 Prefab:
   m_ObjectHideFlags: 0
