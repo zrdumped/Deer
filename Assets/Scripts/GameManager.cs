@@ -48,11 +48,6 @@ public class GameManager : MonoBehaviour {
         if(realTimeAmbientControl == true) {
             RenderSettings.ambientIntensity = ambientIntensity;
         }
-
-        // For Test ONLY
-        if(Input.GetKeyDown(KeyCode.H)) {
-            Switch2Scene(0, 0);
-        }
         //if(Input.GetKeyDown(KeyCode.Alpha0)) {
         //    Switch2Scene(1, 0);
         //}
