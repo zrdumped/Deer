@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -172,8 +173,28 @@ public class GameManager : MonoBehaviour {
     // Start a new game process and delete the record which is being stored
     public void NewGame() {
         // TODO: clear previously saved record
-        Switch2Scene(1, 0);
-        audioBGM.Stop();
+        int num = Microphone.devices.Length;
+        if (num == 0)
+        {
+            StartCoroutine(Blink());
+        }
+        else
+        {
+            Switch2Scene(1, 0);
+            audioBGM.Stop();
+        }
+    }
+
+    private IEnumerator Blink()
+    {
+        string text = GameObject.Find("MicrophoneText").GetComponent<Text>().text;
+        for (int i = 0; i < 8; i++)
+        {
+            GameObject.Find("MicrophoneText").GetComponent<Text>().text = "";
+            yield return new WaitForSeconds(0.1f);
+            GameObject.Find("MicrophoneText").GetComponent<Text>().text = text;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     public void ExitGame() {
