@@ -3,7 +3,7 @@ A video game made with Unity. Some assisstant links are listed below:
 
 [View the demonstration video](https://www.youtube.com/watch?v=K2Dcm4GxmTg)
 
-[View the whole process recordings](https://www.youtube.com/watch?v=K2Dcm4GxmTg)
+[View the whole process recordings](https://www.youtube.com/watch?v=p0QhgXPTfug)
 
 [Download the latest release build](https://github.com/zrdumped/Deer/releases)
 
